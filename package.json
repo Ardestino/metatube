@@ -9,7 +9,10 @@
     "test": "node ./node_modules/@angular/cli/bin/ng test",
     "lint": "node ./node_modules/@angular/cli/bin/ng lint",
     "e2e": "node ./node_modules/@angular/cli/bin/ng e2e",
-    "hmr": "ng serve --hmr -o"
+    "hmr": "ng serve --hmr -o",
+    "compodoc:build": "compodoc -p tsconfig.doc.json",
+    "compodoc:build-and-serve": "compodoc -p tsconfig.doc.json -s -w",
+    "compodoc:serve": "compodoc -s"
   },
   "private": true,
   "dependencies": {
@@ -31,6 +34,7 @@
     "@carbon/elements": "^10.25.0",
     "@carbon/icons-angular": "^11.2.1",
     "@carbon/themes": "^10.25.0",
+    "@compodoc/compodoc": "^1.1.19",
     "@ng-bootstrap/ng-bootstrap": "^8.0.1",
     "@ngneat/tailwind": "^1.1.0",
     "@ngrx/effects": "^10.1.2",
