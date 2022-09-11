@@ -11,7 +11,7 @@
     "e2e": "node ./node_modules/@angular/cli/bin/ng e2e",
     "hmr": "ng serve --hmr -o",
     "compodoc:build": "compodoc -p tsconfig.doc.json",
-    "compodoc:build-and-serve": "compodoc -p tsconfig.doc.json -s",
+    "compodoc:build-and-serve": "compodoc -p tsconfig.doc.json -s -w",
     "compodoc:serve": "compodoc -s"
   },
   "private": true,
