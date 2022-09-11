@@ -16,7 +16,7 @@ import {
   HTTP_INTERCEPTORS
 } from '@angular/common/http'
 
-import {AppRoutingModule} from './app-routing.module'
+import {AppRoutingModule} from './app.routing'
 import {AppComponent} from './app.component'
 import {StoreModule} from '@ngrx/store'
 import {reducers, metaReducers} from './store/app.reducers'
