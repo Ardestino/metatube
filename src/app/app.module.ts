@@ -6,6 +6,8 @@ import {NgxMdModule} from "ngx-md"
 
 import {CoreModule} from "./core/core.module"
 import {SharedModule} from './shared/shared.module'
+import {MetatubeModule} from "./metatube/metatube.module";
+import { AuthModule } from "./auth/auth.module";
 
 import {
   HttpClientModule,
@@ -41,6 +43,8 @@ import {AppEffects} from './store/app.effects'
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([AppEffects]),
     NgxMdModule.forRoot(),
+    MetatubeModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
