@@ -1,5 +1,4 @@
-<div class="app-layout"
-     [ngClass.lt-md]="{'app-layout--show-header': true}">
+<div class="app-layout" [ngClass.lt-md]="{'app-layout--show-header': true}">
 
   <!-- BEGIN: MAIN SIDENAV CONTAINER -->
   <youpez-sidenav-container>
@@ -26,16 +25,15 @@
     <!-- END: THEME SETTINGS SIDEBAR -->
 
     <!-- BEGIN: MAIN HEADER (XS VIEW) -->
-    <app-main-header 
-                     class="app-layout__header"></app-main-header>
-                     <!-- (menuClick)="onSideBarToggle($event)"
+    <app-main-header class="app-layout__header"></app-main-header>
+    <!-- (menuClick)="onSideBarToggle($event)"
                      (itemClick)="onMiniSidebarItemClick($event)" -->
     <!-- BEGIN: END HEADER (XS VIEW) -->
 
     <!-- BEGIN: MAIN MINI SIDEBAR (LEFT) -->
     <div class="app-layout__mini-sidebar">
       <div class="app-mini-sidebar">
-        <app-layout-mini-sidebar >
+        <app-layout-mini-sidebar>
           <!-- (itemClick)="onMiniSidebarItemClick($event)" -->
         </app-layout-mini-sidebar>
       </div>
@@ -47,8 +45,7 @@
       <youpez-sidenav-container>
 
         <!-- BEGIN: MAIN SIDEBAR -->
-        <youpez-sidenav
-          >
+        <youpez-sidenav>
           <!-- [breakpoint]="mainSidebarOpts.breakpoint"
           [opened]="mainSidebarOpts.opened"
           [hoverAble]="mainSidebarOpts.hoverAble"
@@ -56,8 +53,7 @@
           [toggleableBtn]="mainSidebarOpts.toggleableBtn"
           [size]="mainSidebarOpts.size"
           (visibleChange)="onVisibilityChange($event)" -->
-          <app-layout-sidebar
-            >
+          <app-layout-sidebar>
             <!-- [menu]="menu"
             [opened]="mainSidebarOpts.opened"
             (sideBarToggle)="onSideBarToggle($event)" -->
@@ -68,22 +64,107 @@
         <!-- BEGIN: MAIN PAGE CONTENT -->
         <div class="app-layout__content__inner">
           <router-outlet #outlet="outlet"></router-outlet>
-          <youpez-content-simple mainTitle="Metacube AI">
+          <!--TODO: Cabecera Basicayoupez-content-simple mainTitle="Metacube AI">
             <div>
               <div class="app-productive-heading-02 mb-2">Section</div>
               <div class="app-body-long-01">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna
+                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur
                 sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
               </div>
-              
             </div>
-          </youpez-content-simple>
+          </youpez-content-simple-->
+          <ng-scrollbar>
+            <!-- HEADER BEGIN-->
+            <div fxLayout="row wrap" class="app-header app-header--hero">
+              <div class="app_header__tools">
+                <button ibmButton="primary" size="sm" class="mr-1">
+                  Nuevo Proyecto
+                </button>
+                <button ibmButton="tertiary" size="sm" fxHide fxShow.gt-sm>
+                  Exportar
+                  <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+                </button>
+              </div>
+              <div fxFlex="100%" fxFlex.gt-sm="50%" class="relative z-10">
+                <div class="app-subtitle text-muted">
+                  INICIO
+                </div>
+                <div>
+                  <span class="app-expressive-heading-06 mr-2">Metacube</span>
+                  <span class="app-expressive-heading-03">[ AI]</span>
+                </div>
+              </div>
+            </div>
+            <!-- HEADDER END -->
+            <div fxLayout="row wrap" class="mx-4">
+              <div fxFlex="100%" fxFlex.gt-sm="50%" class="mt-4">
+                <ibm-combo-box style="width:200px" [placeholder]="'Filter group...'" size="md" [appendInline]="false">
+                  <ibm-dropdown-list>
+                    <!-- [items]="comboboxItems" -->
+                  </ibm-dropdown-list>
+                </ibm-combo-box>
+              </div>
+              <div fxFlex="100%" fxFlex.gt-sm="50%" class="mt-4">
+                <div class="text-left lg:text-right">
+                  <span class="app-label-01 mr-3">Date range</span>
+                  <ibm-date-picker class="app-inline-block" size="md" range="true">
+                  </ibm-date-picker>
+                </div>
+              </div>
+            </div>
+            <!-- CARDS BG -->
+            <div fxLayout="row wrap" class="app-card-row-holder">
+              <div fxFlex="100%" fxFlex.gt-lg="60%">
+                <div fxFlex fxLayout="row wrap">
+                  <div fxFlex="50%" fxFlex.gt-md="25%">
+                    <div class="app-card">
+                      <div class="app-card__header">
+                        <div class="app-expressive-heading-03 mb-8">Reviews</div>
+                        <div class="app-label-01">Current</div>
+                        <div>
+                          <span class="app-expressive-heading-06 mr-2">1,231</span>
+                          <youpez-ibm-icon iconName="arrowUp" class="app-color-success"></youpez-ibm-icon>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div fxFlex="50%" fxFlex.gt-md="25%">
+                    <div class="app-card">
+                      <div class="app-card__header">
+                        <div class="app-expressive-heading-03 mb-8">Reviews</div>
+                        <div class="app-label-01">Current</div>
+                        <div>
+                          <span class="app-expressive-heading-06 mr-2">1,231</span>
+                          <youpez-ibm-icon iconName="arrowUp" class="app-color-success"></youpez-ibm-icon>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div fxFlex="50%" fxFlex.gt-md="25%">
+                    <div class="app-card">
+                      <div class="app-card__header">
+                        <div class="app-expressive-heading-03 mb-8">Reviews</div>
+                        <div class="app-label-01">Current</div>
+                        <div>
+                          <span class="app-expressive-heading-06 mr-2">1,231</span>
+                          <youpez-ibm-icon iconName="arrowUp" class="app-color-success"></youpez-ibm-icon>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- CARDS END -->
+          </ng-scrollbar>
           <div class="app-lock-screen__overlay app-bg-container app-bg-dotted"></div>
         </div>
         <!-- END: MAIN PAGE CONTENT -->
-
       </youpez-sidenav-container>
     </div>
     <!-- END: MAIN LAYOUT -->
@@ -92,5 +173,3 @@
 
   <!-- END: MAIN SIDENAV CONTAINER -->
 </div>
-
-
