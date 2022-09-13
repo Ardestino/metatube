@@ -8,6 +8,7 @@ import {CoreModule} from "./core/core.module"
 import {SharedModule} from './shared/shared.module'
 import {MetatubeModule} from "./metatube/metatube.module";
 import { AuthModule } from "./auth/auth.module";
+import { MainModule } from "./main/main.module";
 
 import {
   HttpClientModule,
@@ -44,7 +45,8 @@ import {AppEffects} from './store/app.effects'
     EffectsModule.forRoot([AppEffects]),
     NgxMdModule.forRoot(),
     MetatubeModule,
-    AuthModule
+    AuthModule,
+    MainModule
   ],
   providers: [],
   bootstrap: [AppComponent]

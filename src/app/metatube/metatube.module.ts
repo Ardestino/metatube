@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { MetatubeRoutingModule } from "./metatube.routing";
 import { MainPageComponent } from './pages/main-page/main-page.component';
+import { YoupezModule } from "../../@youpez/youpez.module";
+import { LayoutModule } from "../layout/layout.module";
 
 
 @NgModule({
@@ -11,7 +13,9 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
   ],
   imports: [
     CommonModule,
-    MetatubeRoutingModule
+    MetatubeRoutingModule,
+    YoupezModule,
+    LayoutModule
   ]
 })
 export class MetatubeModule { }

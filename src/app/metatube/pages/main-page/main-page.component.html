@@ -1,1 +1,96 @@
-<p>main-page works!</p>
+<div class="app-layout"
+     [ngClass.lt-md]="{'app-layout--show-header': true}">
+
+  <!-- BEGIN: MAIN SIDENAV CONTAINER -->
+  <youpez-sidenav-container>
+
+    <!-- BEGIN: THEME SETTINGS BTN -->
+    <!--div class="app-theme-settings-btn"
+         (click)="onToggleThemeSettings()"
+         placement="left"
+         container="body"
+         ngbTooltip="Theme settings">
+      <youpez-ibm-icon iconName="settingsAdjust" iconSize="24"></youpez-ibm-icon>
+    </div-->
+    <!-- END: THEME SETTINGS BTN -->
+
+    <!-- BEGIN: THEME SETTINGS SIDEBAR -->
+    <!--youpez-sidenav
+      (close)="onCloseSettings($event)"
+      [opened]="settingsVisible"
+      [direction]="'right'"
+      [mode]="'over'"
+      [size]="'md'">
+      <youpez-theme-settings></youpez-theme-settings>
+    </youpez-sidenav-->
+    <!-- END: THEME SETTINGS SIDEBAR -->
+
+    <!-- BEGIN: MAIN HEADER (XS VIEW) -->
+    <app-main-header 
+                     class="app-layout__header"></app-main-header>
+                     <!-- (menuClick)="onSideBarToggle($event)"
+                     (itemClick)="onMiniSidebarItemClick($event)" -->
+    <!-- BEGIN: END HEADER (XS VIEW) -->
+
+    <!-- BEGIN: MAIN MINI SIDEBAR (LEFT) -->
+    <div class="app-layout__mini-sidebar">
+      <div class="app-mini-sidebar">
+        <app-layout-mini-sidebar >
+          <!-- (itemClick)="onMiniSidebarItemClick($event)" -->
+        </app-layout-mini-sidebar>
+      </div>
+    </div>
+    <!-- END: MAIN MINI SIDEBAR (LEFT) -->
+
+    <!-- BEGIN: MAIN LAYOUT -->
+    <div class="app-layout__content">
+      <youpez-sidenav-container>
+
+        <!-- BEGIN: MAIN SIDEBAR -->
+        <youpez-sidenav
+          >
+          <!-- [breakpoint]="mainSidebarOpts.breakpoint"
+          [opened]="mainSidebarOpts.opened"
+          [hoverAble]="mainSidebarOpts.hoverAble"
+          [mode]="mainSidebarOpts.mode"
+          [toggleableBtn]="mainSidebarOpts.toggleableBtn"
+          [size]="mainSidebarOpts.size"
+          (visibleChange)="onVisibilityChange($event)" -->
+          <app-layout-sidebar
+            >
+            <!-- [menu]="menu"
+            [opened]="mainSidebarOpts.opened"
+            (sideBarToggle)="onSideBarToggle($event)" -->
+          </app-layout-sidebar>
+        </youpez-sidenav>
+        <!-- END: MAIN SIDEBAR -->
+
+        <!-- BEGIN: MAIN PAGE CONTENT -->
+        <div class="app-layout__content__inner">
+          <router-outlet #outlet="outlet"></router-outlet>
+          <youpez-content-simple mainTitle="Metacube AI">
+            <div>
+              <div class="app-productive-heading-02 mb-2">Section</div>
+              <div class="app-body-long-01">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+              </div>
+              
+            </div>
+          </youpez-content-simple>
+          <div class="app-lock-screen__overlay app-bg-container app-bg-dotted"></div>
+        </div>
+        <!-- END: MAIN PAGE CONTENT -->
+
+      </youpez-sidenav-container>
+    </div>
+    <!-- END: MAIN LAYOUT -->
+
+  </youpez-sidenav-container>
+
+  <!-- END: MAIN SIDENAV CONTAINER -->
+</div>
+
+
