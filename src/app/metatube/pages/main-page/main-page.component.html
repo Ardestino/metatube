@@ -34,40 +34,39 @@
 
     <!-- BEGIN: MAIN LAYOUT -->
     <div class="app-layout__content app-a-box app-scrollbar-fix" id="invoice" #invoice>
+      <!-- HEADER BEGIN-->
+      <div fxLayout="row wrap" class="app-header app-header--hero">
+        <div class="app_header__tools">
+          <!--button ibmButton="primary" size="sm" class="mr-1" (click)="downloadAsPDF();">
+                      Nuevo Proyecto
+                    </button-->
+          <button ibmButton="tertiary" size="sm" fxHide fxShow.gt-sm (click)="generatePDF();">
+            Exportar PDF
+            <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+          </button>
+        </div>
+        <div fxFlex="100%" fxFlex.gt-sm="50%" class="relative z-10">
+          <div class="app-subtitle text-muted">
+            INICIO
+          </div>
+          <div>
+            <span class="app-expressive-heading-06 mr-2">Metacube</span>
+            <span class="app-expressive-heading-03">[AI]</span>
+          </div>
+        </div>
+      </div>
+      <!-- HEADDER END -->
+
       <ng-scrollbar>
         <youpez-sidenav-container>
           <!-- BEGIN: MAIN PAGE CONTENT -->
           <div class="app-layout__content__inner">
 
-
-            <!-- HEADER BEGIN-->
-            <div fxLayout="row wrap" class="app-header app-header--hero">
-              <div class="app_header__tools">
-                <!--button ibmButton="primary" size="sm" class="mr-1" (click)="downloadAsPDF();">
-                  Nuevo Proyecto
-                </button-->
-                <button ibmButton="tertiary" size="sm" fxHide fxShow.gt-sm (click)="generatePDF();">
-                  Exportar PDF
-                  <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
-                </button>
-              </div>
-              <div fxFlex="100%" fxFlex.gt-sm="50%" class="relative z-10">
-                <div class="app-subtitle text-muted">
-                  INICIO
-                </div>
-                <div>
-                  <span class="app-expressive-heading-06 mr-2">Metacube</span>
-                  <span class="app-expressive-heading-03">[AI]</span>
-                </div>
-              </div>
-            </div>
-            <!-- HEADDER END -->
-
-            <div fxLayout="row wrap" class="mx-4">
+            <!-- FILTROS BG -->
+            <!--div fxLayout="row wrap" class="mx-4">
               <div fxFlex="100%" fxFlex.gt-sm="50%" class="mt-4">
                 <ibm-combo-box style="width:200px" [placeholder]="'Filter group...'" size="md" [appendInline]="false">
-                  <ibm-dropdown-list>
-                    <!-- [items]="comboboxItems" -->
+                  <ibm-dropdown-list [items]="comboboxItems" >
                   </ibm-dropdown-list>
                 </ibm-combo-box>
               </div>
@@ -78,8 +77,11 @@
                   </ibm-date-picker>
                 </div>
               </div>
-            </div>
-            <!-- CARDS BG -->
+            </div-->
+            <!-- FILTROS END -->
+
+
+            <!-- ESTADISTICAS BG -->
             <div fxLayout="row wrap" class="app-card-row-holder">
               <div fxFlex="100%" fxFlex.gt-lg="60%">
                 <div fxFlex fxLayout="row wrap">
@@ -122,8 +124,12 @@
                 </div>
               </div>
             </div>
+            <!-- ESTADISTICAS END -->
 
+            <!-- HERRAMIENTAS BG -->
             <div fxLayout="row wrap" class="mx-4">
+
+
               <div fxFlex="100%" fxFlex.gt-lg="40%">
                 <div class="app-card" fxFlex>
                   <!--div class="app-card__tool">
@@ -135,8 +141,8 @@
                     </button>
                   </div-->
                   <div class="app-card__header pb-0">
-                    <div class="app-expressive-heading-03">Mejor dia de la semana</div>
-                    <div class="app-label-01">para subir videos</div>
+                    <div class="app-expressive-heading-03">Viral vs Cautivo</div>
+                    <div class="app-label-01">comparacion con canales similares</div>
                   </div>
                   <div class="app-card__content">
                     <youpez-echarts-container>
@@ -160,14 +166,14 @@
                   <div class="app-card__header">
                     <div class="app-row app-row--center">
                       <div>
-                        <div class="app-expressive-heading-02">Titulos similares</div>
-                        <!--div class="app-label-01 app-color-success">Today: +1,233</div-->
+                        <div class="app-expressive-heading-03">Titulos similares</div>
+                        <div class="app-label-01">Ordenados por numero de views</div>
                       </div>
                     </div>
                   </div>
                   <div style="height:270px;" class="relative">
-                    <!--app-dummy-table-rich size="sh" stickyHeader="true"
-                                          class="app-ibm-h-full app-ibm-table-header-fix"></app-dummy-table-rich-->
+                    <app-dummy-table-rich size="sh" stickyHeader="true"
+                                          class="app-ibm-h-full app-ibm-table-header-fix"></app-dummy-table-rich>
                   </div>
                 </div>
               </div>
@@ -188,7 +194,8 @@
               </div>
 
             </div>
-            <!-- CARDS END -->
+            <!-- HERRAMIENTAS END -->
+
 
             <!--div class="app-lock-screen__overlay app-bg-container app-bg-dotted"></div-->
           </div>

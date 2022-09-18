@@ -172,9 +172,14 @@ export const areaPieces = {
 }
 
 export const barBackground = {
+  title: {
+    text: 'Mejor dia de la semana',
+    subtext: 'Para subir videos',
+    left: 'center'
+  },
   xAxis: {
     type: 'category',
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    data: ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo']
   },
   yAxis: {
     type: 'value'
@@ -470,8 +475,8 @@ export const doughnut = {
 
 export const pie = {
   title: {
-    text: 'Title',
-    subtext: 'subtitle',
+    text: 'Sentimientos de comentarios',
+    subtext: 'predominantes en el video',
     left: 'center'
   },
   tooltip: {
@@ -481,7 +486,7 @@ export const pie = {
   legend: {
     orient: 'vertical',
     left: 'left',
-    data: ['legend1', 'legend2', 'legend3', 'legend4', 'legend5']
+    data: ['Alegria', 'Enojo', 'Tristeza', 'Confusion', 'Nostalgia']
   },
   series: [
     {
@@ -490,11 +495,11 @@ export const pie = {
       radius: '55%',
       center: ['50%', '60%'],
       data: [
-        {value: 335, name: 'legend1'},
-        {value: 310, name: 'legend2'},
-        {value: 234, name: 'legend3'},
-        {value: 135, name: 'legend4'},
-        {value: 1548, name: 'legend5'}
+        {value: 335, name: 'Alegria'},
+        {value: 310, name: 'Enojo'},
+        {value: 234, name: 'Tristeza'},
+        {value: 135, name: 'Confusion'},
+        {value: 80, name: 'Nostalgia'}
       ],
       emphasis: {
         itemStyle: {
@@ -794,19 +799,19 @@ export const heatMap = () => {
 }
 
 export default [
-  simpleLineChart,
-  basicAreaChart,
-  stackedAreaChart,
-  areaPieces,
+  // simpleLineChart,
+  // basicAreaChart,
+  // stackedAreaChart,
+  // areaPieces,
   barBackground,
-  getBarAdvanced(),
-  categoryStack,
-  multipleYAxis,
-  doughnut,
+  // getBarAdvanced(),
+  // categoryStack,
+  // multipleYAxis,
+  // doughnut,
   pie,
-  scatter,
-  getSunburst(),
-  funnel,
-  treeMap,
-  heatMap(),
+  // scatter,
+  // getSunburst(),
+  // funnel,
+  // treeMap,
+  // heatMap(),
 ]

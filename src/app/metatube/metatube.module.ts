@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 // Creados por mi
 import { MetatubeRoutingModule } from "./metatube.routing";
-import { MainPageComponent } from './pages/main-page/main-page.component';
+import { MainPageComponent, DummyTableRichComponent } from './pages/main-page/main-page.component';
 import { YoupezModule } from "../../@youpez/youpez.module";
 
 // Clonados de main
@@ -15,7 +15,8 @@ import {ChartsModule} from '../../@youpez'
 
 @NgModule({
   declarations: [
-    MainPageComponent
+    MainPageComponent,
+    DummyTableRichComponent
   ],
   imports: [
     CommonModule,
