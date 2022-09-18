@@ -33,7 +33,7 @@
     <!-- END: MAIN SIDEBAR -->
 
     <!-- BEGIN: MAIN LAYOUT -->
-    <div class="app-layout__content app-a-box app-scrollbar-fix">
+    <div class="app-layout__content app-a-box app-scrollbar-fix" id="pdfTable" #pdfTable>
       <ng-scrollbar>
         <youpez-sidenav-container>
           <!-- BEGIN: MAIN PAGE CONTENT -->
@@ -43,11 +43,11 @@
             <!-- HEADER BEGIN-->
             <div fxLayout="row wrap" class="app-header app-header--hero">
               <div class="app_header__tools">
-                <button ibmButton="primary" size="sm" class="mr-1">
+                <!--button ibmButton="primary" size="sm" class="mr-1" (click)="downloadAsPDF();">
                   Nuevo Proyecto
-                </button>
-                <button ibmButton="tertiary" size="sm" fxHide fxShow.gt-sm>
-                  Exportar
+                </button-->
+                <button ibmButton="tertiary" size="sm" fxHide fxShow.gt-sm (click)="downloadAsPDF();">
+                  Exportar PDF
                   <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
                 </button>
               </div>
@@ -57,7 +57,7 @@
                 </div>
                 <div>
                   <span class="app-expressive-heading-06 mr-2">Metacube</span>
-                  <span class="app-expressive-heading-03">[ AI]</span>
+                  <span class="app-expressive-heading-03">[AI]</span>
                 </div>
               </div>
             </div>
@@ -190,7 +190,7 @@
             </div>
             <!-- CARDS END -->
 
-            <div class="app-lock-screen__overlay app-bg-container app-bg-dotted"></div>
+            <!--div class="app-lock-screen__overlay app-bg-container app-bg-dotted"></div-->
           </div>
           <!-- END: MAIN PAGE CONTENT -->
         </youpez-sidenav-container>
