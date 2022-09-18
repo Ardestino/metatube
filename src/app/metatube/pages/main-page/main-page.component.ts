@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import charts from '../../../../@youpez/data/charts'
 
 @Component({
   selector: 'app-main-page',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
+
+  public charts = charts;
 
   constructor() { }
 
