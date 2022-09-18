@@ -15,14 +15,14 @@
   <ng-template #totalTemplate let-data="data">
     <ng-container *ngIf="data>110">
       <ng-container *ngIf="data>500">
-        <div class="text-right w-full font-bold app-color-success">{{data}} $</div>
+        <div class="text-right w-full font-bold app-color-success">{{data}}</div>
       </ng-container>
       <ng-container *ngIf="data<500">
-        <div class="text-right w-full app-color-success">{{data}} $</div>
+        <div class="text-right w-full app-color-success">{{data}}</div>
       </ng-container>
     </ng-container>
     <ng-container *ngIf="data<110">
-      <div class="text-right w-full app-color-danger">{{data}} $</div>
+      <div class="text-right w-full app-color-danger">{{data}}</div>
     </ng-container>
   
   </ng-template>

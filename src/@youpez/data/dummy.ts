@@ -28,19 +28,19 @@ export const getDummyModel = () => {
   const model = new TableModel()
   model.header = [
     new TableHeaderItem({
-      data: "Name",
+      data: "Titulo",
       className: "items-center font-bold"
     }),
     new TableHeaderItem({
-      data: "Country",
+      data: "Canal",
       className: "items-center"
     }),
     new TableHeaderItem({
-      data: "Proficiency",
+      data: "Similitud",
       className: "items-center",
     }),
     new TableHeaderItem({
-      data: "Total",
+      data: "Views",
       className: "items-center",
     }),
     new TableHeaderItem({
@@ -48,21 +48,29 @@ export const getDummyModel = () => {
       className: "items-center",
     })
   ]
+  // model.data = [
+  //   [new TableItem({data: "Adeel Mercer"}), new TableItem({data: "Mexico"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "221"}), new TableItem({data: "1"}),],
+  //   [new TableItem({data: "Geraint Witt"}), new TableItem({data: "Czech Republic"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "20"}), new TableItem({data: "1"}),],
+  //   [new TableItem({data: "Leyton Walmsley"}), new TableItem({data: "Netherlands"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "450"}), new TableItem({data: "0"}),],
+  //   [new TableItem({data: "Raja Rivera"}), new TableItem({data: "Pakistan"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "1200"}), new TableItem({data: "0"}),],
+  //   [new TableItem({data: "Kaia Merritt"}), new TableItem({data: "Mozambique"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "560"}), new TableItem({data: "1"}),],
+  //   [new TableItem({data: "Phoenix Best"}), new TableItem({data: "French Polynesia"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "100"}), new TableItem({data: "0"}),],
+  //   [new TableItem({data: "Luke Davenport"}), new TableItem({data: "Uruguay"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "345"}), new TableItem({data: "1"}),],
+  //   [new TableItem({data: "Gene Davidson"}), new TableItem({data: "Kyrgyzstan"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "100"}), new TableItem({data: "1"}),],
+  //   [new TableItem({data: "Olivia Mullins"}), new TableItem({data: "Uganda"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "10"}), new TableItem({data: "0"}),],
+  //   [new TableItem({data: "Missy Beasley"}), new TableItem({data: "Bahrain"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "560"}), new TableItem({data: "0"}),],
+  //   [new TableItem({data: "Lorenzo Faulkner"}), new TableItem({data: "Nigeria"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "122"}), new TableItem({data: "0"}),],
+  //   [new TableItem({data: "Rita Compton"}), new TableItem({data: "Brazil"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "240"}), new TableItem({data: "0"}),],
+  //   [new TableItem({data: "Timur Plummer"}), new TableItem({data: "Tonga"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "100"}), new TableItem({data: "1"}),],
+  //   [new TableItem({data: "Khadeejah Juarez"}), new TableItem({data: "Cuba"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "330"}), new TableItem({data: "1"}),]
+  // ]
+
   model.data = [
-    [new TableItem({data: "Adeel Mercer"}), new TableItem({data: "Mexico"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "221"}), new TableItem({data: "1"}),],
-    [new TableItem({data: "Geraint Witt"}), new TableItem({data: "Czech Republic"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "20"}), new TableItem({data: "1"}),],
-    [new TableItem({data: "Leyton Walmsley"}), new TableItem({data: "Netherlands"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "450"}), new TableItem({data: "0"}),],
-    [new TableItem({data: "Raja Rivera"}), new TableItem({data: "Pakistan"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "1200"}), new TableItem({data: "0"}),],
-    [new TableItem({data: "Kaia Merritt"}), new TableItem({data: "Mozambique"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "560"}), new TableItem({data: "1"}),],
-    [new TableItem({data: "Phoenix Best"}), new TableItem({data: "French Polynesia"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "100"}), new TableItem({data: "0"}),],
-    [new TableItem({data: "Luke Davenport"}), new TableItem({data: "Uruguay"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "345"}), new TableItem({data: "1"}),],
-    [new TableItem({data: "Gene Davidson"}), new TableItem({data: "Kyrgyzstan"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "100"}), new TableItem({data: "1"}),],
-    [new TableItem({data: "Olivia Mullins"}), new TableItem({data: "Uganda"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "10"}), new TableItem({data: "0"}),],
-    [new TableItem({data: "Missy Beasley"}), new TableItem({data: "Bahrain"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "560"}), new TableItem({data: "0"}),],
-    [new TableItem({data: "Lorenzo Faulkner"}), new TableItem({data: "Nigeria"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "122"}), new TableItem({data: "0"}),],
-    [new TableItem({data: "Rita Compton"}), new TableItem({data: "Brazil"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "240"}), new TableItem({data: "0"}),],
-    [new TableItem({data: "Timur Plummer"}), new TableItem({data: "Tonga"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "100"}), new TableItem({data: "1"}),],
-    [new TableItem({data: "Khadeejah Juarez"}), new TableItem({data: "Cuba"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "330"}), new TableItem({data: "1"}),]
+    [new TableItem({data: "Titulo 1"}), new TableItem({data: "Canal 1"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "221"}), new TableItem({data: "1"}),],
+    [new TableItem({data: "Titulo 2"}), new TableItem({data: "Canal 1"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "20"}), new TableItem({data: "1"}),],
+    [new TableItem({data: "Titulo 3"}), new TableItem({data: "Canal 2"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "450"}), new TableItem({data: "0"}),],
+    [new TableItem({data: "Titulo 4"}), new TableItem({data: "Canal 2"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "1200"}), new TableItem({data: "0"}),],
+    [new TableItem({data: "Titulo 5"}), new TableItem({data: "Canal 3"}), new TableItem({data: getRandomArbitrary(0, 100)}), new TableItem({data: "560"}), new TableItem({data: "1"}),],
   ]
   return model
 }

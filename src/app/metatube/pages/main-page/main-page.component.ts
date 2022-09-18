@@ -128,11 +128,11 @@ export class DummyTableRichComponent implements OnInit {
         template: this.totalTemplate,
         className: "items-center"
       })
-      data[4] = new TableItem({
+      /*data[4] = new TableItem({
         data: data[4].data,
         template: this.onlineTemplate,
         className: "items-center"
-      })
+      })*/
       return data
     })
     this.model = model
