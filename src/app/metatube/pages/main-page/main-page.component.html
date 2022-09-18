@@ -33,7 +33,7 @@
     <!-- END: MAIN SIDEBAR -->
 
     <!-- BEGIN: MAIN LAYOUT -->
-    <div class="app-layout__content app-a-box app-scrollbar-fix" id="pdfTable" #pdfTable>
+    <div class="app-layout__content app-a-box app-scrollbar-fix" id="invoice" #invoice>
       <ng-scrollbar>
         <youpez-sidenav-container>
           <!-- BEGIN: MAIN PAGE CONTENT -->
@@ -46,7 +46,7 @@
                 <!--button ibmButton="primary" size="sm" class="mr-1" (click)="downloadAsPDF();">
                   Nuevo Proyecto
                 </button-->
-                <button ibmButton="tertiary" size="sm" fxHide fxShow.gt-sm (click)="downloadAsPDF();">
+                <button ibmButton="tertiary" size="sm" fxHide fxShow.gt-sm (click)="generatePDF();">
                   Exportar PDF
                   <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
                 </button>

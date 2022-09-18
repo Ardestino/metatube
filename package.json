@@ -48,6 +48,7 @@
     "carbon-components-angular": "^4.36.1",
     "echarts": "^4.9.0",
     "html-to-pdfmake": "^2.4.6",
+    "html2canvas": "^1.4.1",
     "jspdf": "^2.5.1",
     "lodash": "^4.17.20",
     "ngx-mask": "^11.1.4",
