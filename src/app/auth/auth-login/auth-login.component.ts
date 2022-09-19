@@ -26,15 +26,15 @@ export class AuthLoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
-      email: ['example@business.com', [Validators.required, Validators.email]],
-      password: ['xYzXxXzY', Validators.required],
+      email: ['admin@metacube.com', [Validators.required, Validators.email]],
+      password: ['123456', Validators.required],
     }, {updateOn: 'blur'})
   }
 
   onSubmit() {
     this.formGroup.markAllAsTouched()
     this.router.navigate(['/app'])
-    this.notificationService.showToast({
+    /*this.notificationService.showToast({
       type: "info",
       title: "Sample toast",
       subtitle: "Sample subtitle message",
@@ -42,7 +42,7 @@ export class AuthLoginComponent implements OnInit {
       target: "#notificationHolder",
       message: "message",
       duration: 2000,
-    })
+    })*/
   }
 
   isValid(name) {

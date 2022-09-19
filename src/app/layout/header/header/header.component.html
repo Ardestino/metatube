@@ -1,13 +1,13 @@
 <button (click)="onSideBarToggle($event)" class="app-layout__header__btn app-layout__header__btn--menu">
   <youpez-ibm-icon iconName="menu"></youpez-ibm-icon>
 </button>
-<img class="app-layout__header__logo app-layout__header__logo--white" src="assets/img/logo/logo-big-white.png"/>
-<img class="app-layout__header__logo app-layout__header__logo--black" src="assets/img/logo/logo-big-black.png"/>
+<!-- <img class="app-layout__header__logo app-layout__header__logo--white" src="assets/img/logo/logo-big-white.png"/> -->
+<!-- <img class="app-layout__header__logo app-layout__header__logo--black" src="assets/img/logo/logo-big-black.png"/> -->
 <div class="app-layout__header__tools">
-  <button class="app-layout__header__btn app-layout__header__btn--icon" (click)="onItemClick({key:'search'})">
+  <!--button class="app-layout__header__btn app-layout__header__btn--icon" (click)="onItemClick({key:'search'})">
     <youpez-ibm-icon iconName="search" iconSize="24"></youpez-ibm-icon>
-  </button>
-  <div ngbDropdown
+  </button-->
+  <!--div ngbDropdown
        placement="bottom-right"
        container="body">
     <button class="app-layout__header__btn app-layout__header__btn--icon" ngbDropdownToggle>
@@ -82,7 +82,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div-->
   <div ngbDropdown
        placement="bottom-right"
        container="body">
@@ -97,7 +97,7 @@
           </div>
           <div class="app-list__item__content mr-4">
             <div>
-              <div class="app-helper-text-01">Signed in as</div>
+              <div class="app-helper-text-01">Perfil</div>
               <div class="app-expressive-heading-02">David Robson</div>
             </div>
           </div>
@@ -105,23 +105,23 @@
         <div class="app-list__divider"></div>
         <div class="app-list__item" ngbDropdownItem routerLink="/app/profile">
           <div class="app-list__item__content">
-            Profile
+            Perfil
           </div>
         </div>
-        <div class="app-list__item" ngbDropdownItem routerLink="/app/pricing/modern">
+        <!--div class="app-list__item" ngbDropdownItem routerLink="/app/pricing/modern">
           <div class="app-list__item__content">
             Plan & Upgrade
           </div>
-        </div>
+        </div-->
         <div class="app-list__item" ngbDropdownItem routerLink="/app/user/settings">
           <div class="app-list__item__content">
-            Settings
+            Configuracion
           </div>
         </div>
         <div class="app-list__divider"></div>
         <div class="app-list__item mb-2" ngbDropdownItem routerLink="/auth/modern/signin">
           <div class="app-list__item__content">
-            Logout
+            Cerrar Sesion
           </div>
         </div>
       </div>
