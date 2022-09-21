@@ -12,7 +12,8 @@
     "hmr": "ng serve --hmr -o",
     "compodoc:build": "compodoc -p tsconfig.doc.json",
     "compodoc:build-and-serve": "compodoc -p tsconfig.doc.json -s -w",
-    "compodoc:serve": "compodoc -s"
+    "compodoc:serve": "compodoc -s",
+    "api-generate": "swagger-angular-generator -s ./src/api/scheme.json -d ./src/api/"
   },
   "private": true,
   "dependencies": {
@@ -68,6 +69,7 @@
     "@angular/cli": "^12.2.18",
     "@angular/compiler-cli": "^12.2.16",
     "@angularclass/hmr": "^3.0.0",
+    "@openapitools/openapi-generator-cli": "^2.5.2",
     "@types/jasmine": "^3.6.2",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.19.12",

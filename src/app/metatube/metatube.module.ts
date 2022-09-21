@@ -11,12 +11,14 @@ import {SharedModule} from "../shared/shared.module"
 import {LayoutModule} from "../layout/layout.module"
 import {AgGridModule} from '@ag-grid-community/angular'
 import {ChartsModule} from '../../@youpez'
+import { QuestionComponent } from "./components/question/question.component";
 
 
 @NgModule({
   declarations: [
     MainPageComponent,
-    DummyTableRichComponent
+    DummyTableRichComponent,
+    QuestionComponent
   ],
   imports: [
     CommonModule,

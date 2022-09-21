@@ -8,7 +8,7 @@ import {CoreModule} from "./core/core.module"
 import {SharedModule} from './shared/shared.module'
 import {MetatubeModule} from "./metatube/metatube.module";
 import { AuthModule } from "./auth/auth.module";
-import { MainModule } from "./main/main.module";
+import {ApiModule} from "../api/api.module";
 
 import {
   HttpClientModule,
@@ -27,6 +27,17 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools'
 import {environment} from '../environments/environment'
 import {EffectsModule} from '@ngrx/effects'
 import {AppEffects} from './store/app.effects'
+import { Configuration, ConfigurationParameters } from "../api/index";
+
+
+const configFactory = () => {
+  const configParams : ConfigurationParameters = {
+    basePath : "http://localhost:8000/api/v1"
+  }
+  return new Configuration(configParams);
+}
+
+
 
 @NgModule({
   declarations: [
@@ -46,7 +57,7 @@ import {AppEffects} from './store/app.effects'
     NgxMdModule.forRoot(),
     MetatubeModule,
     AuthModule,
-    MainModule
+    ApiModule.forRoot(configFactory),
   ],
   providers: [],
   bootstrap: [AppComponent]

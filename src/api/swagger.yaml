@@ -1,0 +1,85 @@
+swagger: '2.0'
+info:
+  title: Metatube API
+  version: v1
+host: 127.0.0.1:8000
+schemes:
+  - http
+basePath: /api/v1
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  Basic:
+    type: basic
+security:
+  - Basic: []
+paths:
+  /questions/:
+    get:
+      operationId: questions_list
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Question'
+      tags:
+        - questions
+    parameters: []
+  /questions/{id}/:
+    get:
+      operationId: questions_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Question'
+      tags:
+        - questions
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this question.
+        required: true
+        type: integer
+definitions:
+  Answer:
+    required:
+      - answer
+      - is_correct
+    type: object
+    properties:
+      answer:
+        title: Answer
+        type: string
+        minLength: 1
+      is_correct:
+        title: Is correct
+        type: boolean
+  Question:
+    required:
+      - category
+      - question
+    type: object
+    properties:
+      category:
+        title: Category
+        type: string
+        maxLength: 50
+        minLength: 1
+      question:
+        title: Question
+        type: string
+        minLength: 1
+      answers:
+        type: array
+        items:
+          $ref: '#/definitions/Answer'
+        readOnly: true
