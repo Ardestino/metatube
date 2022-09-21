@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Answer, Question, QuestionsService } from "../../../../api/index";
+import { Answer, Question, QuestionsService, User, UsersService } from "../../../../api/index";
 
 
 @Component({
@@ -14,7 +14,9 @@ export class QuestionComponent implements OnInit {
     category: "Categoria"
   }]);
 
-  constructor(private questionService: QuestionsService) { }
+  user : Observable<User>;
+
+  constructor(private questionService: QuestionsService, private userService: UsersService ) { }
 
   ngOnInit(): void {
   }
@@ -22,5 +24,7 @@ export class QuestionComponent implements OnInit {
   public refreshQuestions() {
     console.log("Click");
     this.questions = this.questionService.questionsList();
+
+    this.user = this.userService.usersRead(1);
   }
 }

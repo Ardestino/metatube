@@ -13,7 +13,7 @@
     "compodoc:build": "compodoc -p tsconfig.doc.json",
     "compodoc:build-and-serve": "compodoc -p tsconfig.doc.json -s -w",
     "compodoc:serve": "compodoc -s",
-    "api-generate": "swagger-angular-generator -s ./src/api/scheme.json -d ./src/api/"
+    "api-generate": "openapi-generator-cli generate -g typescript-angular -i ./src/api/swagger.yaml -o ./src/api"
   },
   "private": true,
   "dependencies": {

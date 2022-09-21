@@ -9,7 +9,7 @@
     </div>
     <div class="app-card__header">
         <div class="app-expressive-heading-03 mb-8">Preguntas</div>
-        <div class="app-label-01"></div>
+        <div class="app-label-01" *ngIf="(user | async) as u">{{ u.username }}</div>
     </div>
     <div class="app-card__content">
         <div *ngFor="let q of questions | async">

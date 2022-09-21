@@ -19,7 +19,7 @@ import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 // @ts-ignore
-import { Question } from '../model/question';
+import { User } from '../model/user';
 
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -30,7 +30,7 @@ import { Configuration }                                     from '../configurat
 @Injectable({
   providedIn: 'root'
 })
-export class QuestionsService {
+export class UsersService {
 
     protected basePath = 'http://127.0.0.1:8000/api/v1';
     public defaultHeaders = new HttpHeaders();
@@ -92,17 +92,17 @@ export class QuestionsService {
     }
 
     /**
-     * API endpoint that allows Questions to be viewed or edited.
+     * API endpoint that allows users to be viewed or edited.
      * @param data 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public questionsCreate(data: Question, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Question>;
-    public questionsCreate(data: Question, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Question>>;
-    public questionsCreate(data: Question, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Question>>;
-    public questionsCreate(data: Question, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public usersCreate(data: User, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<User>;
+    public usersCreate(data: User, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<User>>;
+    public usersCreate(data: User, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<User>>;
+    public usersCreate(data: User, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (data === null || data === undefined) {
-            throw new Error('Required parameter data was null or undefined when calling questionsCreate.');
+            throw new Error('Required parameter data was null or undefined when calling usersCreate.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -152,8 +152,8 @@ export class QuestionsService {
             }
         }
 
-        let localVarPath = `/questions/`;
-        return this.httpClient.post<Question>(`${this.configuration.basePath}${localVarPath}`,
+        let localVarPath = `/users/`;
+        return this.httpClient.post<User>(`${this.configuration.basePath}${localVarPath}`,
             data,
             {
                 context: localVarHttpContext,
@@ -167,17 +167,17 @@ export class QuestionsService {
     }
 
     /**
-     * API endpoint that allows Questions to be viewed or edited.
-     * @param id A unique integer value identifying this question.
+     * API endpoint that allows users to be viewed or edited.
+     * @param id A unique integer value identifying this user.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public questionsDelete(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public questionsDelete(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public questionsDelete(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public questionsDelete(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public usersDelete(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
+    public usersDelete(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
+    public usersDelete(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
+    public usersDelete(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling questionsDelete.');
+            throw new Error('Required parameter id was null or undefined when calling usersDelete.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -217,7 +217,7 @@ export class QuestionsService {
             }
         }
 
-        let localVarPath = `/questions/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/`;
+        let localVarPath = `/users/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/`;
         return this.httpClient.delete<any>(`${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
@@ -231,14 +231,14 @@ export class QuestionsService {
     }
 
     /**
-     * API endpoint that allows Questions to be viewed or edited.
+     * API endpoint that allows users to be viewed or edited.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public questionsList(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<Question>>;
-    public questionsList(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<Question>>>;
-    public questionsList(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<Question>>>;
-    public questionsList(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public usersList(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<User>>;
+    public usersList(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<User>>>;
+    public usersList(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<User>>>;
+    public usersList(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -278,8 +278,8 @@ export class QuestionsService {
             }
         }
 
-        let localVarPath = `/questions/`;
-        return this.httpClient.get<Array<Question>>(`${this.configuration.basePath}${localVarPath}`,
+        let localVarPath = `/users/`;
+        return this.httpClient.get<Array<User>>(`${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -292,21 +292,21 @@ export class QuestionsService {
     }
 
     /**
-     * API endpoint that allows Questions to be viewed or edited.
-     * @param id A unique integer value identifying this question.
+     * API endpoint that allows users to be viewed or edited.
+     * @param id A unique integer value identifying this user.
      * @param data 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public questionsPartialUpdate(id: number, data: Question, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Question>;
-    public questionsPartialUpdate(id: number, data: Question, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Question>>;
-    public questionsPartialUpdate(id: number, data: Question, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Question>>;
-    public questionsPartialUpdate(id: number, data: Question, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public usersPartialUpdate(id: number, data: User, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<User>;
+    public usersPartialUpdate(id: number, data: User, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<User>>;
+    public usersPartialUpdate(id: number, data: User, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<User>>;
+    public usersPartialUpdate(id: number, data: User, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling questionsPartialUpdate.');
+            throw new Error('Required parameter id was null or undefined when calling usersPartialUpdate.');
         }
         if (data === null || data === undefined) {
-            throw new Error('Required parameter data was null or undefined when calling questionsPartialUpdate.');
+            throw new Error('Required parameter data was null or undefined when calling usersPartialUpdate.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -356,8 +356,8 @@ export class QuestionsService {
             }
         }
 
-        let localVarPath = `/questions/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/`;
-        return this.httpClient.patch<Question>(`${this.configuration.basePath}${localVarPath}`,
+        let localVarPath = `/users/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/`;
+        return this.httpClient.patch<User>(`${this.configuration.basePath}${localVarPath}`,
             data,
             {
                 context: localVarHttpContext,
@@ -371,17 +371,17 @@ export class QuestionsService {
     }
 
     /**
-     * API endpoint that allows Questions to be viewed or edited.
-     * @param id A unique integer value identifying this question.
+     * API endpoint that allows users to be viewed or edited.
+     * @param id A unique integer value identifying this user.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public questionsRead(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Question>;
-    public questionsRead(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Question>>;
-    public questionsRead(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Question>>;
-    public questionsRead(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public usersRead(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<User>;
+    public usersRead(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<User>>;
+    public usersRead(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<User>>;
+    public usersRead(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling questionsRead.');
+            throw new Error('Required parameter id was null or undefined when calling usersRead.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -422,8 +422,8 @@ export class QuestionsService {
             }
         }
 
-        let localVarPath = `/questions/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/`;
-        return this.httpClient.get<Question>(`${this.configuration.basePath}${localVarPath}`,
+        let localVarPath = `/users/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/`;
+        return this.httpClient.get<User>(`${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -436,21 +436,21 @@ export class QuestionsService {
     }
 
     /**
-     * API endpoint that allows Questions to be viewed or edited.
-     * @param id A unique integer value identifying this question.
+     * API endpoint that allows users to be viewed or edited.
+     * @param id A unique integer value identifying this user.
      * @param data 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public questionsUpdate(id: number, data: Question, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Question>;
-    public questionsUpdate(id: number, data: Question, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Question>>;
-    public questionsUpdate(id: number, data: Question, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Question>>;
-    public questionsUpdate(id: number, data: Question, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public usersUpdate(id: number, data: User, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<User>;
+    public usersUpdate(id: number, data: User, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<User>>;
+    public usersUpdate(id: number, data: User, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<User>>;
+    public usersUpdate(id: number, data: User, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling questionsUpdate.');
+            throw new Error('Required parameter id was null or undefined when calling usersUpdate.');
         }
         if (data === null || data === undefined) {
-            throw new Error('Required parameter data was null or undefined when calling questionsUpdate.');
+            throw new Error('Required parameter data was null or undefined when calling usersUpdate.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -500,8 +500,8 @@ export class QuestionsService {
             }
         }
 
-        let localVarPath = `/questions/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/`;
-        return this.httpClient.put<Question>(`${this.configuration.basePath}${localVarPath}`,
+        let localVarPath = `/users/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/`;
+        return this.httpClient.put<User>(`${this.configuration.basePath}${localVarPath}`,
             data,
             {
                 context: localVarHttpContext,

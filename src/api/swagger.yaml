@@ -16,10 +16,100 @@ securityDefinitions:
 security:
   - Basic: []
 paths:
+  /groups/:
+    get:
+      operationId: groups_list
+      description: API endpoint that allows groups to be viewed or edited.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Group'
+      tags:
+        - groups
+    post:
+      operationId: groups_create
+      description: API endpoint that allows groups to be viewed or edited.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Group'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Group'
+      tags:
+        - groups
+    parameters: []
+  /groups/{id}/:
+    get:
+      operationId: groups_read
+      description: API endpoint that allows groups to be viewed or edited.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Group'
+      tags:
+        - groups
+    put:
+      operationId: groups_update
+      description: API endpoint that allows groups to be viewed or edited.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Group'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Group'
+      tags:
+        - groups
+    patch:
+      operationId: groups_partial_update
+      description: API endpoint that allows groups to be viewed or edited.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Group'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Group'
+      tags:
+        - groups
+    delete:
+      operationId: groups_delete
+      description: API endpoint that allows groups to be viewed or edited.
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - groups
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this group.
+        required: true
+        type: integer
   /questions/:
     get:
       operationId: questions_list
-      description: ''
+      description: API endpoint that allows Questions to be viewed or edited.
       parameters: []
       responses:
         '200':
@@ -30,11 +120,27 @@ paths:
               $ref: '#/definitions/Question'
       tags:
         - questions
+    post:
+      operationId: questions_create
+      description: API endpoint that allows Questions to be viewed or edited.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Question'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Question'
+      tags:
+        - questions
     parameters: []
   /questions/{id}/:
     get:
       operationId: questions_read
-      description: ''
+      description: API endpoint that allows Questions to be viewed or edited.
       parameters: []
       responses:
         '200':
@@ -43,13 +149,159 @@ paths:
             $ref: '#/definitions/Question'
       tags:
         - questions
+    put:
+      operationId: questions_update
+      description: API endpoint that allows Questions to be viewed or edited.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Question'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Question'
+      tags:
+        - questions
+    patch:
+      operationId: questions_partial_update
+      description: API endpoint that allows Questions to be viewed or edited.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Question'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Question'
+      tags:
+        - questions
+    delete:
+      operationId: questions_delete
+      description: API endpoint that allows Questions to be viewed or edited.
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - questions
     parameters:
       - name: id
         in: path
         description: A unique integer value identifying this question.
         required: true
         type: integer
+  /users/:
+    get:
+      operationId: users_list
+      description: API endpoint that allows users to be viewed or edited.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+      tags:
+        - users
+    post:
+      operationId: users_create
+      description: API endpoint that allows users to be viewed or edited.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/User'
+      tags:
+        - users
+    parameters: []
+  /users/{id}/:
+    get:
+      operationId: users_read
+      description: API endpoint that allows users to be viewed or edited.
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/User'
+      tags:
+        - users
+    put:
+      operationId: users_update
+      description: API endpoint that allows users to be viewed or edited.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/User'
+      tags:
+        - users
+    patch:
+      operationId: users_partial_update
+      description: API endpoint that allows users to be viewed or edited.
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/User'
+      tags:
+        - users
+    delete:
+      operationId: users_delete
+      description: API endpoint that allows users to be viewed or edited.
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - users
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this user.
+        required: true
+        type: integer
 definitions:
+  Group:
+    required:
+      - name
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 150
+        minLength: 1
   Answer:
     required:
       - answer
@@ -83,3 +335,36 @@ definitions:
         items:
           $ref: '#/definitions/Answer'
         readOnly: true
+  User:
+    required:
+      - username
+    type: object
+    properties:
+      url:
+        title: Url
+        type: string
+        format: uri
+        readOnly: true
+      username:
+        title: Username
+        description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+          only.
+        type: string
+        pattern: ^[\w.@+-]+$
+        maxLength: 150
+        minLength: 1
+      email:
+        title: Email address
+        type: string
+        format: email
+        maxLength: 254
+      groups:
+        description: The groups this user belongs to. A user will get all permissions
+          granted to each of their groups.
+        type: array
+        items:
+          description: The groups this user belongs to. A user will get all permissions
+            granted to each of their groups.
+          type: string
+          format: uri
+        uniqueItems: true
