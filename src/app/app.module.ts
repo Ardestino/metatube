@@ -32,7 +32,7 @@ import { Configuration, ConfigurationParameters } from "../api/index";
 
 const configFactory = () => {
   const configParams : ConfigurationParameters = {
-    basePath : "http://localhost:8000/api/v1",
+    basePath : "http://localhost:8000",
     username : "admin",
     password : "admin"
   }

@@ -1,10 +1,9 @@
 .gitignore
+.openapi-generator-ignore
 README.md
 api.module.ts
+api/api.service.ts
 api/api.ts
-api/groups.service.ts
-api/questions.service.ts
-api/users.service.ts
 configuration.ts
 encoder.ts
 git_push.sh
@@ -12,6 +11,9 @@ index.ts
 model/answer.ts
 model/group.ts
 model/models.ts
+model/patchedGroup.ts
+model/patchedQuestion.ts
+model/patchedUser.ts
 model/question.ts
 model/user.ts
 param.ts

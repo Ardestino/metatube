@@ -12,9 +12,9 @@
 import { Answer } from './answer';
 
 
-export interface Question { 
-    category: string;
-    question: string;
-    readonly answers: Array<Answer>;
+export interface PatchedQuestion { 
+    category?: string;
+    question?: string;
+    readonly answers?: Array<Answer>;
 }
 

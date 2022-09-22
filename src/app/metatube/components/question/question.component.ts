@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Answer, Question, QuestionsService, User, UsersService } from "../../../../api/index";
-
+import { Answer, Question, ApiService, User  } from "src/api/index";
 
 @Component({
   selector: 'app-question',
@@ -9,22 +8,19 @@ import { Answer, Question, QuestionsService, User, UsersService } from "../../..
 })
 export class QuestionComponent implements OnInit {
 
-  questions: Observable<Question[]> = of([{
-    question: "Hola",
-    category: "Categoria"
-  }]);
+  questions: Observable<Question[]>;
 
   user : Observable<User>;
 
-  constructor(private questionService: QuestionsService, private userService: UsersService ) { }
+  constructor(private apiService: ApiService ) { }
 
   ngOnInit(): void {
   }
 
   public refreshQuestions() {
     console.log("Click");
-    this.questions = this.questionService.questionsList();
+    this.questions = this.apiService.apiV1QuestionsList();
 
-    this.user = this.userService.usersRead(1);
+    this.user = this.apiService.apiV1UsersRetrieve(1);
   }
 }
