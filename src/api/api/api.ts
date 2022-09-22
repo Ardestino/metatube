@@ -1,3 +1,3 @@
-export * from './questions.service';
-import { QuestionsService } from './questions.service';
-export const APIS = [QuestionsService];
+export * from './api.service';
+import { ApiService } from './api.service';
+export const APIS = [ApiService];

@@ -9,12 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { Answer } from './answer';
 
 
-export interface Question { 
-    category: string;
-    question: string;
-    readonly answers: Array<Answer>;
+export interface PatchedGroup { 
+    readonly url?: string;
+    name?: string;
 }
 
