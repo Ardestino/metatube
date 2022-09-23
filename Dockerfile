@@ -1,5 +1,5 @@
 FROM nginx:latest
 
-COPY ./dist/theme /var/www/landing
-COPY ./build/conf /etc/nginx/conf.d
+COPY ./dist/metatube /var/www/html
+#COPY ./build/conf /etc/nginx/conf.d
 
