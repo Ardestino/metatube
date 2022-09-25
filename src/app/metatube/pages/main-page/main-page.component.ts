@@ -1,5 +1,4 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import charts from '../../../../@youpez/data/charts'
 
 // Version 1 de exportacion PDF
 import * as pdfMake from "pdfmake/build/pdfmake";
@@ -18,8 +17,6 @@ import html2canvas from 'html2canvas';
 })
 export class MainPageComponent implements OnInit {
 
-  public charts = charts;
-
   constructor() { }
 
   ngOnInit(): void {
@@ -29,13 +26,13 @@ export class MainPageComponent implements OnInit {
 
   @ViewChild('pdfTable')
   pdfTable!: ElementRef;
-  
+
   public downloadAsPDF() {
     const pdfTable = this.pdfTable.nativeElement;
     var html = htmlToPdfmake(pdfTable.innerHTML);
     const documentDefinition = { content: html };
-    pdfMake.createPdf(documentDefinition).download(); 
-     
+    pdfMake.createPdf(documentDefinition).download();
+
   }
 
   // Opcion 2 de exportacion de PDF

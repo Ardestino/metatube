@@ -12,13 +12,19 @@ import {LayoutModule} from "../layout/layout.module"
 import {AgGridModule} from '@ag-grid-community/angular'
 import {ChartsModule} from '../../@youpez'
 import { QuestionComponent } from "./components/question/question.component";
+import { LayoutComponent } from './components/layout/layout.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
   declarations: [
     MainPageComponent,
     DummyTableRichComponent,
-    QuestionComponent
+    QuestionComponent,
+    LayoutComponent,
+    DashboardComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
