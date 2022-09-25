@@ -125,7 +125,7 @@ import {
   CheckmarkModule,
   CheckmarkFilledModule,
   AppsModule,
-  WatsonHealthContourFindingModule, SaveModule, WatsonHealth_3DCursorAltModule, OpenPanelRightModule,
+  WatsonHealthContourFindingModule, SaveModule, WatsonHealth_3DCursorAltModule, OpenPanelRightModule, DocumentAddModule, DocumentExportModule,
 } from "@carbon/icons-angular"
 import {FlexLayoutModule} from '@angular/flex-layout'
 
@@ -274,6 +274,8 @@ const CarbonIconModules = [
   TaskModule,
   CatalogModule,
   DocumentModule,
+  DocumentAddModule,
+  DocumentExportModule,
   EmailModule,
   SendAltModule,
   SendModule,

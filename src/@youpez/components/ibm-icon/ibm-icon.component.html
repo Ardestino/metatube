@@ -127,6 +127,14 @@
     <svg ibmIconDocument [size]="iconSize"></svg>
   </ng-container>
 
+  <ng-container *ngSwitchCase="'document-add'">
+    <svg ibmIconDocumentAdd [size]="iconSize"></svg>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="'document-export'">
+    <svg ibmIconDocumentExport [size]="iconSize"></svg>
+  </ng-container>
+
   <ng-container *ngSwitchCase="'email'">
     <svg ibmIconEmail [size]="iconSize"></svg>
   </ng-container>

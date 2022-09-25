@@ -1,4 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core'
+import { Router } from "@angular/router";
+import { AuthService } from "src/app/auth/auth.service";
 
 @Component({
   selector: 'app-layout-mini-sidebar',
@@ -91,7 +93,7 @@ export class LayoutMiniSidebarComponent implements OnInit {
 
   public loading: boolean = false
 
-  constructor() {
+  constructor(private auth: AuthService,private router:Router) {
   }
 
   ngOnInit(): void {
@@ -106,6 +108,11 @@ export class LayoutMiniSidebarComponent implements OnInit {
     setTimeout(() => {
       this.loading = false
     }, 500)
+  }
+
+  onLogOut(){
+    this.auth.LogOut();
+    this.router.navigate(['/full/signin']);
   }
 
 }

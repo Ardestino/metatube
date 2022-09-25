@@ -9,6 +9,7 @@ import {
 import {Router} from '@angular/router'
 
 import {NotificationService} from "carbon-components-angular"
+import { AuthService } from "../auth.service";
 
 @Component({
   selector: 'app-auth-login',
@@ -21,19 +22,21 @@ export class AuthLoginComponent implements OnInit {
 
   constructor(protected formBuilder: FormBuilder,
               private router: Router,
-              private notificationService: NotificationService) {
+              private notificationService: NotificationService,
+              private auth: AuthService) {
   }
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
-      email: ['admin@metacube.com', [Validators.required, Validators.email]],
+      email: ['admin@metacube.com.mx', [Validators.required, Validators.email]],
       password: ['123456', Validators.required],
     }, {updateOn: 'blur'})
   }
 
   onSubmit() {
     this.formGroup.markAllAsTouched()
-    this.router.navigate(['/app'])
+    this.auth.Authenticate("admin@metacube.com.mx","")
+    this.router.navigate(['/'])
     /*this.notificationService.showToast({
       type: "info",
       title: "Sample toast",
