@@ -19,4 +19,8 @@ export class AuthService {
   public Authenticate(user, password) {
     localStorage.setItem('user',user);
   }
+
+  public LogOut() {
+    localStorage.removeItem('user');
+  }
 }
