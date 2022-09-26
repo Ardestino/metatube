@@ -15,6 +15,8 @@ import { QuestionComponent } from "./components/question/question.component";
 import { LayoutComponent } from './components/layout/layout.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
+import { TarjetaEstadisticaComponent } from './components/tarjeta-estadistica/tarjeta-estadistica.component';
+import { ViralVsCautivoComponent } from './components/viral-vs-cautivo/viral-vs-cautivo.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { HeaderComponent } from './header/header.component';
     QuestionComponent,
     LayoutComponent,
     DashboardComponent,
-    HeaderComponent
+    HeaderComponent,
+    TarjetaEstadisticaComponent,
+    ViralVsCautivoComponent
   ],
   imports: [
     CommonModule,

@@ -206,7 +206,7 @@ export const getBarAdvanced = () => {
 
   return {
     title: {
-      text: 'Chart title'
+      text: 'Comparacion'
     },
     legend: {
       data: ['bar', 'bar2']
@@ -254,6 +254,10 @@ export const getBarAdvanced = () => {
 }
 
 export const categoryStack = {
+  title: {
+    text: 'Viralidad',
+    subtext: 'viral vs cautivo',
+  },
   tooltip: {
     trigger: 'axis',
     axisPointer: {            // 坐标轴指示器，坐标轴触发有效
@@ -261,7 +265,7 @@ export const categoryStack = {
     }
   },
   legend: {
-    data: ['legend1', 'legend2', 'legend3', 'legend4', 'legend5']
+    data: ['viral', 'cautivo']
   },
   grid: {
     left: '3%',
@@ -274,11 +278,11 @@ export const categoryStack = {
   },
   yAxis: {
     type: 'category',
-    data: ['category1', 'category2', 'category3', 'category4', 'category5', 'category6', 'category7']
+    data: ['Video 1', 'Video 2', 'Video 3', 'Video 4', 'Video 5', 'Video 6', 'Video 7']
   },
   series: [
     {
-      name: 'legend1',
+      name: 'viral',
       type: 'bar',
       stack: 'staccck',
       label: {
@@ -288,7 +292,7 @@ export const categoryStack = {
       data: [320, 302, 301, 334, 390, 330, 320]
     },
     {
-      name: 'legend2',
+      name: 'cautivo',
       type: 'bar',
       stack: 'staccck',
       label: {
@@ -296,36 +300,6 @@ export const categoryStack = {
         position: 'insideRight'
       },
       data: [120, 132, 101, 134, 90, 230, 210]
-    },
-    {
-      name: 'legend3',
-      type: 'bar',
-      stack: 'staccck',
-      label: {
-        show: true,
-        position: 'insideRight'
-      },
-      data: [220, 182, 191, 234, 290, 330, 310]
-    },
-    {
-      name: 'legend4',
-      type: 'bar',
-      stack: 'staccck',
-      label: {
-        show: true,
-        position: 'insideRight'
-      },
-      data: [150, 212, 201, 154, 190, 330, 410]
-    },
-    {
-      name: 'legend5',
-      type: 'bar',
-      stack: 'staccck',
-      label: {
-        show: true,
-        position: 'insideRight'
-      },
-      data: [820, 832, 901, 934, 1290, 1330, 1320]
     }
   ]
 }
@@ -475,8 +449,8 @@ export const doughnut = {
 
 export const pie = {
   title: {
-    text: 'Sentimientos de comentarios',
-    subtext: 'predominantes en el video',
+    text: 'Sentimientos',
+    subtext: 'predominantes en comentarios.',
     left: 'center'
   },
   tooltip: {
@@ -804,8 +778,8 @@ export default [
   // stackedAreaChart,
   // areaPieces,
   barBackground,
-  // getBarAdvanced(),
-  // categoryStack,
+   getBarAdvanced(),
+   categoryStack,
   // multipleYAxis,
   // doughnut,
   pie,
