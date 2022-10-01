@@ -10,12 +10,16 @@ import { ApiService, Proyecto } from "src/api/index";
 export class LayoutComponent implements OnInit {
 
   proyectos : Observable<Proyecto[]>;
+  projecto_seleccionado : Observable<Proyecto>;
 
   constructor(private api:ApiService) {
     this.proyectos = this.api.apiV1ProyectosList();
   }
 
   ngOnInit(): void {
+    this.proyectos.subscribe( p => {
+      this.projecto_seleccionado = of(p[0]);
+    })
   }
 
 }

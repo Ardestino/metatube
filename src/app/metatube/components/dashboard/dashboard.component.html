@@ -1,6 +1,6 @@
 <div class="app-a-box app-scrollbar-fix" id="invoice" #invoice>
   <ng-scrollbar>
-    <app-header></app-header>
+    <app-header [subtitulo]="(proyecto | async).nombre" [url]="(proyecto | async).url_canal"></app-header>
 
     <!-- ESTADISTICAS BG -->
     <div fxLayout="row wrap" class="app-card-row-holder">
