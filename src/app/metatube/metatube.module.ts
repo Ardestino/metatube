@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 // Creados por mi
 import { MetatubeRoutingModule } from "./metatube.routing";
-import { MainPageComponent, DummyTableRichComponent } from './pages/main-page/main-page.component';
+import { MainPageComponent } from './pages/main-page/main-page.component';
 import { YoupezModule } from "../../@youpez/youpez.module";
 
 // Clonados de main
@@ -17,6 +17,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TarjetaEstadisticaComponent } from './components/tarjeta-estadistica/tarjeta-estadistica.component';
 import { ViralVsCautivoComponent } from './components/viral-vs-cautivo/viral-vs-cautivo.component';
+import { DummyTableRichComponent } from "./components/dummy-table-rich/dummy-table-rich.component";
 
 
 @NgModule({
