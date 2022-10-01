@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { ApiService, Proyecto } from "src/api/index";
 
 @Component({
   selector: 'meta-layout',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor() { }
+  proyectos : Observable<Proyecto[]>;
+
+  constructor(private api:ApiService) {
+    this.proyectos = this.api.apiV1ProyectosList();
+  }
 
   ngOnInit(): void {
   }

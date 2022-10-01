@@ -20,6 +20,7 @@ import { DummyTableRichComponent } from "./components/dummy-table-rich/dummy-tab
 import { LayoutSidebarComponent } from "./components/menu/layout-sidebar/layout-sidebar.component";
 import { LayoutMiniSidebarComponent } from "./components/menu/layout-mini-sidebar/layout-mini-sidebar.component";
 import { HeaderMiniComponent } from "./components/header-mini/header-mini.component";
+import { MiniSidebarItemComponent } from './components/menu/mini-sidebar-item/mini-sidebar-item.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { HeaderMiniComponent } from "./components/header-mini/header-mini.compon
     ViralVsCautivoComponent,
     LayoutSidebarComponent,
     LayoutMiniSidebarComponent,
-    HeaderMiniComponent
+    HeaderMiniComponent,
+    MiniSidebarItemComponent
   ],
   imports: [
     CommonModule,

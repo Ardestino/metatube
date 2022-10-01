@@ -12,38 +12,7 @@
               <youpez-ibm-icon iconName="search" iconSize="24"></youpez-ibm-icon>
             </div>
           </div>
-          <div class="app-mini-sidebar__list__item"
-               ngbDropdown
-               container="body">
-            <div class="app-mini-sidebar__list__item__pill"
-                 (click)="onFakeLoading()"
-                 placement="right"
-                 container="body"
-                 ngbTooltip="Proyecto 1"
-                 ngbDropdownToggle>
-              <youpez-ibm-icon iconName="document" iconSize="24"></youpez-ibm-icon>
-            </div>
-            <div ngbDropdownMenu>
-              <div class="app-list app-list--hover app-list--no-border app-list--select">
-                <div class="app-list__item" ngbDropdownItem routerLink="/app/application/support">
-                  <div class="px-2">
-                    <youpez-ibm-icon iconName="document-export" iconSize="20"></youpez-ibm-icon>
-                  </div>
-                  <div class="app-list__item__content">
-                    Exportar PDF
-                  </div>
-                </div>
-                <div class="app-list__item" ngbDropdownItem routerLink="/app/application/welcome">
-                  <div class="px-2">
-                    <youpez-ibm-icon iconName="trashCan" iconSize="20"></youpez-ibm-icon>
-                  </div>
-                  <div class="app-list__item__content">
-                    Eliminar
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <app-mini-sidebar-item *ngFor="let proyecto of proyectos | async" [nombre]="proyecto.nombre"></app-mini-sidebar-item>
           <div class="app-mini-sidebar__list__item"
                ngbDropdown
                container="body">
