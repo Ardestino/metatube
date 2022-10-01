@@ -1,0 +1,139 @@
+<div fxFill fxLayout="column">
+  <div fxFlex class="app-relative">
+    <div class="app-a-box app-scrollbar-fix">
+      <ng-scrollbar>
+        <div class="app-mini-sidebar__list">
+          <div (click)="onItemClick({key:'search'})"
+               class="app-mini-sidebar__list__item app-mini-sidebar__list__item__highlight">
+            <div class="app-mini-sidebar__list__item__pill"
+                 placement="right"
+                 container="body"
+                 ngbTooltip="Buscar">
+              <youpez-ibm-icon iconName="search" iconSize="24"></youpez-ibm-icon>
+            </div>
+          </div>
+          <div class="app-mini-sidebar__list__item"
+               ngbDropdown
+               container="body">
+            <div class="app-mini-sidebar__list__item__pill"
+                 (click)="onFakeLoading()"
+                 placement="right"
+                 container="body"
+                 ngbTooltip="Proyecto 1"
+                 ngbDropdownToggle>
+              <youpez-ibm-icon iconName="document" iconSize="24"></youpez-ibm-icon>
+            </div>
+            <div ngbDropdownMenu>
+              <div class="app-list app-list--hover app-list--no-border app-list--select">
+                <div class="app-list__item" ngbDropdownItem routerLink="/app/application/support">
+                  <div class="px-2">
+                    <youpez-ibm-icon iconName="document-export" iconSize="20"></youpez-ibm-icon>
+                  </div>
+                  <div class="app-list__item__content">
+                    Exportar PDF
+                  </div>
+                </div>
+                <div class="app-list__item" ngbDropdownItem routerLink="/app/application/welcome">
+                  <div class="px-2">
+                    <youpez-ibm-icon iconName="trashCan" iconSize="20"></youpez-ibm-icon>
+                  </div>
+                  <div class="app-list__item__content">
+                    Eliminar
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="app-mini-sidebar__list__item"
+               ngbDropdown
+               container="body">
+            <div class="app-mini-sidebar__list__item__pill"
+                 (click)="onFakeLoading()"
+                 placement="right"
+                 container="body"
+                 ngbTooltip="Agregar Proyecto"
+                 ngbDropdownToggle>
+              <youpez-ibm-icon iconName="document-add" iconSize="24"></youpez-ibm-icon>
+            </div>
+          </div>
+        </div>
+      </ng-scrollbar>
+    </div>
+  </div>
+  <div class="app-mini-sidebar__list">
+    <div class="app-mini-sidebar__list__item"
+         ngbDropdown
+         container="body">
+      <div class="app-mini-sidebar__list__item__pill"
+           placement="right"
+           container="body"
+           ngbTooltip="Ayuda"
+           ngbDropdownToggle>
+        <youpez-ibm-icon iconName="help" iconSize="24"></youpez-ibm-icon>
+      </div>
+      <div ngbDropdownMenu>
+        <div class="app-list app-list--hover app-list--no-border app-list--select">
+          <div class="app-list__item" ngbDropdownItem routerLink="/app/application/support">
+            <div class="px-2">
+              <youpez-ibm-icon iconName="email" iconSize="20"></youpez-ibm-icon>
+            </div>
+            <div class="app-list__item__content">
+              Contacto
+            </div>
+          </div>
+          <div class="app-list__item" ngbDropdownItem routerLink="/app/application/welcome">
+            <div class="px-2">
+              <youpez-ibm-icon iconName="buildingInsights1" iconSize="20"></youpez-ibm-icon>
+            </div>
+            <div class="app-list__item__content">
+              Documentacion
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="app-mini-sidebar__list__item"
+         ngbDropdown
+         container="body">
+      <div class="app-mini-sidebar__list__item__pill"
+           placement="right"
+           container="body"
+           ngbTooltip="Detalles de cuenta"
+           ngbDropdownToggle>
+        <youpez-ibm-icon iconName="user" iconSize="24"></youpez-ibm-icon>
+      </div>
+      <div ngbDropdownMenu>
+        <div class="app-list app-list--hover app-list--select app-list--no-border app-list--p">
+          <div class="app-list__item app-list__item--no-p" ngbDropdownItem>
+            <div class="px-2">
+              <img class="w-10 h-10 rounded-full" src="assets/img/avatar/avatar2.jpg"/>
+            </div>
+            <div class="app-list__item__content mr-4">
+              <div>
+                <div class="app-helper-text-01">Usuario</div>
+                <div class="app-expressive-heading-02">Nombre</div>
+              </div>
+            </div>
+          </div>
+          <div class="app-list__divider"></div>
+          <div class="app-list__item" ngbDropdownItem routerLink="/app/profile">
+            <div class="app-list__item__content">
+              Perfil
+            </div>
+          </div>
+          <div class="app-list__item" ngbDropdownItem routerLink="/app/user/settings">
+            <div class="app-list__item__content">
+              Proyectos
+            </div>
+          </div>
+          <div class="app-list__divider"></div>
+          <div class="app-list__item mb-2" ngbDropdownItem routerLink="/auth/modern/signin">
+            <div class="app-list__item__content" (click)="onLogOut()">
+              Cerrar Sesion
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
