@@ -8,7 +8,7 @@
     <!-- BEGIN: MAIN MINI SIDEBAR (LEFT) -->
     <div class="app-layout__mini-sidebar">
       <div class="app-mini-sidebar">
-        <app-layout-mini-sidebar [proyectos]="proyectos">
+        <app-layout-mini-sidebar [proyectos]="proyectos" (itemClick)="onItemClick($event)">
         </app-layout-mini-sidebar>
       </div>
     </div>

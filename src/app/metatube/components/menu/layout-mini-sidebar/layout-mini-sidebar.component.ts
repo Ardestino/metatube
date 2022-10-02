@@ -22,8 +22,8 @@ export class LayoutMiniSidebarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onItemClick(event) {
-    this.itemClick.next(event)
+  onItemClick(proyecto) {
+    this.itemClick.next(proyecto)
   }
 
   onFakeLoading() {

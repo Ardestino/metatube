@@ -22,4 +22,8 @@ export class LayoutComponent implements OnInit {
     })
   }
 
+  onItemClick($event:Proyecto){
+    this.projecto_seleccionado = of($event);
+  }
+
 }
