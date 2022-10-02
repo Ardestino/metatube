@@ -14,13 +14,4 @@ export class MiniSidebarItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public loading: boolean = false
-
-  onFakeLoading() {
-    this.loading = true
-    setTimeout(() => {
-      this.loading = false
-    }, 500)
-  }
-
 }
