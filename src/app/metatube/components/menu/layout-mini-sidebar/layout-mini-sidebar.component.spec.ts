@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeaderComponent } from './header.component';
+import { LayoutMiniSidebarComponent } from './layout-mini-sidebar.component';
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+describe('LayoutMiniSidebarComponent', () => {
+  let component: LayoutMiniSidebarComponent;
+  let fixture: ComponentFixture<LayoutMiniSidebarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
+      declarations: [ LayoutMiniSidebarComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.createComponent(LayoutMiniSidebarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

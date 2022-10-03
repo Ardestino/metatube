@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 README.md
 api.module.ts
 api/api.service.ts
@@ -12,8 +11,10 @@ model/answer.ts
 model/group.ts
 model/models.ts
 model/patchedGroup.ts
+model/patchedProyecto.ts
 model/patchedQuestion.ts
 model/patchedUser.ts
+model/proyecto.ts
 model/question.ts
 model/user.ts
 param.ts
