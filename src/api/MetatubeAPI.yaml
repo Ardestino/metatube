@@ -212,7 +212,7 @@ paths:
         name: id
         schema:
           type: integer
-        description: A unique integer value identifying this projecto.
+        description: A unique integer value identifying this proyecto.
         required: true
       tags:
       - api
@@ -234,7 +234,7 @@ paths:
         name: id
         schema:
           type: integer
-        description: A unique integer value identifying this projecto.
+        description: A unique integer value identifying this proyecto.
         required: true
       tags:
       - api
@@ -268,7 +268,7 @@ paths:
         name: id
         schema:
           type: integer
-        description: A unique integer value identifying this projecto.
+        description: A unique integer value identifying this proyecto.
         required: true
       tags:
       - api
@@ -301,7 +301,7 @@ paths:
         name: id
         schema:
           type: integer
-        description: A unique integer value identifying this projecto.
+        description: A unique integer value identifying this proyecto.
         required: true
       tags:
       - api
@@ -641,6 +641,24 @@ paths:
       responses:
         '204':
           description: No response body
+  /api/v1/youtube/estadisticas_canal/:
+    post:
+      operationId: api_v1_youtube_estadisticas_canal_create
+      parameters:
+      - in: query
+        name: channelid
+        schema:
+          type: string
+        description: channel id
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          description: No response body
 components:
   schemas:
     Answer:
@@ -679,6 +697,9 @@ components:
     PatchedProyecto:
       type: object
       properties:
+        id:
+          type: integer
+          readOnly: true
         nombre:
           type: string
           maxLength: 50
@@ -727,6 +748,9 @@ components:
     Proyecto:
       type: object
       properties:
+        id:
+          type: integer
+          readOnly: true
         nombre:
           type: string
           maxLength: 50
@@ -735,6 +759,7 @@ components:
           format: uri
           readOnly: true
       required:
+      - id
       - nombre
       - url
     Question:
