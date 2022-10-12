@@ -11,7 +11,7 @@
     "e2e": "node ./node_modules/@angular/cli/bin/ng e2e",
     "hmr": "ng serve --hmr -o",
     "compodoc:build": "compodoc -p tsconfig.doc.json",
-    "compodoc:build-and-serve": "compodoc -p tsconfig.doc.json -s -w",
+    "compodoc:build-and-serve": "compodoc -p tsconfig.doc.json -s -w --port 8000",
     "compodoc:serve": "compodoc -s --port 8000",
     "api-generate": "openapi-generator-cli generate -g typescript-angular -i ./src/api/MetatubeApi.yaml -o ./src/api"
   },
