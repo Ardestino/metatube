@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild, Input, SimpleChanges, TemplateRef } from '@angular/core';
 import { TableItem, TableModel } from "carbon-components-angular";
-import { getDummyModel } from "../../../../@youpez/data/dummy";
+import { getDummyModel } from "src/@youpez/data/dummy";
 import { CustomHeaderItem } from "./CustomHeaderItem";
 
 
