@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 // Creados por mi
 import { MetatubeRoutingModule } from "./metatube.routing";
 import { MainPageComponent } from './components/pages/main-page/main-page.component';
-import { YoupezModule } from "../../@youpez/youpez.module";
+//import { YoupezModule } from "../../@youpez/youpez.module";
 
 // Clonados de main
 import {SharedModule} from "../shared/shared.module"
@@ -38,10 +38,10 @@ import { MiniSidebarItemComponent } from './components/layout/layout-mini-sideba
   imports: [
     CommonModule,
     MetatubeRoutingModule,
-    YoupezModule,
+    //YoupezModule,
     ChartsModule,
     AgGridModule,
-    SharedModule
+    SharedModule // SideNav
   ]
 })
 export class MetatubeModule { }
