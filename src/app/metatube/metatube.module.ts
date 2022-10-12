@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 // Creados por mi
 import { MetatubeRoutingModule } from "./metatube.routing";
 import { MainPageComponent } from './components/pages/main-page/main-page.component';
-//import { YoupezModule } from "../../@youpez/youpez.module";
 
 // Clonados de main
 import {SharedModule} from "../shared/shared.module"
@@ -21,6 +20,11 @@ import { LayoutMiniSidebarComponent } from "./components/layout/layout-mini-side
 import { HeaderMiniComponent } from "./components/layout/header-mini/header-mini.component";
 import { MiniSidebarItemComponent } from './components/layout/layout-mini-sidebar-item/mini-sidebar-item.component';
 
+// Reducer
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './metatube.reducer';
+import { CounterComponent } from './components/herramientas/counter/counter.component';
+
 @NgModule({
   declarations: [
     MainPageComponent,
@@ -33,12 +37,13 @@ import { MiniSidebarItemComponent } from './components/layout/layout-mini-sideba
     LayoutSidebarComponent,
     LayoutMiniSidebarComponent,
     HeaderMiniComponent,
-    MiniSidebarItemComponent
+    MiniSidebarItemComponent,
+    CounterComponent
   ],
   imports: [
     CommonModule,
     MetatubeRoutingModule,
-    //YoupezModule,
+    StoreModule.forRoot({ count: counterReducer }),
     ChartsModule,
     AgGridModule,
     SharedModule // SideNav
