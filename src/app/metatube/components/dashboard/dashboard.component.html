@@ -1,22 +1,23 @@
 <div class="app-a-box app-scrollbar-fix" id="invoice" #invoice>
   <ng-scrollbar>
-    <app-header [subtitulo]="(proyecto | async).nombre" [url]="(proyecto | async).url_canal"></app-header>
+    <!--app-header [subtitulo]="(proyecto | async).nombre" [url]="(proyecto | async).url_canal"></app-header-->
+    <app-header ></app-header>
 
     <!-- ESTADISTICAS BG -->
     <div fxLayout="row wrap" class="app-card-row-holder">
       <div fxFlex="100%" fxFlex.gt-lg="60%">
         <div fxFlex fxLayout="row wrap">
           <div fxFlex="50%" fxFlex.gt-md="25%">
-            <app-tarjeta-estadistica titulo="Vistas" subtitulo="Actual"></app-tarjeta-estadistica>
+            <app-tarjeta-estadistica titulo="Vistas" subtitulo="Actual" numero="1"></app-tarjeta-estadistica>
           </div>
           <div fxFlex="50%" fxFlex.gt-md="25%">
-            <app-tarjeta-estadistica titulo="Likes" subtitulo="Actual"></app-tarjeta-estadistica>
+            <app-tarjeta-estadistica titulo="Videos" subtitulo="Actual" numero="2"></app-tarjeta-estadistica>
           </div>
           <div fxFlex="50%" fxFlex.gt-md="25%">
-            <app-tarjeta-estadistica titulo="Comentarios" subtitulo="Actual"></app-tarjeta-estadistica>
+            <app-tarjeta-estadistica titulo="Comentarios" subtitulo="Actual" numero="3"></app-tarjeta-estadistica>
           </div>
           <div fxFlex="50%" fxFlex.gt-md="25%">
-            <app-tarjeta-estadistica titulo="Subscriptores" subtitulo="Actual"></app-tarjeta-estadistica>
+            <app-tarjeta-estadistica titulo="Subscriptores" subtitulo="Actual" numero="4"></app-tarjeta-estadistica>
           </div>
         </div>
       </div>
@@ -58,7 +59,7 @@
 
       <div fxFlex="100%" fxFlex.gt-md="100%">
         <div fxLayout="row wrap" class="mb-6 app-card-row">
-          <ng-container *ngFor="let chart of charts">
+          <!--ng-container *ngFor="let chart of charts">
             <div fxFlex="100%" fxFlex.gt-md="33.33%" class="">
               <div class="app-card p-2">
                 <youpez-echarts-container>
@@ -67,7 +68,7 @@
                 </youpez-echarts-container>
               </div>
             </div>
-          </ng-container>
+          </ng-container-->
         </div>
       </div>
 

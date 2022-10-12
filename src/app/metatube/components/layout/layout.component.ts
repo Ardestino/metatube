@@ -1,29 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { ApiService, Proyecto } from "src/api/index";
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'meta-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
-export class LayoutComponent implements OnInit {
+export class LayoutComponent {
 
-  proyectos : Observable<Proyecto[]>;
-  projecto_seleccionado : Observable<Proyecto>;
-
-  constructor(private api:ApiService) {
-    this.proyectos = this.api.apiV1ProyectosList();
+  constructor() {
   }
-
-  ngOnInit(): void {
-    this.proyectos.subscribe( p => {
-      this.projecto_seleccionado = of(p[0]);
-    })
-  }
-
-  onItemClick($event:Proyecto){
-    this.projecto_seleccionado = of($event);
-  }
-
 }

@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Observable, observable } from 'rxjs';
-import charts from '../../../../@youpez/data/charts'
-import { Proyecto } from "src/api/index";
+
 
 @Component({
   selector: 'app-dashboard',
@@ -10,13 +8,8 @@ import { Proyecto } from "src/api/index";
 })
 export class DashboardComponent implements OnInit {
 
-  @Input() proyecto : Observable<Proyecto>;
-
-  public charts = charts;
-
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }
