@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Store, select, META_REDUCERS } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { increment, decrement, reset } from 'src/app/metatube/metatube.actions';
-import { AppState, MetaState } from 'src/app/metatube/metatube.reducer';
+import { increment, decrement, reset } from 'src/app/metatube/store/counter/counter.actions';
+import { AppState } from 'src/app/metatube/store/meta.reducers';
+import { CounterState } from "src/app/metatube/store/counter/counter.reducers";
 
 @Component({
   selector: 'app-counter',
@@ -11,13 +12,19 @@ import { AppState, MetaState } from 'src/app/metatube/metatube.reducer';
 })
 export class CounterComponent implements OnInit{
 
-  count$: Observable<MetaState>
+  counter$: Observable<CounterState>;
 
   constructor(private store: Store<AppState>) {
 
   }
+
   ngOnInit(): void {
-    this.count$ = this.store.select('meta');
+    console.log(" Counter init")
+    this.counter$ = this.store.select('counter');
+    console.log(this.counter$);
+    this.store.select('counter').subscribe( state =>{
+      console.log(state)
+    })
   }
 
   increment() {

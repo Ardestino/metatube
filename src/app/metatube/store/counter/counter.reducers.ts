@@ -1,18 +1,12 @@
 import { state } from '@angular/animations';
 import { createReducer, on } from '@ngrx/store';
-import { increment, decrement, reset } from './metatube.actions';
+import { increment, decrement, reset } from './counter.actions';
 
-export const metaFeatureKey = 'meta';
-
-export interface AppState{
-  meta : MetaState
-}
-
-export interface MetaState {
+export interface CounterState {
   counter : number
 }
 
-export const initialState : MetaState = {
+export const initialState : CounterState = {
   counter : 0
 };
 

@@ -53,7 +53,7 @@ const configFactory = () => {
     //CoreModule,
     HttpClientModule,
     //SharedModule,
-    StoreModule.forRoot({}),
+    //StoreModule.forRoot({}),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     //EffectsModule.forRoot([AppEffects]),
     //NgxMdModule.forRoot(),
