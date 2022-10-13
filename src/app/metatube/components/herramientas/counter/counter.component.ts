@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { increment, decrement, reset } from 'src/app/metatube/store/counter/counter.actions';
-import { AppState } from 'src/app/metatube/store/meta.reducers';
+import { AppState } from 'src/app/metatube/store';
 import { CounterState } from "src/app/metatube/store/counter/counter.reducers";
 
 @Component({
@@ -19,12 +19,7 @@ export class CounterComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    console.log(" Counter init")
     this.counter$ = this.store.select('counter');
-    console.log(this.counter$);
-    this.store.select('counter').subscribe( state =>{
-      console.log(state)
-    })
   }
 
   increment() {
