@@ -21,9 +21,9 @@ import {
 
 import {AppRoutingModule} from './app.routing'
 import {AppComponent} from './app.component'
-//import {StoreModule} from '@ngrx/store'
+import {StoreModule} from '@ngrx/store'
 //import {reducers, metaReducers} from './store/app.reducers'
-//import {StoreDevtoolsModule} from '@ngrx/store-devtools'
+import {StoreDevtoolsModule} from '@ngrx/store-devtools'
 import {environment} from '../environments/environment'
 //import {EffectsModule} from '@ngrx/effects'
 //import {AppEffects} from './store/app.effects'
@@ -53,8 +53,8 @@ const configFactory = () => {
     //CoreModule,
     HttpClientModule,
     //SharedModule,
-    //StoreModule.forRoot(reducers, {metaReducers}),
-    //!environment.production ? StoreDevtoolsModule.instrument() : [],
+    StoreModule.forRoot({}),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
     //EffectsModule.forRoot([AppEffects]),
     //NgxMdModule.forRoot(),
     MetatubeModule,

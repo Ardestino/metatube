@@ -22,7 +22,7 @@ import { MiniSidebarItemComponent } from './components/layout/layout-mini-sideba
 
 // Reducer
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './metatube.reducer';
+import { counterReducer, metaFeatureKey } from './metatube.reducer';
 import { CounterComponent } from './components/herramientas/counter/counter.component';
 
 @NgModule({
@@ -43,7 +43,7 @@ import { CounterComponent } from './components/herramientas/counter/counter.comp
   imports: [
     CommonModule,
     MetatubeRoutingModule,
-    StoreModule.forRoot({ count: counterReducer }),
+    StoreModule.forFeature(metaFeatureKey , counterReducer),
     ChartsModule,
     AgGridModule,
     SharedModule // SideNav
