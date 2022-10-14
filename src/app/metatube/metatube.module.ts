@@ -22,7 +22,7 @@ import { MiniSidebarItemComponent } from './components/layout/layout-mini-sideba
 
 // Reducer
 import { StoreModule } from '@ngrx/store';
-import { metaReducer, metaFeatureKey } from './store/meta.reducers';
+import { metaReducer, metaFeatureKey, AppEffects } from './store';
 import { CounterComponent } from './components/herramientas/counter/counter.component';
 
 @NgModule({
