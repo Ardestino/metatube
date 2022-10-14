@@ -34,6 +34,7 @@
     "@angular/router": "^12.2.16",
     "@carbon/elements": "^10.25.0",
     "@carbon/icons-angular": "^11.2.1",
+    "@carbon/motion": "^11.5.0",
     "@carbon/themes": "^10.25.0",
     "@compodoc/compodoc": "^1.1.19",
     "@ng-bootstrap/ng-bootstrap": "^8.0.1",
