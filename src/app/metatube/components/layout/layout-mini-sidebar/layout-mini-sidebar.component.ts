@@ -1,39 +1,55 @@
-import {Component, EventEmitter, OnInit, Output, Input} from '@angular/core'
+import {Component, EventEmitter, OnInit, Output, Input, OnDestroy} from '@angular/core'
 import { Router } from "@angular/router";
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Proyecto } from 'src/api';
+import { ApiService, Proyecto } from 'src/api';
 import { AuthService } from "src/app/auth/auth.service";
+import { AppState } from 'src/app/metatube/store';
+import * as ProyectosActions from "src/app/metatube/store/proyectos/proyectos.actions";
 
 @Component({
   selector: 'app-layout-mini-sidebar',
   templateUrl: './layout-mini-sidebar.component.html',
   styleUrls: ['./layout-mini-sidebar.component.scss']
 })
-export class LayoutMiniSidebarComponent implements OnInit {
+export class LayoutMiniSidebarComponent implements OnInit, OnDestroy {
 
-  @Output() itemClick: EventEmitter<any> = new EventEmitter()
-  @Input() proyectos: Observable<Proyecto>;
+  proyectos$: Observable<Proyecto[]>;
+  loading$: Observable<boolean>;
 
-  public loading: boolean = false
-
-  constructor(private auth: AuthService,private router:Router) {
-  }
+  constructor(
+    private api: ApiService, // TODO: Refactorizar a un effect
+    private auth: AuthService, // TODO: Cambiar servicio a effecto de autenticacion
+    private router: Router, // TODO: Se podra mover el router a los actions?
+    private store: Store<AppState>
+    ) {}
 
   ngOnInit(): void {
+    this.loading$ = this.store.select(state => state.proyectos.cargando);
+    this.proyectos$ = this.store.select(state => state.proyectos.proyectos);
+
+    // Iniciar carga de protectos
+    this.store.dispatch(ProyectosActions.cargarProyectos());
+
+    // Iniciar carga de proyectos
+    this.api.apiV1ProyectosList().subscribe(
+      (proyectos) => {
+        this.store.dispatch(ProyectosActions.cargarProyectosSuccess({ proyectos }));
+      },
+      error => this.store.dispatch(ProyectosActions.cargarProyectosFailure(error))
+    );
+  }
+
+  ngOnDestroy(): void {
+    // TODO: desuscribir de los observables
   }
 
   onItemClick(proyecto) {
-    this.itemClick.next(proyecto)
-  }
-
-  onFakeLoading() {
-    this.loading = true
-    setTimeout(() => {
-      this.loading = false
-    }, 500)
+    // TODO: [Proyectos] Iniciar accion de seleccionar
   }
 
   onLogOut(){
+    //TODO: [Auth] Iniciar accion logout
     this.auth.LogOut();
     this.router.navigate(['/full/signin']);
   }
