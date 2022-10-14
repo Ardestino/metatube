@@ -12,10 +12,11 @@ export class TarjetaEstadisticaComponent implements OnInit {
   @Input() numero;
 
   constructor() {
-    this.numero = Math.floor(Math.random() * 1000);
+
    }
 
   ngOnInit(): void {
+
   }
 
 }

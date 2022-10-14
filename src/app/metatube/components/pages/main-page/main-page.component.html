@@ -8,34 +8,33 @@
     <!-- BEGIN: MAIN MINI SIDEBAR (LEFT) -->
     <div class="app-layout__mini-sidebar">
       <div class="app-mini-sidebar">
-        <app-layout-mini-sidebar [proyectos]="proyectos" (itemClick)="onItemClick($event)">
-        </app-layout-mini-sidebar>
+        <app-layout-mini-sidebar></app-layout-mini-sidebar>
       </div>
     </div>
     <!-- END: MAIN MINI SIDEBAR (LEFT) -->
 
     <!-- BEGIN: MAIN SIDEBAR -->
-    <youpez-sidenav>
-      <!-- [breakpoint]="mainSidebarOpts.breakpoint"
+    <!--youpez-sidenav>
+      < [breakpoint]="mainSidebarOpts.breakpoint"
       [opened]="mainSidebarOpts.opened"
       [hoverAble]="mainSidebarOpts.hoverAble"
       [mode]="mainSidebarOpts.mode"
       [toggleableBtn]="mainSidebarOpts.toggleableBtn"
       [size]="mainSidebarOpts.size"
       (visibleChange)="onVisibilityChange($event)" -->
-      <app-layout-sidebar>
-        <!-- [menu]="menu"
+      <!--app-layout-sidebar>
+        < [menu]="menu"
         [opened]="mainSidebarOpts.opened"
-        (sideBarToggle)="onSideBarToggle($event)" -->
+        (sideBarToggle)="onSideBarToggle($event)" >
       </app-layout-sidebar>
-    </youpez-sidenav>
+    </youpez-sidenav-->
     <!-- END: MAIN SIDEBAR -->
 
     <!-- BEGIN: MAIN LAYOUT -->
     <div class="app-layout__content app-a-box app-scrollbar-fix">
       <!-- BEGIN: MAIN PAGE CONTENT -->
       <div class="app-layout__content__inner">
-        <app-dashboard [proyecto]="projecto_seleccionado"></app-dashboard>
+        <app-dashboard ></app-dashboard>
       </div>
       <!-- END: MAIN PAGE CONTENT -->
     </div>

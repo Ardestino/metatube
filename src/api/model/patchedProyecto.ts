@@ -12,6 +12,7 @@
 
 
 export interface PatchedProyecto { 
+    readonly id?: number;
     nombre?: string;
     readonly url?: string;
 }
