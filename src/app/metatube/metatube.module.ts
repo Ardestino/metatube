@@ -24,6 +24,7 @@ import { MiniSidebarItemComponent } from './components/layout/layout-mini-sideba
 import { StoreModule } from '@ngrx/store';
 import { metaReducer, metaFeatureKey, AppEffects } from './store';
 import { CounterComponent } from './components/herramientas/counter/counter.component';
+import { EffectsModule } from '@ngrx/effects'
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { CounterComponent } from './components/herramientas/counter/counter.comp
     CommonModule,
     MetatubeRoutingModule,
     StoreModule.forRoot(metaReducer),
+    EffectsModule.forRoot(AppEffects),
     ChartsModule,
     AgGridModule,
     SharedModule // SideNav
