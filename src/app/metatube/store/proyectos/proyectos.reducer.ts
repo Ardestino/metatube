@@ -13,7 +13,7 @@ export const initialState :ProyectosState = {
   cargando : false,
   error : false,
   proyectos : [],
-  proyecto_seleccionado : null
+  proyecto_seleccionado : {id:-1,nombre:"no seleccionado", url:"/"}
 }
 
 export const proyectosReducer = createReducer(
@@ -23,4 +23,5 @@ export const proyectosReducer = createReducer(
     return { ...state, cargando: false, proyectos }
   }),
   on(proyectosActions.cargarProyectosFailure, state => ({ ...state, error: true })),
+  on(proyectosActions.seleccionaProyecto, (state, {proyecto}) => ({...state, proyecto_seleccionado : proyecto  }))
 );

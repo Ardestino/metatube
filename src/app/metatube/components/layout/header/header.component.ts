@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { AppState } from 'src/app/metatube/store';
 
 @Component({
   selector: 'app-header',
@@ -7,12 +10,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() subtitulo : string;
-  @Input() url : string;
+  subtitulo : Observable<string>;
+  url : Observable<string>;
 
-  constructor() { }
+  constructor(private store: Store<AppState>){}
 
   ngOnInit(): void {
+    this.subtitulo = this.store.select(state => state.proyectos.proyecto_seleccionado.nombre);
+    this.url = this.store.select(state => state.proyectos.proyecto_seleccionado.url);
   }
 
 }

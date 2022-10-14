@@ -12,3 +12,8 @@ export const cargarProyectosFailure = createAction(
   '[Proyectos] Error al cargar proyectos',
   props<{error: any}>()
   );
+
+  export const seleccionaProyecto = createAction(
+    '[Proyectos] Seleccionando proyecto',
+    props<{proyecto: Proyecto}>()
+    );

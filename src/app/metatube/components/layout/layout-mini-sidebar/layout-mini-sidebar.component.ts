@@ -35,6 +35,7 @@ export class LayoutMiniSidebarComponent implements OnInit, OnDestroy {
     this.api.apiV1ProyectosList().subscribe(
       (proyectos) => {
         this.store.dispatch(ProyectosActions.cargarProyectosSuccess({ proyectos }));
+        this.store.dispatch(ProyectosActions.seleccionaProyecto({proyecto: proyectos[0]}))
       },
       error => this.store.dispatch(ProyectosActions.cargarProyectosFailure(error))
     );
@@ -45,7 +46,7 @@ export class LayoutMiniSidebarComponent implements OnInit, OnDestroy {
   }
 
   onItemClick(proyecto) {
-    // TODO: [Proyectos] Iniciar accion de seleccionar
+    this.store.dispatch(ProyectosActions.seleccionaProyecto({proyecto: proyecto}))
   }
 
   onLogOut(){
