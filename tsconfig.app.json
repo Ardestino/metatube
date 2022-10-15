@@ -12,6 +12,10 @@
       ]
     }
   },
+  "angularCompilerOptions": {
+    "strictTemplates": true,
+    "fullTemplateTypeCheck":true
+  },
   "files": [
     "src/main.ts",
     "src/polyfills.ts"

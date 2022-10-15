@@ -1,7 +1,7 @@
 import {TableModel, TableItem, TableHeaderItem} from "carbon-components-angular"
 import {AvatarGenerator} from 'random-avatar-generator'
 import {uniqueNamesGenerator, names, Config, countries,} from 'unique-names-generator'
-import {getUniqueId} from "../components/app-tasks/app-tasks.component"
+//import {getUniqueId} from "../components/app-tasks/app-tasks.component"
 
 const generator = new AvatarGenerator()
 const config: Config = {
@@ -75,7 +75,7 @@ export const getDummyModel = () => {
   return model
 }
 
-export const getDummyData = (rows = 100) => {
+/*export const getDummyData = (rows = 100) => {
   return Array.from({length: rows}).map(() => {
     return {
       id: getUniqueId(2),
@@ -87,7 +87,7 @@ export const getDummyData = (rows = 100) => {
       proficiency: getRandomArbitrary(0, 100),
     }
   })
-}
+}*/
 
 export const countriesData = [
   {content: "Afghanistan", id: "AF"},

@@ -19,7 +19,7 @@ export class DummyTableRichComponent implements OnInit {
   @Input() sortable = true
   @Input() isDataGrid = false
   @Input() noData = false
-  @Input() stickyHeader = false
+  @Input() stickyHeader : boolean = false
   @Input() skeleton = false
 
   @ViewChild("totalHeaderTemplate", {static: true}) totalHeaderTemplate: TemplateRef<any>
