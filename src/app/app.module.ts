@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser'
 import {NgModule} from '@angular/core'
-import {CommonModule} from '@angular/common'
 import {FlexLayoutModule} from '@angular/flex-layout'
 
 import {MetatubeModule} from "./metatube/metatube.module";
@@ -29,7 +28,6 @@ const configFactory = () => {
   ],
   imports: [
     BrowserModule,
-    CommonModule,
     AppRoutingModule,
     FlexLayoutModule,
     HttpClientModule,
