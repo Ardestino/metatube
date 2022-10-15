@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild, Input, SimpleChanges, TemplateRef } from '@angular/core';
-import { TableItem, TableModel } from "carbon-components-angular";
+import { TableItem, TableModel, TableRowSize } from "carbon-components-angular";
 import { getDummyModel } from "src/@youpez/data/dummy";
 import { CustomHeaderItem } from "./CustomHeaderItem";
 
@@ -12,7 +12,7 @@ import { CustomHeaderItem } from "./CustomHeaderItem";
 export class DummyTableRichComponent implements OnInit {
 
   @Input() model = new TableModel()
-  @Input() size = "md"
+  @Input() size : TableRowSize = "md"
   @Input() showSelectionColumn = true
   @Input() enableSingleSelect = false
   @Input() striped = false

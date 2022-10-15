@@ -53,7 +53,7 @@
     [stickyHeader]="stickyHeader"
     [striped]="striped"
     [isDataGrid]="isDataGrid"
-    (sort)="simpleSort($event)">
-    <!--TODO: asignar size [size]="size" -->
+    (sort)="simpleSort($event)"
+    [size]="size">
     <ng-content></ng-content>
   </ibm-table>
