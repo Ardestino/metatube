@@ -6,7 +6,6 @@ import { MetatubeRoutingModule } from "./metatube.routing";
 import { MainPageComponent } from './components/pages/main-page/main-page.component';
 
 // Clonados de main
-import {SharedModule} from "../shared/shared.module"
 import {AgGridModule} from '@ag-grid-community/angular'
 import {ChartsModule} from '../../@youpez'
 import { QuestionComponent } from "./components/herramientas/question/question.component";
@@ -26,6 +25,9 @@ import { metaReducer, metaFeatureKey, AppEffects } from './store';
 import { CounterComponent } from './components/herramientas/counter/counter.component';
 import { EffectsModule } from '@ngrx/effects'
 
+// To Delete
+import {YoupezModule} from "../../@youpez/youpez.module"
+
 @NgModule({
   declarations: [
     MainPageComponent,
@@ -43,12 +45,12 @@ import { EffectsModule } from '@ngrx/effects'
   ],
   imports: [
     CommonModule,
+    YoupezModule,
     MetatubeRoutingModule,
     StoreModule.forRoot(metaReducer),
     EffectsModule.forRoot(AppEffects),
     ChartsModule,
     AgGridModule,
-    SharedModule // SideNav
   ]
 })
 export class MetatubeModule { }
