@@ -2,12 +2,10 @@ import {NgModule} from '@angular/core'
 import {Routes, RouterModule} from '@angular/router'
 import {AuthLoginComponent} from "./auth-login/auth-login.component"
 
-import {
-  AppLayoutDividedComponent,
-  AppLayoutDividedAltComponent,
-  AppLayoutDividedFullComponent,
-  AppLayoutBasicComponent
-} from "@youpez/index"
+import { AppLayoutDividedComponent } from "./app-layout-divided/app-layout-divided.component"
+import { AppLayoutDividedAltComponent } from "./app-layout-divided-alt/app-layout-divided-alt.component"
+import { AppLayoutDividedFullComponent } from "./app-layout-divided-full/app-layout-divided-full.component"
+import { AppLayoutBasicComponent} from "./app-layout-basic/app-layout-basic.component"
 
 import {AuthSignupComponent} from "./auth-signup/auth-signup.component"
 import {AuthForgotPasswordComponent} from "./auth-forgot-password/auth-forgot-password.component"

@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output, Input, ViewChild, AfterViewInit, ElementRef} from '@angular/core'
 import {NgScrollbar} from "ngx-scrollbar"
-import {MenuType} from "src/@youpez"
+import {MenuType} from "src/app/shared/types"
 
 @Component({
   selector: 'app-layout-sidebar',
