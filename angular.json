@@ -28,19 +28,24 @@
             ],
             "styles": [
               {
-                "input": "src/@youpez/styles/scss/theme/app.carbon.light.scss",
+                "input": "src/app/shared/styles/scss/theme/app.carbon.light.scss",
                 "bundleName": "theme-light",
                 "inject": false
               },
               {
-                "input": "src/@youpez/styles/scss/theme/app.carbon.dark.scss",
+                "input": "src/app/shared/styles/scss/theme/app.carbon.dark.scss",
                 "bundleName": "theme-dark",
                 "inject": false
               },
-              "src/@youpez/styles/scss/theme/app.scss",
-              "src/app/shared/styles/app.themes.scss",
-              "src/assets/tailwind/tailwind.css"
+              "src/app/shared/styles/scss/theme/app.scss",
+              "src/app/shared/styles/app.themes.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./src/app/shared/styles/scss/theme/app.helpers.scss",
+                "./src/app/shared/styles/scss/theme/app.variables.scss"
+              ]
+            },
             "scripts": [],
             "vendorChunk": true,
             "extractLicenses": false,

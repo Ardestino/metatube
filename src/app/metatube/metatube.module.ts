@@ -6,9 +6,9 @@ import { MetatubeRoutingModule } from "./metatube.routing";
 import { MainPageComponent } from './components/pages/main-page/main-page.component';
 
 // Clonados de main
-import {SharedModule} from "../shared/shared.module"
-import {AgGridModule} from '@ag-grid-community/angular'
-import {ChartsModule} from '../../@youpez'
+import { SharedModule } from "../shared/shared.module"
+import { AgGridModule } from '@ag-grid-community/angular'
+import { ChartsModule } from '../../app/charts/charts.module'
 import { QuestionComponent } from "./components/herramientas/question/question.component";
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 import { HeaderComponent } from './components/layout/header/header.component';

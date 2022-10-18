@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core'
 import {Router, ActivatedRoute, NavigationStart, NavigationEnd, NavigationCancel} from "@angular/router"
 import {environment} from "../environments/environment"
-import {SettingsService} from "@youpez/services/settings.service"
+import {SettingsService} from "src/app/shared/services/settings.service"
 
 const getSessionStorage = (key) => {
   return sessionStorage.getItem(key)
@@ -9,8 +9,7 @@ const getSessionStorage = (key) => {
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  template: '<router-outlet></router-outlet>',
 })
 export class AppComponent implements OnInit {
   private appLoaded: boolean = false

@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild, Input, SimpleChanges, TemplateRef } from '@angular/core';
-import { TableItem, TableModel } from "carbon-components-angular";
-import { getDummyModel } from "src/@youpez/data/dummy";
+import { TableItem, TableModel, TableRowSize } from "carbon-components-angular";
+import { getDummyModel } from "../../../../charts/data/dummy";
 import { CustomHeaderItem } from "./CustomHeaderItem";
 
 
@@ -12,14 +12,14 @@ import { CustomHeaderItem } from "./CustomHeaderItem";
 export class DummyTableRichComponent implements OnInit {
 
   @Input() model = new TableModel()
-  @Input() size = "md"
+  @Input() size : TableRowSize = "md"
   @Input() showSelectionColumn = true
   @Input() enableSingleSelect = false
   @Input() striped = false
   @Input() sortable = true
   @Input() isDataGrid = false
   @Input() noData = false
-  @Input() stickyHeader = false
+  @Input() stickyHeader : boolean = false
   @Input() skeleton = false
 
   @ViewChild("totalHeaderTemplate", {static: true}) totalHeaderTemplate: TemplateRef<any>

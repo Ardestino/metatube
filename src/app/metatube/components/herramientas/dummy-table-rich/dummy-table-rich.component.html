@@ -24,7 +24,7 @@
     <ng-container *ngIf="data<110">
       <div class="text-right w-full app-color-danger">{{data}}</div>
     </ng-container>
-  
+
   </ng-template>
   <ng-template #onlineTemplate let-data="data">
     <div class="flex">
@@ -41,10 +41,10 @@
       </ng-container>
     </div>
   </ng-template>
-  
+
   <ibm-table
     [model]="model"
-    [size]="size"
+
     [skeleton]="skeleton"
     [showSelectionColumn]="showSelectionColumn"
     [enableSingleSelect]="enableSingleSelect"
@@ -53,6 +53,7 @@
     [stickyHeader]="stickyHeader"
     [striped]="striped"
     [isDataGrid]="isDataGrid"
-    (sort)="simpleSort($event)">
+    (sort)="simpleSort($event)"
+    [size]="size">
     <ng-content></ng-content>
   </ibm-table>
