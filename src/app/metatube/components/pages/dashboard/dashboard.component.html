@@ -1,86 +1,22 @@
 <div class="app-a-box app-scrollbar-fix" id="invoice" #invoice>
   <ng-scrollbar>
     <!--app-header [subtitulo]="(proyecto | async).nombre" [url]="(proyecto | async).url_canal"></app-header-->
-    <app-header ></app-header>
+    <app-header></app-header>
 
-    <!-- ESTADISTICAS BG -->
-    <div fxLayout="row wrap" class="app-card-row-holder">
-      <div fxFlex="100%" fxFlex.gt-lg="60%">
-        <div fxFlex fxLayout="row wrap">
-          <div fxFlex="50%" fxFlex.gt-md="25%">
-            <app-tarjeta-estadistica titulo="Vistas" subtitulo="Actual" numero="1"></app-tarjeta-estadistica>
-          </div>
-          <div fxFlex="50%" fxFlex.gt-md="25%">
-            <app-tarjeta-estadistica titulo="Videos" subtitulo="Actual" numero="2"></app-tarjeta-estadistica>
-          </div>
-          <div fxFlex="50%" fxFlex.gt-md="25%">
-            <app-tarjeta-estadistica titulo="Comentarios" subtitulo="Actual" numero="3"></app-tarjeta-estadistica>
-          </div>
-          <div fxFlex="50%" fxFlex.gt-md="25%">
-            <app-tarjeta-estadistica titulo="Subscriptores" subtitulo="Actual" numero="4"></app-tarjeta-estadistica>
-          </div>
-          <div fxFlex="50%" fxFlex.gt-md="25%">
-            <app-counter></app-counter>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- ESTADISTICAS END -->
-
-    <!-- HERRAMIENTAS BG -->
-    <div fxLayout="row wrap" class="mx-4">
+    <app-contenedor-tarjetas>
+      <app-tarjeta-estadistica titulo="Vistas" subtitulo="Actual" numero="1"></app-tarjeta-estadistica>
+      <app-tarjeta-estadistica titulo="Videos" subtitulo="Actual" numero="2"></app-tarjeta-estadistica>
+      <app-tarjeta-estadistica titulo="Comentarios" subtitulo="Actual" numero="3"></app-tarjeta-estadistica>
+      <app-tarjeta-estadistica titulo="Subscriptores" subtitulo="Actual" numero="4"></app-tarjeta-estadistica>
+      <app-counter></app-counter>
+      <app-tarjeta>
+        <app-dummy-table-rich size="sh" class="app-ibm-h-full app-ibm-table-header-fix">
+          <!-- TODO: Quien sabe que onda con esta variable stickyHeader=True -->
+        </app-dummy-table-rich>
+      </app-tarjeta>
+    </app-contenedor-tarjetas>
 
 
-      <!-- <div fxFlex="100%" fxFlex.gt-lg="40%">
-
-      </div> -->
-
-      <div fxFlex="100%" fxFlex.gt-lg="50%">
-        <div class="app-card" fxFlex>
-          <!--div class="app-card__tool">
-                    <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
-                      <svg class="bx--btn__icon" ibmIconRenew size="32"></svg>
-                    </button>
-                    <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
-                      <svg class="bx--btn__icon" ibmIconOverflowMenuVertical size="32"></svg>
-                    </button>
-                  </div-->
-          <div class="app-card__header">
-            <div class="app-row app-row--center">
-              <div>
-                <div class="app-expressive-heading-03">Titulos similares</div>
-                <div class="app-label-01">Ordenados por numero de views</div>
-              </div>
-            </div>
-          </div>
-          <div style="height:270px;" class="relative">
-            <app-dummy-table-rich size="sh" class="app-ibm-h-full app-ibm-table-header-fix">
-              <!--TODO: Quien sabe que onda con esta variable stickyHeader=True -->
-            </app-dummy-table-rich>
-          </div>
-        </div>
-      </div>
-
-      <div fxFlex="100%" fxFlex.gt-md="100%">
-        <div fxLayout="row wrap" class="mb-6 app-card-row">
-          <!--ng-container *ngFor="let chart of charts">
-            <div fxFlex="100%" fxFlex.gt-md="33.33%" class="">
-              <div class="app-card p-2">
-                <youpez-echarts-container>
-                  <youpez-echarts [options]="chart" class="app-echarts-component" style="height: 400px;">
-                  </youpez-echarts>
-                </youpez-echarts-container>
-              </div>
-            </div>
-          </ng-container-->
-        </div>
-      </div>
-
-    </div>
-    <!-- HERRAMIENTAS END -->
-
-
-    <!--div class="app-lock-screen__overlay app-bg-container app-bg-dotted"></div-->
-
+    <!-- <div class="app-bg-container app-bg-dotted"></div> -->
   </ng-scrollbar>
 </div>
