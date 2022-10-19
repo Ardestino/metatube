@@ -12,6 +12,8 @@ export class TarjetaEstadisticaComponent implements OnInit {
   @Input() subtitulo:string;
   @Input() numero;
 
+  imagen_canal_url = "https://yt3.ggpht.com/FDjW2-Cb6tFbtNv02D1UX4XtvP7P3eEWB93hGimeP4pb2TadVhAgxSVMZLZDp5NiBWGLT5eprA=s88-c-k-c0x00ffffff-no-rj";
+
   public comboboxItems : ListItem[] = [
     {
       content: "Ultimos 7 dias",

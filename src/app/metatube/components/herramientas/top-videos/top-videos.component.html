@@ -1,0 +1,46 @@
+<youpez-echarts-container>
+  <youpez-echarts [options]="miniChart2" class="app-echarts-component"
+               style="height: 200px;"></youpez-echarts>
+</youpez-echarts-container>
+
+<div fxFlex="100%" fxFlex.gt-md="50%" fxFlex.gt-lg="50%">
+  <div class="app-card app-card--bt-blue">
+    <div class="app-card__header">
+      <div class="app-row app-row--center">
+        <div>
+          <div class="app-expressive-heading-02">Top 5 videos <br /></div>
+          <ibm-combo-box style="width:200px" [placeholder]="'Seleccione rango de visualizacion...'" size="sm"
+            [appendInline]="false" [items]="comboboxItems" >
+            <ibm-dropdown-list></ibm-dropdown-list>
+          </ibm-combo-box>
+          <!-- <div class="app-label-01 mt-2">Ultimos 7 dias</div> -->
+
+        </div>
+      </div>
+    </div>
+    <div class="app-list app-list--hover app-list--select">
+      <ng-container *ngFor="let video of videos">
+        <div class="app-list__item">
+          <div class="app-list__item__prefix w-5 text-center">
+
+          </div>
+          <div class="app-list__item__content">
+            <div class="app-symbol app-symbol--default mr-4 rounded">
+              <div class="app-symbol__label w-30 h-30">
+                <!-- <youpez-ibm-icon iconName="cloudDataOps" iconSize="32"></youpez-ibm-icon> -->
+                <img src="{{video.thumbnail_url}}" class="h-20 rounded"/>
+              </div>
+            </div>
+            <div class="app-expresive-heading-o3 mr-1">{{video.nombre_video}}</div>
+          </div>
+          <div class="app-expressive-heading-02 mr-1">{{video.comentarios}}</div>
+          <div class="app-expressive-heading-02 mr-1">{{video.likes}}</div>
+          <div class="app-expressive-heading-02 mr-1">{{video.vistas}}</div>
+          <button ibmButton="ghost" size="sm" class="bx--btn--icon-only">
+            <svg class="bx--btn__icon" ibmIconArrowRight size="32"></svg>
+          </button>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

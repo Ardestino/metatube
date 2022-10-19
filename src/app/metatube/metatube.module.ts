@@ -30,6 +30,7 @@ import { TarjetaComponent } from './components/tarjetas/tarjeta/tarjeta.componen
 import { TarjetaHeaderComponent } from './components/tarjetas/tarjeta-header/tarjeta-header.component';
 import { TarjetaHeaderToolComponent } from './components/tarjetas/tarjeta-header-tool/tarjeta-header-tool.component';
 import { TarjetaContenidoComponent } from './components/tarjetas/tarjeta-contenido/tarjeta-contenido.component'
+import { TopVideosComponent } from './components/herramientas/top-videos/top-videos.component'
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { TarjetaContenidoComponent } from './components/tarjetas/tarjeta-conteni
     TarjetaHeaderComponent,
     TarjetaHeaderToolComponent,
     TarjetaContenidoComponent
+    TopVideosComponent
   ],
   imports: [
     CommonModule,
