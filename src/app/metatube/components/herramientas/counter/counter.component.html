@@ -1,6 +1,9 @@
 <app-tarjeta>
-  <button (click)="increment()">Increment</button>
-  <div>Current Count: {{ (counter$ | async).counter}}</div>
-  <button (click)="decrement()">Decrement</button>
-  <button (click)="reset()">Reset Counter</button>
+  <app-tarjeta-header titulo="Contador test redux"></app-tarjeta-header>
+  <app-tarjeta-contenido>
+    <button (click)="increment()">Increment</button>
+    <div>Current Count: {{ (counter$ | async).counter}}</div>
+    <button (click)="decrement()">Decrement</button>
+    <button (click)="reset()">Reset Counter</button>
+  </app-tarjeta-contenido>
 </app-tarjeta>
