@@ -29,8 +29,10 @@ import { ContenedorTarjetasComponent } from './components/tarjetas/contenedor-ta
 import { TarjetaComponent } from './components/tarjetas/tarjeta/tarjeta.component';
 import { TarjetaHeaderComponent } from './components/tarjetas/tarjeta-header/tarjeta-header.component';
 import { TarjetaHeaderToolComponent } from './components/tarjetas/tarjeta-header-tool/tarjeta-header-tool.component';
-import { TarjetaContenidoComponent } from './components/tarjetas/tarjeta-contenido/tarjeta-contenido.component'
-import { TopVideosComponent } from './components/herramientas/top-videos/top-videos.component'
+import { TarjetaContenidoComponent } from './components/tarjetas/tarjeta-contenido/tarjeta-contenido.component';
+import { MejorDiaSemanaComponent } from './components/herramientas/mejor-dia-semana/mejor-dia-semana.component';
+import { TopVideosComponent } from './components/herramientas/top-videos/top-videos.component';
+import { TitulosSimilaresComponent } from './components/herramientas/titulos-similares/titulos-similares.component'
 
 @NgModule({
   declarations: [
@@ -50,8 +52,10 @@ import { TopVideosComponent } from './components/herramientas/top-videos/top-vid
     TarjetaComponent,
     TarjetaHeaderComponent,
     TarjetaHeaderToolComponent,
-    TarjetaContenidoComponent
-    TopVideosComponent
+    TarjetaContenidoComponent,
+    MejorDiaSemanaComponent,
+    TopVideosComponent,
+    TitulosSimilaresComponent
   ],
   imports: [
     CommonModule,
