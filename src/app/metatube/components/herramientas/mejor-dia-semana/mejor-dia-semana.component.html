@@ -1,0 +1,48 @@
+<div fxFlex="100%" fxFlex.gt-md="50%" fxFlex.gt-lg="50%">
+  <div class="app-card app-card--bt-blue">
+    <div class="app-card__header">
+      <div class="app-row app-row--center">
+        <div>
+          <div class="app-expressive-heading-02">Mejor dia de la semana<br /></div>
+          <div class="app-label-01 mt-2">para publicar videos.</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div fxFlex="100%" fxFlex.gt-lg="40%">
+        <div class="app-card" fxFlex>
+          <div class="app-card__tool">
+            <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+              <svg class="bx--btn__icon" ibmIconRenew size="32"></svg>
+            </button>
+            <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+              <svg class="bx--btn__icon" ibmIconOverflowMenuVertical size="32"></svg>
+            </button>
+          </div>
+          <div class="app-card__header pb-0">
+            <div class="app-expressive-heading-03">App usage</div>
+            <div class="app-label-01">Working days</div>
+          </div>
+          <div class="app-card__content">
+            <youpez-echarts-container>
+              <youpez-echarts [options]="punchCardOpts" class="app-echarts-component" style="height: 210px;"></youpez-echarts>
+            </youpez-echarts-container>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="app-expressive-heading-02">Etiquetas del canal<br /></div>
+      <ibm-tag type="red" title="Clear Filter"> Red </ibm-tag>
+      <ibm-tag type="magenta" title="Clear Filter"> Magenta </ibm-tag>
+      <ibm-tag type="purple" title="Clear Filter"> Purple </ibm-tag>
+      <ibm-tag type="blue" title="Clear Filter"> Blue </ibm-tag>
+      <ibm-tag type="cyan" title="Clear Filter"> Cyan </ibm-tag>
+      <ibm-tag type="teal" title="Clear Filter"> Teal </ibm-tag>
+      <ibm-tag type="green" title="Clear Filter"> Green </ibm-tag>
+      <ibm-tag type="gray" title="Clear Filter"> Gray </ibm-tag>
+      <ibm-tag type="cool-gray" title="Clear Filter"> Cool gray </ibm-tag>
+      <ibm-tag type="warm-gray" title="Clear Filter"> Warm gray </ibm-tag>
+    </div>
+  </div>
+</div>
