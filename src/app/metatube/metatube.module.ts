@@ -32,7 +32,8 @@ import { TarjetaHeaderToolComponent } from './components/tarjetas/tarjeta-header
 import { TarjetaContenidoComponent } from './components/tarjetas/tarjeta-contenido/tarjeta-contenido.component';
 import { MejorDiaSemanaComponent } from './components/herramientas/mejor-dia-semana/mejor-dia-semana.component';
 import { TopVideosComponent } from './components/herramientas/top-videos/top-videos.component';
-import { TitulosSimilaresComponent } from './components/herramientas/titulos-similares/titulos-similares.component'
+import { TitulosSimilaresComponent } from './components/herramientas/titulos-similares/titulos-similares.component';
+import { GrafoDirigidoComponent } from './components/herramientas/grafo-dirigido/grafo-dirigido.component'
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { TitulosSimilaresComponent } from './components/herramientas/titulos-sim
     TarjetaContenidoComponent,
     MejorDiaSemanaComponent,
     TopVideosComponent,
-    TitulosSimilaresComponent
+    TitulosSimilaresComponent,
+    GrafoDirigidoComponent
   ],
   imports: [
     CommonModule,
