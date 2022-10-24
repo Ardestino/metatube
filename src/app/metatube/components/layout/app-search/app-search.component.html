@@ -13,7 +13,7 @@
           <div fxFlex="100%" fxFlex.gt-sm="40%" class="app-search__result__pane1">
             <div class="app-a-box app-bg-container app-scrollbar-fix">
               <ng-scrollbar>
-                <ng-container *ngIf="loading">
+                <ng-container *ngIf="loading$ | async">
                   <div class="p-4">
                     <ibm-skeleton-text
                       [lines]="12"
@@ -22,37 +22,13 @@
                     </ibm-skeleton-text>
                   </div>
                 </ng-container>
-                <ng-container *ngIf="!loading">
+                <ng-container *ngIf="!(loading$ | async)">
                   <div class="app-list-header-title">Coincidencias</div>
                   <div class="app-list app-list--hover app-list--p app-list--select">
-                    <div class="app-list__item">
+                    <div class="app-list__item" *ngFor="let result of search_result$ | async">
                       <div class="app-list__item__content truncate">
-                        <mark class="app-text-mark">Canal 1</mark>
-                        otro texto
-                      </div>
-                    </div>
-                    <div class="app-list__item">
-                      <div class="app-list__item__content truncate">
-                        <mark class="app-text-mark">Canal 2</mark>
-                        otro texto
-                      </div>
-                    </div>
-                    <div class="app-list__item">
-                      <div class="app-list__item__content truncate">
-                        <mark class="app-text-mark">Canal 3</mark>
-                        otro texto
-                      </div>
-                    </div>
-                    <div class="app-list__item">
-                      <div class="app-list__item__content truncate">
-                        <mark class="app-text-mark">Canal 4</mark>
-                        otro texto
-                      </div>
-                    </div>
-                    <div class="app-list__item">
-                      <div class="app-list__item__content truncate">
-                        <mark class="app-text-mark">Canal 5</mark>
-                        otro texto
+                        <mark class="app-text-mark"></mark>
+                        {{result.title}}
                       </div>
                     </div>
                   </div>
@@ -61,7 +37,7 @@
             </div>
           </div>
           <div fxFlex="100%" fxFlex.gt-sm="60%" class="app-search__result__pane2">
-            <ng-container *ngIf="loading">
+            <ng-container *ngIf="loading$ | async">
               <div class="mb-2">
                 <ibm-skeleton-text
                   [lines]="2"
@@ -75,31 +51,31 @@
                 [maxLineWidth]="220">
               </ibm-skeleton-text>
             </ng-container>
-            <ng-container *ngIf="!loading">
+            <ng-container *ngIf="!(loading$ | async)">
               <div>
                 <div class="mb-2">
                   <div class="app-row app-row--center">
                     <div class="app-symbol mr-3">
                       <div class="app-symbol__label w-10 h-10 app-expressive-heading-01 app-color-success app-bg-success-lt-40 rounded-md">
-                        K8S
+                        <img src="{{(selected_result$ | async).thumbnail}}"/>
                       </div>
                     </div>
                     <div>
-                      <div class="app-expressive-heading-03">Nombre del Canal</div>
+                      <div class="app-expressive-heading-03">{{(selected_result$ | async).title}}</div>
                       <div class="app-helper-text-01 app-color-success"># Seguidores</div>
                     </div>
                   </div>
                 </div>
                 <p class="app-body-long-01">
-                  Descripcion del canal.
+                  {{(selected_result$ | async).description}}
                 </p>
               </div>
             </ng-container>
             <div class="app-search__result__btn">
-              <button (click)="onClose()" [skeleton]="loading" ibmButton="tertiary" size="sm">
+              <button (click)="onClose()" [skeleton]="loading$ | async" ibmButton="tertiary" size="sm">
                 Cancel
               </button>
-              <button (click)="onClose()" [skeleton]="loading" ibmButton="primary" size="sm">
+              <button (click)="onClose()" [skeleton]="loading$ | async" ibmButton="primary" size="sm">
                 Crear Proyecto!
                 <svg class="bx--btn__icon" ibmIconArrowRight size="20"></svg>
               </button>
