@@ -19,6 +19,7 @@ import { LayoutSidebarComponent } from "./components/layout/layout-sidebar/layou
 import { LayoutMiniSidebarComponent } from "./components/layout/layout-mini-sidebar/layout-mini-sidebar.component";
 import { HeaderMiniComponent } from "./components/layout/header-mini/header-mini.component";
 import { MiniSidebarItemComponent } from './components/layout/layout-mini-sidebar-item/mini-sidebar-item.component';
+import { AppSearchComponent } from "./components/layout/app-search/app-search.component";
 
 // Reducer
 import { StoreModule } from '@ngrx/store';
@@ -57,7 +58,8 @@ import { GrafoDirigidoComponent } from './components/herramientas/grafo-dirigido
     MejorDiaSemanaComponent,
     TopVideosComponent,
     TitulosSimilaresComponent,
-    GrafoDirigidoComponent
+    GrafoDirigidoComponent,
+    AppSearchComponent
   ],
   imports: [
     CommonModule,

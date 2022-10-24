@@ -40,6 +40,10 @@
     </div>
     <!-- END: MAIN LAYOUT -->
 
+    <ng-container *ngIf="searchVisible$ | async">
+      <youpez-search></youpez-search>
+    </ng-container>
+
   </youpez-sidenav-container>
   <!-- END: MAIN SIDENAV CONTAINER -->
 

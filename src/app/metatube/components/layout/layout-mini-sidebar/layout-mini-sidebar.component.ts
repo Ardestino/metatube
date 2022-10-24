@@ -6,6 +6,7 @@ import { ApiService, Proyecto } from 'src/api';
 import { AuthService } from "src/app/auth/auth.service";
 import { AppState } from 'src/app/metatube/store';
 import * as ProyectosActions from "src/app/metatube/store/proyectos/proyectos.actions";
+import * as SearchActions from "src/app/metatube/store/search/search.actions";
 
 @Component({
   selector: 'app-layout-mini-sidebar',
@@ -47,6 +48,10 @@ export class LayoutMiniSidebarComponent implements OnInit, OnDestroy {
 
   onItemClick(proyecto) {
     this.store.dispatch(ProyectosActions.seleccionaProyecto({proyecto: proyecto}))
+  }
+
+  onSearchClick(){
+    this.store.dispatch(SearchActions.mostrarBuscador());
   }
 
   onLogOut(){
