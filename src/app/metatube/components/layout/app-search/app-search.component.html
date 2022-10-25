@@ -25,7 +25,7 @@
                 <ng-container *ngIf="!(loading$ | async)">
                   <div class="app-list-header-title">Coincidencias</div>
                   <div class="app-list app-list--hover app-list--p app-list--select">
-                    <div class="app-list__item" *ngFor="let result of search_result$ | async">
+                    <div class="app-list__item" *ngFor="let result of search_result$ | async" (click)="onSelectResult(result)">
                       <div class="app-list__item__content truncate">
                         <mark class="app-text-mark"></mark>
                         {{result.title}}
@@ -55,14 +55,16 @@
               <div>
                 <div class="mb-2">
                   <div class="app-row app-row--center">
-                    <div class="app-symbol mr-3">
+                    <div class="app-symbol mr-3" *ngIf="(selected_result$ | async) != null">
                       <div class="app-symbol__label w-10 h-10 app-expressive-heading-01 app-color-success app-bg-success-lt-40 rounded-md">
-                        <img src="{{(selected_result$ | async).thumbnail}}"/>
+                        <img src="{{(selected_result$ | async).thumbnail}}" class="w-12 h-12 rounded-lg" />
                       </div>
                     </div>
                     <div>
                       <div class="app-expressive-heading-03">{{(selected_result$ | async).title}}</div>
-                      <div class="app-helper-text-01 app-color-success"># Seguidores</div>
+                      <div class="app-helper-text-01 app-color-success">
+                        <!-- # Seguidores -->
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -71,11 +73,13 @@
                 </p>
               </div>
             </ng-container>
-            <div class="app-search__result__btn">
-              <button (click)="onClose()" [skeleton]="loading$ | async" ibmButton="tertiary" size="sm">
+            <div class="app-search__result__btn" *ngIf="(selected_result$ | async) != null">
+              <button (click)="onClose()"  ibmButton="tertiary" size="sm" >
+                <!-- [skeleton]="loading$ | async" -->
                 Cancel
               </button>
-              <button (click)="onClose()" [skeleton]="loading$ | async" ibmButton="primary" size="sm">
+              <button (click)="onClose()" ibmButton="primary" size="sm">
+                <!-- [skeleton]="loading$ | async"  -->
                 Crear Proyecto!
                 <svg class="bx--btn__icon" ibmIconArrowRight size="20"></svg>
               </button>
