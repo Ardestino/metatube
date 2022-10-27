@@ -38,7 +38,8 @@
                 "inject": false
               },
               "src/app/shared/styles/scss/theme/app.scss",
-              "src/app/shared/styles/app.themes.scss"
+              "src/app/shared/styles/app.themes.scss",
+              "src/assets/tailwind/tailwind.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [

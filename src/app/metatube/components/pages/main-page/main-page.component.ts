@@ -9,6 +9,12 @@ const htmlToPdfmake = require("html-to-pdfmake");
 // version 2 de exportacion a PDF
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { Observable } from 'rxjs';
+
+// Store
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/metatube/store';
+import * as SearchActions from "src/app/metatube/store/search/search.actions";
 
 @Component({
   selector: 'app-main-page',
@@ -17,7 +23,11 @@ import html2canvas from 'html2canvas';
 })
 export class MainPageComponent implements OnInit {
 
-  constructor() { }
+  public searchVisible$ : Observable<boolean>;
+
+  constructor(private store : Store<AppState>) {
+    this.searchVisible$ = this.store.select(state => state.search.visible);
+  }
 
   ngOnInit(): void {
   }

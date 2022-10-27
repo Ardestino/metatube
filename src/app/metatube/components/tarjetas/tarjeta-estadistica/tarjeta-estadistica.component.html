@@ -1,0 +1,43 @@
+<div fxFlex="100%" fxFlex.gt-md="100%" fxFlex.gt-lg="100%">
+  <div class="app-card app-card--bt-success">
+    <div class="app-card__header">
+      <div class="app-row app-row--center">
+        <div class="app-symbol app-symbol--default mr-4 rounded">
+          <div class="app-symbol__label w-20 h-20">
+            <!-- <youpez-ibm-icon iconName="cloudDataOps" iconSize="32"></youpez-ibm-icon> -->
+            <img src="{{imagen_canal_url}}" />
+          </div>
+        </div>
+        <div>
+          <div class="app-expressive-heading-02">Estadisticas del canal <br /></div>
+          <ibm-combo-box style="width:200px" [placeholder]="'Seleccione rango de visualizacion...'"
+            [items]="comboboxItems" size="sm" [appendInline]="false">
+            <ibm-dropdown-list></ibm-dropdown-list>
+          </ibm-combo-box>
+          <!-- <div class="app-label-01 mt-2">Ultimos 7 dias</div> -->
+        </div>
+      </div>
+    </div>
+    <div class="app-list app-list--hover app-list--select">
+      <ng-container *ngFor="let sub of subscriptions">
+        <div class="app-list__item" [ngClass]="{'app-color-success':sub.up,'app-color-danger':!sub.up}">
+          <div class="app-list__item__prefix w-10 text-center">
+            <ng-container *ngIf="sub.up">
+              <youpez-ibm-icon iconName="arrowUp" iconSize="16"></youpez-ibm-icon>
+            </ng-container>
+            <ng-container *ngIf="!sub.up">
+              <youpez-ibm-icon iconName="arrowDown" iconSize="16"></youpez-ibm-icon>
+            </ng-container>
+          </div>
+          <div class="app-list__item__content">
+            {{sub.month}}
+          </div>
+          <div class="app-expressive-heading-02 mr-1">{{sub.count}}</div>
+          <!-- <button ibmButton="ghost" size="sm" class="bx--btn--icon-only">
+                <svg class="bx--btn__icon" ibmIconArrowRight size="32"></svg>
+              </button> -->
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
