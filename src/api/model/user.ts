@@ -12,6 +12,7 @@
 
 
 export interface User { 
+    readonly id: number;
     readonly url: string;
     /**
      * Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.

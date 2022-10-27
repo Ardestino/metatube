@@ -5,12 +5,155 @@ info:
   description: Servicio interno de metatube que contiene herramientas de analisis
     de videos.
 paths:
-  /api/v1/groups/:
+  /api/schema/:
     get:
-      operationId: api_v1_groups_list
-      description: API endpoint that allows groups to be viewed or edited.
+      operationId: api_schema_retrieve
+      description: |-
+        OpenApi3 schema for this API. Format can be selected via content negotiation.
+
+        - YAML: application/vnd.oai.openapi
+        - JSON: application/vnd.oai.openapi+json
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - yaml
+      - in: query
+        name: lang
+        schema:
+          type: string
+          enum:
+          - af
+          - ar
+          - ar-dz
+          - ast
+          - az
+          - be
+          - bg
+          - bn
+          - br
+          - bs
+          - ca
+          - cs
+          - cy
+          - da
+          - de
+          - dsb
+          - el
+          - en
+          - en-au
+          - en-gb
+          - eo
+          - es
+          - es-ar
+          - es-co
+          - es-mx
+          - es-ni
+          - es-ve
+          - et
+          - eu
+          - fa
+          - fi
+          - fr
+          - fy
+          - ga
+          - gd
+          - gl
+          - he
+          - hi
+          - hr
+          - hsb
+          - hu
+          - hy
+          - ia
+          - id
+          - ig
+          - io
+          - is
+          - it
+          - ja
+          - ka
+          - kab
+          - kk
+          - km
+          - kn
+          - ko
+          - ky
+          - lb
+          - lt
+          - lv
+          - mk
+          - ml
+          - mn
+          - mr
+          - ms
+          - my
+          - nb
+          - ne
+          - nl
+          - nn
+          - os
+          - pa
+          - pl
+          - pt
+          - pt-br
+          - ro
+          - ru
+          - sk
+          - sl
+          - sq
+          - sr
+          - sr-latn
+          - sv
+          - sw
+          - ta
+          - te
+          - tg
+          - th
+          - tk
+          - tr
+          - tt
+          - udm
+          - uk
+          - ur
+          - uz
+          - vi
+          - zh-hans
+          - zh-hant
       tags:
       - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/vnd.oai.openapi:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/yaml:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/vnd.oai.openapi+json:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /api/v1/channel/:
+    get:
+      operationId: channel_list
+      tags:
+      - channel
       security:
       - cookieAuth: []
       - basicAuth: []
@@ -21,24 +164,23 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Group'
+                  $ref: '#/components/schemas/Channel'
           description: ''
     post:
-      operationId: api_v1_groups_create
-      description: API endpoint that allows groups to be viewed or edited.
+      operationId: channel_create
       tags:
-      - api
+      - channel
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Group'
+              $ref: '#/components/schemas/Channel'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Group'
+              $ref: '#/components/schemas/Channel'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Group'
+              $ref: '#/components/schemas/Channel'
         required: true
       security:
       - cookieAuth: []
@@ -48,21 +190,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Group'
+                $ref: '#/components/schemas/Channel'
           description: ''
-  /api/v1/groups/{id}/:
+  /api/v1/channel/{id}/:
     get:
-      operationId: api_v1_groups_retrieve
-      description: API endpoint that allows groups to be viewed or edited.
+      operationId: channel_retrieve
       parameters:
       - in: path
         name: id
         schema:
-          type: integer
-        description: A unique integer value identifying this group.
+          type: string
+        description: A unique value identifying this canal.
         required: true
       tags:
-      - api
+      - channel
       security:
       - cookieAuth: []
       - basicAuth: []
@@ -71,31 +212,30 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Group'
+                $ref: '#/components/schemas/Channel'
           description: ''
     put:
-      operationId: api_v1_groups_update
-      description: API endpoint that allows groups to be viewed or edited.
+      operationId: channel_update
       parameters:
       - in: path
         name: id
         schema:
-          type: integer
-        description: A unique integer value identifying this group.
+          type: string
+        description: A unique value identifying this canal.
         required: true
       tags:
-      - api
+      - channel
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Group'
+              $ref: '#/components/schemas/Channel'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Group'
+              $ref: '#/components/schemas/Channel'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Group'
+              $ref: '#/components/schemas/Channel'
         required: true
       security:
       - cookieAuth: []
@@ -105,31 +245,30 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Group'
+                $ref: '#/components/schemas/Channel'
           description: ''
     patch:
-      operationId: api_v1_groups_partial_update
-      description: API endpoint that allows groups to be viewed or edited.
+      operationId: channel_partial_update
       parameters:
       - in: path
         name: id
         schema:
-          type: integer
-        description: A unique integer value identifying this group.
+          type: string
+        description: A unique value identifying this canal.
         required: true
       tags:
-      - api
+      - channel
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PatchedGroup'
+              $ref: '#/components/schemas/PatchedChannel'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/PatchedGroup'
+              $ref: '#/components/schemas/PatchedChannel'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/PatchedGroup'
+              $ref: '#/components/schemas/PatchedChannel'
       security:
       - cookieAuth: []
       - basicAuth: []
@@ -138,20 +277,313 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Group'
+                $ref: '#/components/schemas/Channel'
           description: ''
     delete:
-      operationId: api_v1_groups_destroy
-      description: API endpoint that allows groups to be viewed or edited.
+      operationId: channel_destroy
       parameters:
       - in: path
         name: id
         schema:
-          type: integer
-        description: A unique integer value identifying this group.
+          type: string
+        description: A unique value identifying this canal.
         required: true
       tags:
-      - api
+      - channel
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/v1/comments/:
+    get:
+      operationId: comments_list
+      tags:
+      - comments
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Comment'
+          description: ''
+    post:
+      operationId: comments_create
+      tags:
+      - comments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comment'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Comment'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Comment'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+          description: ''
+  /api/v1/comments/{id}/:
+    get:
+      operationId: comments_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        description: A unique value identifying this video.
+        required: true
+      tags:
+      - comments
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+          description: ''
+    put:
+      operationId: comments_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        description: A unique value identifying this video.
+        required: true
+      tags:
+      - comments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comment'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Comment'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Comment'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+          description: ''
+    patch:
+      operationId: comments_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        description: A unique value identifying this video.
+        required: true
+      tags:
+      - comments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedComment'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedComment'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedComment'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+          description: ''
+    delete:
+      operationId: comments_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        description: A unique value identifying this video.
+        required: true
+      tags:
+      - comments
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/v1/keyWord/:
+    get:
+      operationId: keyWord_list
+      tags:
+      - keyWord
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KeyWord'
+          description: ''
+    post:
+      operationId: keyWord_create
+      tags:
+      - keyWord
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeyWord'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/KeyWord'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/KeyWord'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeyWord'
+          description: ''
+  /api/v1/keyWord/{keyword}/:
+    get:
+      operationId: keyWord_retrieve
+      parameters:
+      - in: path
+        name: keyword
+        schema:
+          type: string
+        description: A unique value identifying this key word.
+        required: true
+      tags:
+      - keyWord
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeyWord'
+          description: ''
+    put:
+      operationId: keyWord_update
+      parameters:
+      - in: path
+        name: keyword
+        schema:
+          type: string
+        description: A unique value identifying this key word.
+        required: true
+      tags:
+      - keyWord
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeyWord'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/KeyWord'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/KeyWord'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeyWord'
+          description: ''
+    patch:
+      operationId: keyWord_partial_update
+      parameters:
+      - in: path
+        name: keyword
+        schema:
+          type: string
+        description: A unique value identifying this key word.
+        required: true
+      tags:
+      - keyWord
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedKeyWord'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedKeyWord'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedKeyWord'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeyWord'
+          description: ''
+    delete:
+      operationId: keyWord_destroy
+      parameters:
+      - in: path
+        name: keyword
+        schema:
+          type: string
+        description: A unique value identifying this key word.
+        required: true
+      tags:
+      - keyWord
       security:
       - cookieAuth: []
       - basicAuth: []
@@ -160,10 +592,10 @@ paths:
           description: No response body
   /api/v1/proyectos/:
     get:
-      operationId: api_v1_proyectos_list
+      operationId: proyectos_list
       description: API endpoint that allows groups to be viewed or edited.
       tags:
-      - api
+      - proyectos
       security:
       - cookieAuth: []
       - basicAuth: []
@@ -177,10 +609,10 @@ paths:
                   $ref: '#/components/schemas/Proyecto'
           description: ''
     post:
-      operationId: api_v1_proyectos_create
+      operationId: proyectos_create
       description: API endpoint that allows groups to be viewed or edited.
       tags:
-      - api
+      - proyectos
       requestBody:
         content:
           application/json:
@@ -205,7 +637,7 @@ paths:
           description: ''
   /api/v1/proyectos/{id}/:
     get:
-      operationId: api_v1_proyectos_retrieve
+      operationId: proyectos_retrieve
       description: API endpoint that allows groups to be viewed or edited.
       parameters:
       - in: path
@@ -215,7 +647,7 @@ paths:
         description: A unique integer value identifying this proyecto.
         required: true
       tags:
-      - api
+      - proyectos
       security:
       - cookieAuth: []
       - basicAuth: []
@@ -227,7 +659,7 @@ paths:
                 $ref: '#/components/schemas/Proyecto'
           description: ''
     put:
-      operationId: api_v1_proyectos_update
+      operationId: proyectos_update
       description: API endpoint that allows groups to be viewed or edited.
       parameters:
       - in: path
@@ -237,7 +669,7 @@ paths:
         description: A unique integer value identifying this proyecto.
         required: true
       tags:
-      - api
+      - proyectos
       requestBody:
         content:
           application/json:
@@ -261,7 +693,7 @@ paths:
                 $ref: '#/components/schemas/Proyecto'
           description: ''
     patch:
-      operationId: api_v1_proyectos_partial_update
+      operationId: proyectos_partial_update
       description: API endpoint that allows groups to be viewed or edited.
       parameters:
       - in: path
@@ -271,7 +703,7 @@ paths:
         description: A unique integer value identifying this proyecto.
         required: true
       tags:
-      - api
+      - proyectos
       requestBody:
         content:
           application/json:
@@ -294,7 +726,7 @@ paths:
                 $ref: '#/components/schemas/Proyecto'
           description: ''
     delete:
-      operationId: api_v1_proyectos_destroy
+      operationId: proyectos_destroy
       description: API endpoint that allows groups to be viewed or edited.
       parameters:
       - in: path
@@ -304,19 +736,18 @@ paths:
         description: A unique integer value identifying this proyecto.
         required: true
       tags:
-      - api
+      - proyectos
       security:
       - cookieAuth: []
       - basicAuth: []
       responses:
         '204':
           description: No response body
-  /api/v1/questions/:
+  /api/v1/topic/:
     get:
-      operationId: api_v1_questions_list
-      description: API endpoint that allows Questions to be viewed or edited.
+      operationId: topic_list
       tags:
-      - api
+      - topic
       security:
       - cookieAuth: []
       - basicAuth: []
@@ -327,24 +758,23 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Question'
+                  $ref: '#/components/schemas/Topic'
           description: ''
     post:
-      operationId: api_v1_questions_create
-      description: API endpoint that allows Questions to be viewed or edited.
+      operationId: topic_create
       tags:
-      - api
+      - topic
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Question'
+              $ref: '#/components/schemas/Topic'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Question'
+              $ref: '#/components/schemas/Topic'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Question'
+              $ref: '#/components/schemas/Topic'
         required: true
       security:
       - cookieAuth: []
@@ -354,21 +784,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Question'
+                $ref: '#/components/schemas/Topic'
           description: ''
-  /api/v1/questions/{id}/:
+  /api/v1/topic/{topic}/:
     get:
-      operationId: api_v1_questions_retrieve
-      description: API endpoint that allows Questions to be viewed or edited.
+      operationId: topic_retrieve
       parameters:
       - in: path
-        name: id
+        name: topic
         schema:
-          type: integer
-        description: A unique integer value identifying this question.
+          type: string
+        description: A unique value identifying this topic.
         required: true
       tags:
-      - api
+      - topic
       security:
       - cookieAuth: []
       - basicAuth: []
@@ -377,31 +806,30 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Question'
+                $ref: '#/components/schemas/Topic'
           description: ''
     put:
-      operationId: api_v1_questions_update
-      description: API endpoint that allows Questions to be viewed or edited.
+      operationId: topic_update
       parameters:
       - in: path
-        name: id
+        name: topic
         schema:
-          type: integer
-        description: A unique integer value identifying this question.
+          type: string
+        description: A unique value identifying this topic.
         required: true
       tags:
-      - api
+      - topic
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Question'
+              $ref: '#/components/schemas/Topic'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Question'
+              $ref: '#/components/schemas/Topic'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Question'
+              $ref: '#/components/schemas/Topic'
         required: true
       security:
       - cookieAuth: []
@@ -411,31 +839,30 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Question'
+                $ref: '#/components/schemas/Topic'
           description: ''
     patch:
-      operationId: api_v1_questions_partial_update
-      description: API endpoint that allows Questions to be viewed or edited.
+      operationId: topic_partial_update
       parameters:
       - in: path
-        name: id
+        name: topic
         schema:
-          type: integer
-        description: A unique integer value identifying this question.
+          type: string
+        description: A unique value identifying this topic.
         required: true
       tags:
-      - api
+      - topic
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PatchedQuestion'
+              $ref: '#/components/schemas/PatchedTopic'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/PatchedQuestion'
+              $ref: '#/components/schemas/PatchedTopic'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/PatchedQuestion'
+              $ref: '#/components/schemas/PatchedTopic'
       security:
       - cookieAuth: []
       - basicAuth: []
@@ -444,56 +871,178 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Question'
+                $ref: '#/components/schemas/Topic'
           description: ''
     delete:
-      operationId: api_v1_questions_destroy
-      description: API endpoint that allows Questions to be viewed or edited.
+      operationId: topic_destroy
       parameters:
       - in: path
-        name: id
+        name: topic
         schema:
-          type: integer
-        description: A unique integer value identifying this question.
+          type: string
+        description: A unique value identifying this topic.
         required: true
       tags:
-      - api
+      - topic
       security:
       - cookieAuth: []
       - basicAuth: []
       responses:
         '204':
           description: No response body
-  /api/v1/test/sumar_numeros/:
-    post:
-      operationId: api_v1_test_sumar_numeros_create
-      parameters:
-      - in: query
-        name: a
-        schema:
-          type: integer
-        description: First Number to add
-        required: true
-      - in: query
-        name: b
-        schema:
-          type: integer
-        description: Second Number to add
-        required: true
+  /api/v1/topicCategory/:
+    get:
+      operationId: topicCategory_list
       tags:
-      - api
+      - topicCategory
       security:
       - cookieAuth: []
       - basicAuth: []
       responses:
         '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TopicCategory'
+          description: ''
+    post:
+      operationId: topicCategory_create
+      tags:
+      - topicCategory
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TopicCategory'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TopicCategory'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TopicCategory'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TopicCategory'
+          description: ''
+  /api/v1/topicCategory/{category}/:
+    get:
+      operationId: topicCategory_retrieve
+      parameters:
+      - in: path
+        name: category
+        schema:
+          type: string
+        description: A unique value identifying this topic category.
+        required: true
+      tags:
+      - topicCategory
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TopicCategory'
+          description: ''
+    put:
+      operationId: topicCategory_update
+      parameters:
+      - in: path
+        name: category
+        schema:
+          type: string
+        description: A unique value identifying this topic category.
+        required: true
+      tags:
+      - topicCategory
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TopicCategory'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TopicCategory'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TopicCategory'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TopicCategory'
+          description: ''
+    patch:
+      operationId: topicCategory_partial_update
+      parameters:
+      - in: path
+        name: category
+        schema:
+          type: string
+        description: A unique value identifying this topic category.
+        required: true
+      tags:
+      - topicCategory
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedTopicCategory'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedTopicCategory'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedTopicCategory'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TopicCategory'
+          description: ''
+    delete:
+      operationId: topicCategory_destroy
+      parameters:
+      - in: path
+        name: category
+        schema:
+          type: string
+        description: A unique value identifying this topic category.
+        required: true
+      tags:
+      - topicCategory
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '204':
           description: No response body
   /api/v1/users/:
     get:
-      operationId: api_v1_users_list
+      operationId: users_list
       description: API endpoint that allows users to be viewed or edited.
       tags:
-      - api
+      - users
       security:
       - cookieAuth: []
       - basicAuth: []
@@ -507,10 +1056,10 @@ paths:
                   $ref: '#/components/schemas/User'
           description: ''
     post:
-      operationId: api_v1_users_create
+      operationId: users_create
       description: API endpoint that allows users to be viewed or edited.
       tags:
-      - api
+      - users
       requestBody:
         content:
           application/json:
@@ -535,7 +1084,7 @@ paths:
           description: ''
   /api/v1/users/{id}/:
     get:
-      operationId: api_v1_users_retrieve
+      operationId: users_retrieve
       description: API endpoint that allows users to be viewed or edited.
       parameters:
       - in: path
@@ -545,7 +1094,7 @@ paths:
         description: A unique integer value identifying this user.
         required: true
       tags:
-      - api
+      - users
       security:
       - cookieAuth: []
       - basicAuth: []
@@ -555,30 +1104,94 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+          description: ''
+  /api/v1/video/:
+    get:
+      operationId: video_list
+      tags:
+      - video
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+          description: ''
+    post:
+      operationId: video_create
+      tags:
+      - video
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Video'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Video'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+          description: ''
+  /api/v1/video/{id}/:
+    get:
+      operationId: video_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        description: A unique value identifying this video.
+        required: true
+      tags:
+      - video
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
           description: ''
     put:
-      operationId: api_v1_users_update
-      description: API endpoint that allows users to be viewed or edited.
+      operationId: video_update
       parameters:
       - in: path
         name: id
         schema:
-          type: integer
-        description: A unique integer value identifying this user.
+          type: string
+        description: A unique value identifying this video.
         required: true
       tags:
-      - api
+      - video
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: '#/components/schemas/Video'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: '#/components/schemas/Video'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: '#/components/schemas/Video'
         required: true
       security:
       - cookieAuth: []
@@ -588,31 +1201,30 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/Video'
           description: ''
     patch:
-      operationId: api_v1_users_partial_update
-      description: API endpoint that allows users to be viewed or edited.
+      operationId: video_partial_update
       parameters:
       - in: path
         name: id
         schema:
-          type: integer
-        description: A unique integer value identifying this user.
+          type: string
+        description: A unique value identifying this video.
         required: true
       tags:
-      - api
+      - video
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PatchedUser'
+              $ref: '#/components/schemas/PatchedVideo'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/PatchedUser'
+              $ref: '#/components/schemas/PatchedVideo'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/PatchedUser'
+              $ref: '#/components/schemas/PatchedVideo'
       security:
       - cookieAuth: []
       - basicAuth: []
@@ -621,29 +1233,28 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/Video'
           description: ''
     delete:
-      operationId: api_v1_users_destroy
-      description: API endpoint that allows users to be viewed or edited.
+      operationId: video_destroy
       parameters:
       - in: path
         name: id
         schema:
-          type: integer
-        description: A unique integer value identifying this user.
+          type: string
+        description: A unique value identifying this video.
         required: true
       tags:
-      - api
+      - video
       security:
       - cookieAuth: []
       - basicAuth: []
       responses:
         '204':
           description: No response body
-  /api/v1/youtube/estadisticas_canal/:
+  /api/v1/youtube/channel_download/:
     post:
-      operationId: api_v1_youtube_estadisticas_canal_create
+      operationId: youtube_channel_download_create
       parameters:
       - in: query
         name: channelid
@@ -652,48 +1263,312 @@ paths:
         description: channel id
         required: true
       tags:
-      - api
+      - youtube
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Channel'
+          description: ''
+  /api/v1/youtube/channel_playlist_download/:
+    post:
+      operationId: youtube_channel_playlist_download_create
+      parameters:
+      - in: query
+        name: channelid
+        schema:
+          type: string
+        description: channel id
+        required: true
+      tags:
+      - youtube
       security:
       - cookieAuth: []
       - basicAuth: []
       responses:
         '200':
           description: No response body
+  /api/v1/youtube/channel_search/:
+    post:
+      operationId: youtube_channel_search_create
+      parameters:
+      - in: query
+        name: query
+        schema:
+          type: string
+        description: channel name to search
+        required: true
+      tags:
+      - youtube
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/v1/youtube/video_comments_download/:
+    post:
+      operationId: youtube_video_comments_download_create
+      parameters:
+      - in: query
+        name: videoId
+        schema:
+          type: string
+        description: video Id
+        required: true
+      tags:
+      - youtube
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/v1/youtube/video_details_download/:
+    post:
+      operationId: youtube_video_details_download_create
+      parameters:
+      - in: query
+        name: videoId
+        schema:
+          type: array
+          minItems: 1
+          items:
+            type: string
+        description: list of video id's to download the details
+        required: true
+      tags:
+      - youtube
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+          description: ''
 components:
   schemas:
-    Answer:
+    Channel:
       type: object
       properties:
-        answer:
+        id:
           type: string
-        is_correct:
+          maxLength: 50
+        title:
+          type: string
+          maxLength: 50
+        description:
+          type: string
+        publishedAt:
+          type: string
+          format: date-time
+        defaultLanguage:
+          type: string
+          maxLength: 4
+        country:
+          type: string
+          maxLength: 3
+        thumbnail_default_url:
+          type: string
+          maxLength: 200
+        thumbnail_high_url:
+          type: string
+          maxLength: 200
+        viewCount:
+          type: integer
+        subscriberCount:
+          type: integer
+        hiddenSubscriberCount:
+          type: boolean
+        videoCount:
+          type: integer
+        topics:
+          type: array
+          items:
+            $ref: '#/components/schemas/Topic'
+        topicCategories:
+          type: array
+          items:
+            $ref: '#/components/schemas/TopicCategory'
+        keywords:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyWord'
+        playlistId:
+          type: string
+          maxLength: 50
+      required:
+      - hiddenSubscriberCount
+      - id
+      - keywords
+      - playlistId
+      - publishedAt
+      - thumbnail_default_url
+      - thumbnail_high_url
+      - title
+      - topicCategories
+      - topics
+    Comment:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 50
+        videoId:
+          type: string
+        textOriginal:
+          type: string
+        authorChannelId:
+          type: string
+          maxLength: 50
+        authorDisplayName:
+          type: string
+          maxLength: 50
+        authorProfileImageUrl:
+          type: string
+          maxLength: 100
+        authorChannelUrl:
+          type: string
+          maxLength: 100
+        canRate:
+          type: boolean
+        viewerRating:
+          type: string
+          maxLength: 50
+        likeCount:
+          type: integer
+        publishedAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        canReply:
+          type: boolean
+        totalReplyCount:
+          type: integer
+        isPublic:
           type: boolean
       required:
-      - answer
-      - is_correct
-    Group:
+      - authorChannelId
+      - authorChannelUrl
+      - authorDisplayName
+      - authorProfileImageUrl
+      - id
+      - publishedAt
+      - textOriginal
+      - updatedAt
+      - videoId
+      - viewerRating
+    KeyWord:
       type: object
       properties:
-        url:
+        keyword:
           type: string
-          format: uri
-          readOnly: true
-        name:
-          type: string
-          maxLength: 150
       required:
-      - name
-      - url
-    PatchedGroup:
+      - keyword
+    PatchedChannel:
       type: object
       properties:
-        url:
+        id:
           type: string
-          format: uri
-          readOnly: true
-        name:
+          maxLength: 50
+        title:
           type: string
-          maxLength: 150
+          maxLength: 50
+        description:
+          type: string
+        publishedAt:
+          type: string
+          format: date-time
+        defaultLanguage:
+          type: string
+          maxLength: 4
+        country:
+          type: string
+          maxLength: 3
+        thumbnail_default_url:
+          type: string
+          maxLength: 200
+        thumbnail_high_url:
+          type: string
+          maxLength: 200
+        viewCount:
+          type: integer
+        subscriberCount:
+          type: integer
+        hiddenSubscriberCount:
+          type: boolean
+        videoCount:
+          type: integer
+        topics:
+          type: array
+          items:
+            $ref: '#/components/schemas/Topic'
+        topicCategories:
+          type: array
+          items:
+            $ref: '#/components/schemas/TopicCategory'
+        keywords:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyWord'
+        playlistId:
+          type: string
+          maxLength: 50
+    PatchedComment:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 50
+        videoId:
+          type: string
+        textOriginal:
+          type: string
+        authorChannelId:
+          type: string
+          maxLength: 50
+        authorDisplayName:
+          type: string
+          maxLength: 50
+        authorProfileImageUrl:
+          type: string
+          maxLength: 100
+        authorChannelUrl:
+          type: string
+          maxLength: 100
+        canRate:
+          type: boolean
+        viewerRating:
+          type: string
+          maxLength: 50
+        likeCount:
+          type: integer
+        publishedAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        canReply:
+          type: boolean
+        totalReplyCount:
+          type: integer
+        isPublic:
+          type: boolean
+    PatchedKeyWord:
+      type: object
+      properties:
+        keyword:
+          type: string
     PatchedProyecto:
       type: object
       properties:
@@ -707,44 +1582,64 @@ components:
           type: string
           format: uri
           readOnly: true
-    PatchedQuestion:
+        canal:
+          type: string
+        usuario:
+          type: integer
+    PatchedTopic:
+      type: object
+      properties:
+        topic:
+          type: string
+    PatchedTopicCategory:
       type: object
       properties:
         category:
           type: string
-          maxLength: 50
-        question:
-          type: string
-        answers:
-          type: array
-          items:
-            $ref: '#/components/schemas/Answer'
-          readOnly: true
-    PatchedUser:
+    PatchedVideo:
       type: object
       properties:
-        url:
+        id:
           type: string
-          format: uri
-          readOnly: true
-        username:
+          maxLength: 50
+        title:
           type: string
-          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
-            only.
-          pattern: ^[\w.@+-]+$
-          maxLength: 150
-        email:
+          maxLength: 100
+        description:
           type: string
-          format: email
-          title: Email address
-          maxLength: 254
-        groups:
+        categoryId:
+          type: string
+          maxLength: 10
+        defaultLanguage:
+          type: string
+          maxLength: 4
+        tags:
           type: array
           items:
-            type: string
-            format: uri
-          description: The groups this user belongs to. A user will get all permissions
-            granted to each of their groups.
+            $ref: '#/components/schemas/Tag'
+        publishedAt:
+          type: string
+          format: date-time
+        viewCount:
+          type: integer
+        likeCount:
+          type: integer
+        favouriteCount:
+          type: integer
+        commentCount:
+          type: integer
+        duration:
+          type: string
+          maxLength: 10
+        definition:
+          type: string
+          maxLength: 4
+        caption:
+          type: string
+          maxLength: 5
+        channelId:
+          type: string
+          maxLength: 50
     Proyecto:
       type: object
       properties:
@@ -758,30 +1653,43 @@ components:
           type: string
           format: uri
           readOnly: true
+        canal:
+          type: string
+        usuario:
+          type: integer
       required:
+      - canal
       - id
       - nombre
       - url
-    Question:
+      - usuario
+    Tag:
+      type: object
+      properties:
+        tag:
+          type: string
+      required:
+      - tag
+    Topic:
+      type: object
+      properties:
+        topic:
+          type: string
+      required:
+      - topic
+    TopicCategory:
       type: object
       properties:
         category:
           type: string
-          maxLength: 50
-        question:
-          type: string
-        answers:
-          type: array
-          items:
-            $ref: '#/components/schemas/Answer'
-          readOnly: true
       required:
-      - answers
       - category
-      - question
     User:
       type: object
       properties:
+        id:
+          type: integer
+          readOnly: true
         url:
           type: string
           format: uri
@@ -805,8 +1713,60 @@ components:
           description: The groups this user belongs to. A user will get all permissions
             granted to each of their groups.
       required:
+      - id
       - url
       - username
+    Video:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 50
+        title:
+          type: string
+          maxLength: 100
+        description:
+          type: string
+        categoryId:
+          type: string
+          maxLength: 10
+        defaultLanguage:
+          type: string
+          maxLength: 4
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+        publishedAt:
+          type: string
+          format: date-time
+        viewCount:
+          type: integer
+        likeCount:
+          type: integer
+        favouriteCount:
+          type: integer
+        commentCount:
+          type: integer
+        duration:
+          type: string
+          maxLength: 10
+        definition:
+          type: string
+          maxLength: 4
+        caption:
+          type: string
+          maxLength: 5
+        channelId:
+          type: string
+          maxLength: 50
+      required:
+      - categoryId
+      - channelId
+      - id
+      - publishedAt
+      - tags
+      - title
   securitySchemes:
     basicAuth:
       type: http
