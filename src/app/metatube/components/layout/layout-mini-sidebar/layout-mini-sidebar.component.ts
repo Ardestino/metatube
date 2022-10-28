@@ -19,7 +19,6 @@ export class LayoutMiniSidebarComponent implements OnInit, OnDestroy {
   loading$: Observable<boolean>;
 
   constructor(
-    private api: ProyectosService, // TODO: Refactorizar a un effect
     private auth: AuthService, // TODO: Cambiar servicio a effecto de autenticacion
     private router: Router, // TODO: Se podra mover el router a los actions?
     private store: Store<AppState>
@@ -31,15 +30,6 @@ export class LayoutMiniSidebarComponent implements OnInit, OnDestroy {
 
     // Iniciar carga de protectos
     this.store.dispatch(ProyectosActions.cargarProyectos());
-
-    // Iniciar carga de proyectos
-    this.api.proyectosList().subscribe(
-      (proyectos) => {
-        this.store.dispatch(ProyectosActions.cargarProyectosSuccess({ proyectos }));
-        this.store.dispatch(ProyectosActions.seleccionaProyecto({proyecto: proyectos[0]}))
-      },
-      error => this.store.dispatch(ProyectosActions.cargarProyectosFailure(error))
-    );
   }
 
   ngOnDestroy(): void {
