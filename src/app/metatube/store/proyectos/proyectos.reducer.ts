@@ -13,7 +13,7 @@ export const initialState :ProyectosState = {
   cargando : false,
   error : false,
   proyectos : [],
-  proyecto_seleccionado : {id:-1,nombre:"no seleccionado", url:"/"}
+  proyecto_seleccionado : {id:-1,nombre:"no seleccionado", url:"/", canal:'', usuario:0}
 }
 
 export const proyectosReducer = createReducer(

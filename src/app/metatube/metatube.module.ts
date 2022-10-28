@@ -9,7 +9,6 @@ import { MainPageComponent } from './components/pages/main-page/main-page.compon
 import { SharedModule } from "../shared/shared.module"
 import { AgGridModule } from '@ag-grid-community/angular'
 import { ChartsModule } from '../../app/charts/charts.module'
-import { QuestionComponent } from "./components/herramientas/question/question.component";
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { TarjetaEstadisticaComponent } from './components/tarjetas/tarjeta-estadistica/tarjeta-estadistica.component';
@@ -40,7 +39,6 @@ import { GrafoDirigidoComponent } from './components/herramientas/grafo-dirigido
   declarations: [
     MainPageComponent,
     DummyTableRichComponent,
-    QuestionComponent,
     DashboardComponent,
     HeaderComponent,
     TarjetaEstadisticaComponent,

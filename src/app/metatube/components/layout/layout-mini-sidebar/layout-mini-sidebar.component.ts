@@ -2,7 +2,7 @@ import {Component, EventEmitter, OnInit, Output, Input, OnDestroy} from '@angula
 import { Router } from "@angular/router";
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { ApiService, Proyecto } from 'src/api';
+import { ProyectosService, Proyecto } from 'src/api';
 import { AuthService } from "src/app/auth/auth.service";
 import { AppState } from 'src/app/metatube/store';
 import * as ProyectosActions from "src/app/metatube/store/proyectos/proyectos.actions";
@@ -19,7 +19,6 @@ export class LayoutMiniSidebarComponent implements OnInit, OnDestroy {
   loading$: Observable<boolean>;
 
   constructor(
-    private api: ApiService, // TODO: Refactorizar a un effect
     private auth: AuthService, // TODO: Cambiar servicio a effecto de autenticacion
     private router: Router, // TODO: Se podra mover el router a los actions?
     private store: Store<AppState>
@@ -31,15 +30,6 @@ export class LayoutMiniSidebarComponent implements OnInit, OnDestroy {
 
     // Iniciar carga de protectos
     this.store.dispatch(ProyectosActions.cargarProyectos());
-
-    // Iniciar carga de proyectos
-    this.api.apiV1ProyectosList().subscribe(
-      (proyectos) => {
-        this.store.dispatch(ProyectosActions.cargarProyectosSuccess({ proyectos }));
-        this.store.dispatch(ProyectosActions.seleccionaProyecto({proyecto: proyectos[0]}))
-      },
-      error => this.store.dispatch(ProyectosActions.cargarProyectosFailure(error))
-    );
   }
 
   ngOnDestroy(): void {

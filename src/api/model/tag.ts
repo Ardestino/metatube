@@ -11,11 +11,7 @@
  */
 
 
-export interface Proyecto { 
-    readonly id: number;
-    nombre: string;
-    readonly url: string;
-    canal: string;
-    usuario: number;
+export interface Tag { 
+    tag: string;
 }
 

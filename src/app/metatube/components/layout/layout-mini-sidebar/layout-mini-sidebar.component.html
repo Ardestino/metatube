@@ -13,7 +13,7 @@
             </div>
           </div>
           <app-mini-sidebar-item *ngFor="let proyecto of proyectos$ | async" [nombre]="proyecto.nombre" (click)="onItemClick(proyecto)"></app-mini-sidebar-item>
-          <div class="app-mini-sidebar__list__item"
+          <!-- <div class="app-mini-sidebar__list__item"
                ngbDropdown
                container="body">
             <div class="app-mini-sidebar__list__item__pill"
@@ -23,7 +23,7 @@
                  ngbDropdownToggle>
               <youpez-ibm-icon iconName="document-add" iconSize="24"></youpez-ibm-icon>
             </div>
-          </div>
+          </div> -->
         </div>
       </ng-scrollbar>
     </div>

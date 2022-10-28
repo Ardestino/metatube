@@ -3,6 +3,15 @@ import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
 import { ApiService } from './api/api.service';
+import { ChannelService } from './api/channel.service';
+import { CommentsService } from './api/comments.service';
+import { KeyWordService } from './api/keyWord.service';
+import { ProyectosService } from './api/proyectos.service';
+import { TopicService } from './api/topic.service';
+import { TopicCategoryService } from './api/topicCategory.service';
+import { UsersService } from './api/users.service';
+import { VideoService } from './api/video.service';
+import { YoutubeService } from './api/youtube.service';
 
 @NgModule({
   imports:      [],

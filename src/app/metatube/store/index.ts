@@ -3,12 +3,14 @@ import { counterReducer, CounterState } from "./counter/counter.reducers";
 import { proyectosReducer, ProyectosState } from "./proyectos/proyectos.reducer";
 import { searchReducer, SearchState } from "./search/search.reducer";
 import { ProyectosEffects } from "./proyectos/proyectos.effects";
+import { SearchEffects } from "./search/search.effects";
 
 
 export const metaFeatureKey = 'meta';
 
 export const AppEffects = [
-  ProyectosEffects
+  ProyectosEffects,
+  SearchEffects
 ];
 
 export interface AppState{
