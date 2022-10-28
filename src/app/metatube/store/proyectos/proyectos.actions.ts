@@ -17,3 +17,18 @@ export const seleccionaProyecto = createAction(
   '[Proyectos] Seleccionando proyecto',
   props<{ proyecto: Proyecto }>()
 );
+
+export const crearProyecto = createAction(
+  '[Proyectos] Crear proyecto',
+  props<{ proyecto: Proyecto}>()
+)
+
+export const crearProyectoSuccess = createAction(
+  '[Proyectos] Creacion de proyecto exitoso',
+  props<{ proyecto: Proyecto}>()
+)
+
+export const crearProyectoFailure = createAction(
+  '[Proyectos] Creacion de proyecto fracaso',
+  props<{ error: any}>()
+)

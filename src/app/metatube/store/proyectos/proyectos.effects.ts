@@ -30,6 +30,20 @@ export class ProyectosEffects {
         map(([action, storeState]) => ProyectosActions.seleccionaProyecto({proyecto: storeState.proyectos[0]})));
   });
 
+  createProyecto$ = createEffect(() => {
+    return this.actions$.pipe(
+        ofType(ProyectosActions.crearProyecto),
+        mergeMap(({proyecto}) =>
+          this.proyectosApi.proyectosCreate(proyecto).pipe(
+            // TODO: Extraer informacion del canal
+            // TODO: Extraer lista de videos
+            // TODO: Extraer commentarios
+            map(proyecto => ProyectosActions.crearProyectoSuccess({ proyecto })),
+            catchError(error => of(ProyectosActions.crearProyectoFailure({ error }))))
+          ),
+    );
+  });
+
 
   constructor(
     private actions$ : Actions,
