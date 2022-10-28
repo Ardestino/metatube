@@ -1,10 +1,12 @@
 import { Injectable } from "@angular/core";
 import { createEffect, ofType, Actions } from "@ngrx/effects";
-import { of, pipe } from "rxjs";
-import { map, filter, catchError, tap, mergeMap, switchMap } from 'rxjs/operators';
+import { EMPTY, Observable, of, pipe } from "rxjs";
+import { map, filter, catchError, tap, mergeMap, switchMap, withLatestFrom } from 'rxjs/operators';
 
 import * as ProyectosActions from "./proyectos.actions";
 import { ProyectosService } from '../../../../api/index';
+import { Action, Store } from "@ngrx/store";
+import { AppState } from "..";
 
 @Injectable()
 export class ProyectosEffects {
@@ -21,18 +23,31 @@ export class ProyectosEffects {
     );
   });
 
+  selectProyect$ = createEffect(() => {
+    return this.actions$.pipe(
+        ofType(ProyectosActions.cargarProyectosSuccess),
+        withLatestFrom(this.store.select(state => state.proyectos)),
+        map(([action, storeState]) => ProyectosActions.seleccionaProyecto({proyecto: storeState.proyectos[0]})));
+  });
 
-  // // Iniciar carga de proyectos
-  // this.api.proyectosList().subscribe(
-  //   (proyectos) => {
-  //     this.store.dispatch(ProyectosActions.cargarProyectosSuccess({ proyectos }));
-  //     this.store.dispatch(ProyectosActions.seleccionaProyecto({proyecto: proyectos[0]}))
-  //   },
-  //   error => this.store.dispatch(ProyectosActions.cargarProyectosFailure(error))
-  // );
+  createProyecto$ = createEffect(() => {
+    return this.actions$.pipe(
+        ofType(ProyectosActions.crearProyecto),
+        mergeMap(({proyecto}) =>
+          this.proyectosApi.proyectosCreate(proyecto).pipe(
+            // TODO: Extraer informacion del canal
+            // TODO: Extraer lista de videos
+            // TODO: Extraer commentarios
+            map(proyecto => ProyectosActions.crearProyectoSuccess({ proyecto })),
+            catchError(error => of(ProyectosActions.crearProyectoFailure({ error }))))
+          ),
+    );
+  });
+
 
   constructor(
     private actions$ : Actions,
-    private proyectosApi: ProyectosService) {}
+    private proyectosApi: ProyectosService,
+    private store : Store<AppState>) {}
 
 }
