@@ -116,10 +116,16 @@ import {
   CheckmarkModule,
   CheckmarkFilledModule,
   AppsModule,
-  WatsonHealthContourFindingModule, SaveModule, WatsonHealth_3DCursorAltModule, OpenPanelRightModule, DocumentAddModule, DocumentExportModule,
+  WatsonHealthContourFindingModule,
+  SaveModule,
+  WatsonHealth_3DCursorAltModule,
+  OpenPanelRightModule,
+  DocumentAddModule,
+  DocumentExportModule,
 } from "@carbon/icons-angular"
 
 import {
+  SideNavModule,
   GridModule,
   ListModule,
   TabsModule,
@@ -145,10 +151,15 @@ import {
   SelectModule,
   SliderModule,
   NumberModule,
-  FileUploaderModule, ProgressIndicatorModule, ModalModule,
+  FileUploaderModule,
+  ProgressIndicatorModule,
+  ModalModule,
+  HeaderModule,
 } from 'carbon-components-angular'
 
 const CarbonModules = [
+  SideNavModule,
+  HeaderModule,
   GridModule,
   ListModule,
   TabsModule,

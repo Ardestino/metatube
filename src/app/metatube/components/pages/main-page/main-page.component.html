@@ -1,50 +1,45 @@
-<div class="app-layout" [ngClass.lt-md]="{'app-layout--show-header': true}">
-  <!-- BEGIN: MAIN SIDENAV CONTAINER -->
-  <youpez-sidenav-container>
-    <!-- BEGIN: MAIN HEADER (XS VIEW) -->
-    <metatube-header-mini class="app-layout__header"></metatube-header-mini>
-    <!-- BEGIN: END HEADER (XS VIEW) -->
+<app-header></app-header>
+<main class="main">
+  <!-- <ibm-sidenav [rail]="true" [expanded]="false">
+    <ibm-sidenav-item>
+      <svg ibmIcon="fade" size="16"></svg>
+      Link
+    </ibm-sidenav-item>
+    <ibm-sidenav-item>
+      <svg ibmIcon="fade" size="16"></svg>
+      Link
+    </ibm-sidenav-item>
+    <ibm-sidenav-menu title="Category title">
+      <svg ibmIcon="fade" size="16"></svg>
+      <ibm-sidenav-item>Link</ibm-sidenav-item>
+      <ibm-sidenav-item>Link</ibm-sidenav-item>
+      <ibm-sidenav-item>Link</ibm-sidenav-item>
+    </ibm-sidenav-menu>
+  </ibm-sidenav> -->
+	<app-dashboard></app-dashboard>
+  <ng-container *ngIf="searchVisible$ | async">
+    <youpez-search></youpez-search>
+  </ng-container>
+</main>
 
-    <!-- BEGIN: MAIN MINI SIDEBAR (LEFT) -->
+<!--
+<div class="app-layout" [ngClass.lt-md]="{'app-layout--show-header': true}">
+  <youpez-sidenav-container>
+    <metatube-header-mini class="app-layout__header"></metatube-header-mini>
+
     <div class="app-layout__mini-sidebar">
       <div class="app-mini-sidebar">
         <app-layout-mini-sidebar></app-layout-mini-sidebar>
       </div>
     </div>
-    <!-- END: MAIN MINI SIDEBAR (LEFT) -->
 
-    <!-- BEGIN: MAIN SIDEBAR -->
-    <!--youpez-sidenav>
-      < [breakpoint]="mainSidebarOpts.breakpoint"
-      [opened]="mainSidebarOpts.opened"
-      [hoverAble]="mainSidebarOpts.hoverAble"
-      [mode]="mainSidebarOpts.mode"
-      [toggleableBtn]="mainSidebarOpts.toggleableBtn"
-      [size]="mainSidebarOpts.size"
-      (visibleChange)="onVisibilityChange($event)" -->
-      <!--app-layout-sidebar>
-        < [menu]="menu"
-        [opened]="mainSidebarOpts.opened"
-        (sideBarToggle)="onSideBarToggle($event)" >
-      </app-layout-sidebar>
-    </youpez-sidenav-->
-    <!-- END: MAIN SIDEBAR -->
-
-    <!-- BEGIN: MAIN LAYOUT -->
     <div class="app-layout__content app-a-box app-scrollbar-fix">
-      <!-- BEGIN: MAIN PAGE CONTENT -->
       <div class="app-layout__content__inner">
         <app-dashboard ></app-dashboard>
       </div>
-      <!-- END: MAIN PAGE CONTENT -->
     </div>
-    <!-- END: MAIN LAYOUT -->
-
-    <ng-container *ngIf="searchVisible$ | async">
-      <youpez-search></youpez-search>
-    </ng-container>
 
   </youpez-sidenav-container>
-  <!-- END: MAIN SIDENAV CONTAINER -->
 
 </div>
+-->
