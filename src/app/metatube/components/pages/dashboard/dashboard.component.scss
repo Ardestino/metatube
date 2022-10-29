@@ -5,11 +5,6 @@
 	max-width: 100%;
 }
 
-.landing-page__banner {
-	padding-top: $spacing-05;
-	padding-bottom: $spacing-07 * 4;
-}
-
 @mixin landing-page-background() {
 	background-color: $ui-01;
 	position: relative;
@@ -28,12 +23,13 @@
 
 .landing-page__banner {
 	padding-top: $spacing-05;
-	padding-bottom: $spacing-07 * 4;
+	padding-bottom: $spacing-07 * 2;
 	@include landing-page-background;
 }
 
 .landing-page__heading {
 	@include carbon--type-style('productive-heading-05');
+  margin-top: $spacing-06;
 }
 
 .landing-page__r2 {
