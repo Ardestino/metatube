@@ -6,11 +6,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
- youpez-ibm-icon, .app-ibm-icon, .app-ibm-pictogram {
-  svg {
-    fill: var(--theme-appText);
-  }
-}
+// FIXME: Corregir el cambio de color de iconos
+//  youpez-ibm-icon, .app-ibm-icon, .app-ibm-pictogram {
+//   svg {
+//     fill: var(--theme-appText);
+//   }
+// }
 
 .app-ibm-pictogram-stroke {
   stroke: var(--theme-appText);
