@@ -157,7 +157,10 @@ import {
   HeaderModule,
 } from 'carbon-components-angular'
 
+import { ChartsModule } from "@carbon/charts-angular";
+
 const CarbonModules = [
+  ChartsModule,
   SideNavModule,
   HeaderModule,
   GridModule,
