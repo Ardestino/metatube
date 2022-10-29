@@ -5,7 +5,7 @@
         <div class="app-symbol app-symbol--default mr-4 rounded">
           <div class="app-symbol__label w-20 h-20">
             <!-- <youpez-ibm-icon iconName="cloudDataOps" iconSize="32"></youpez-ibm-icon> -->
-            <img src="{{imagen_canal_url}}" />
+            <img src="{{imagen_canal_url$ | async}}" class="mr-4 rounded w-20 h-20"/>
           </div>
         </div>
         <div>
@@ -20,19 +20,19 @@
     </div>
     <div class="app-list app-list--hover app-list--select">
       <ng-container *ngFor="let sub of subscriptions">
-        <div class="app-list__item" [ngClass]="{'app-color-success':sub.up,'app-color-danger':!sub.up}">
+        <div class="app-list__item" [ngClass]="{'app-color-success':sub.incremental ,'app-color-danger':!sub.incremental}">
           <div class="app-list__item__prefix w-10 text-center">
-            <ng-container *ngIf="sub.up">
+            <ng-container *ngIf="sub.incremental">
               <youpez-ibm-icon iconName="arrowUp" iconSize="16"></youpez-ibm-icon>
             </ng-container>
-            <ng-container *ngIf="!sub.up">
+            <ng-container *ngIf="!sub.incremental">
               <youpez-ibm-icon iconName="arrowDown" iconSize="16"></youpez-ibm-icon>
             </ng-container>
           </div>
           <div class="app-list__item__content">
-            {{sub.month}}
+            {{sub.categoria}}
           </div>
-          <div class="app-expressive-heading-02 mr-1">{{sub.count}}</div>
+          <div class="app-expressive-heading-02 mr-1">{{sub.valor}}</div>
           <!-- <button ibmButton="ghost" size="sm" class="bx--btn--icon-only">
                 <svg class="bx--btn__icon" ibmIconArrowRight size="32"></svg>
               </button> -->

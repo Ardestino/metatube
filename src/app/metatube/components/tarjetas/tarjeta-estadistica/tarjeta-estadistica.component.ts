@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ListItem } from 'carbon-components-angular';
+import { Store } from '@ngrx/store';
+import { AppState } from "src/app/metatube/store";
+import { Channel, Proyecto } from "src/api";
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-tarjeta-estadistica',
@@ -12,7 +16,7 @@ export class TarjetaEstadisticaComponent implements OnInit {
   @Input() subtitulo:string;
   @Input() numero;
 
-  imagen_canal_url = "https://yt3.ggpht.com/FDjW2-Cb6tFbtNv02D1UX4XtvP7P3eEWB93hGimeP4pb2TadVhAgxSVMZLZDp5NiBWGLT5eprA=s88-c-k-c0x00ffffff-no-rj";
+  imagen_canal_url$ : Observable<string>;
 
   public comboboxItems : ListItem[] = [
     {
@@ -29,36 +33,39 @@ export class TarjetaEstadisticaComponent implements OnInit {
     }
   ]
 
-  public subscriptions = [
-    {
-      month: 'videos',
-      count: '-111,333',
-      up: false,
-    },
-    {
-      month: 'vistas',
-      count: '233,123',
-      up: true,
-    },
-    {
-      month: 'subscriptores',
-      count: '543,854',
-      up: true,
-    },
-    {
-      month: 'Tiempo Visualizacion',
-      count: '-99,112',
-      up: false,
-    },
-    {
-      month: 'Retencion',
-      count: '678,112',
-      up: true,
-    }
-  ]
+  public subscriptions = []
 
-  constructor() {
-
+  constructor(private store: Store<AppState>) {
+    this.imagen_canal_url$ = store.select(state => state.proyectos.canal_seleccionado.thumbnail_high_url);
+    store.select(state => state.proyectos.canal_seleccionado).subscribe((canal_seleccionado)=>{
+      this.subscriptions = [
+        {
+          categoria: 'videos',
+          valor: canal_seleccionado.videoCount,
+          incremental: true,
+        },
+        {
+          categoria: 'vistas',
+          valor: canal_seleccionado.viewCount,
+          incremental: true,
+        },
+        {
+          categoria: 'subscriptores',
+          valor: canal_seleccionado.subscriberCount,
+          incremental: true,
+        },
+        {
+          categoria: 'Tiempo Visualizacion',
+          valor: '0',
+          incremental: true,
+        },
+        {
+          categoria: 'Retencion',
+          valor: '0',
+          incremental: true,
+        }
+      ]
+    });
    }
 
   ngOnInit(): void {
