@@ -4,7 +4,7 @@ import { EMPTY, Observable, of, pipe } from "rxjs";
 import { map, filter, catchError, tap, mergeMap, switchMap, withLatestFrom } from 'rxjs/operators';
 
 import * as ProyectosActions from "./proyectos.actions";
-import { ProyectosService } from '../../../../api/index';
+import { ChannelService, ProyectosService } from 'src/api/index';
 import { Action, Store } from "@ngrx/store";
 import { AppState } from "..";
 
@@ -30,6 +30,23 @@ export class ProyectosEffects {
         map(([action, storeState]) => ProyectosActions.seleccionaProyecto({proyecto: storeState.proyectos[0]})));
   });
 
+  loadChannel$ = createEffect(() => {
+    return this.actions$.pipe(
+        ofType(ProyectosActions.seleccionaProyecto),
+        map(({proyecto}) => ProyectosActions.cargarCanal({canal : proyecto.canal})));
+  });
+
+  loadChannelSuccess$ = createEffect(() => {
+    return this.actions$.pipe(
+        ofType(ProyectosActions.cargarCanal),
+        mergeMap(({canal}) =>
+          this.channelsApi.channelRetrieve(canal).pipe(
+            map(channel => ProyectosActions.cargarCanalSuccess({ canal : channel })),
+            catchError(error => of(ProyectosActions.cargarCanalFailure({ error }))))
+          ),
+    );
+  });
+
   createProyecto$ = createEffect(() => {
     return this.actions$.pipe(
         ofType(ProyectosActions.crearProyecto),
@@ -48,6 +65,7 @@ export class ProyectosEffects {
   constructor(
     private actions$ : Actions,
     private proyectosApi: ProyectosService,
+    private channelsApi: ChannelService,
     private store : Store<AppState>) {}
 
 }

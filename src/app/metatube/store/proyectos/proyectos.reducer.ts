@@ -1,20 +1,45 @@
 import { createReducer, on } from "@ngrx/store";
-import { Proyecto } from "src/api/index";
+import { Proyecto, Channel } from "src/api/index";
 import * as proyectosActions  from "./proyectos.actions";
 
 export interface ProyectosState{
   cargando : boolean,
   error : boolean,
   proyectos : Proyecto[],
-  proyecto_seleccionado : Proyecto
+  proyecto_seleccionado : Proyecto,
+  canal_seleccionado : Channel
 }
 
-export const initialState :ProyectosState = {
-  cargando : false,
-  error : false,
-  proyectos : [],
-  proyecto_seleccionado : {id:-1,nombre:"no seleccionado", url:"/", canal:'', usuario:0}
-}
+export const initialState: ProyectosState = {
+  cargando: false,
+  error: false,
+  proyectos: [],
+  proyecto_seleccionado: {
+    id: -1,
+    nombre: 'no seleccionado',
+    url: '/',
+    canal: '',
+    usuario: 0,
+  },
+  canal_seleccionado: {
+    id: '',
+    title: '',
+    description: '',
+    publishedAt: '',
+    defaultLanguage: '',
+    country: '',
+    thumbnail_default_url: '',
+    thumbnail_high_url: '',
+    viewCount: 0,
+    subscriberCount: 0,
+    hiddenSubscriberCount: true,
+    videoCount: 0,
+    topics: [],
+    topicCategories: [],
+    keywords: [],
+    playlistId: '',
+  },
+};
 
 export const proyectosReducer = createReducer(
   initialState,
@@ -39,5 +64,6 @@ export const proyectosReducer = createReducer(
   })),
   on(proyectosActions.crearProyectoFailure, (state, { error }) => ({
     ...state,
-  }))
+  })),
+  on(proyectosActions.cargarCanalSuccess, (state, {canal})=>({...state, canal_seleccionado: canal}))
 );

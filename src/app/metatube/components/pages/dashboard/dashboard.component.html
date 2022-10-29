@@ -13,7 +13,7 @@
         </ibm-breadcrumb-item>
       </ibm-breadcrumb> -->
       <h1 class="landing-page__heading">
-        {{(proyecto$ | async).nombre}}
+        {{(canal$ | async).title}}
       </h1>
     </div>
   </div>
@@ -28,11 +28,9 @@
                   Descripción
                 </h2>
                 <p class="landing-page__p">
-                  La sombra del imperio habla sobre el apasionante universo de STAR WARS, abordamos historias y teorias, tanto de lo que
-                  es canon como lo que es catalogado como legends. Todo con el fin de compartir esta maravillosa saga con los fans de las
-                  Guerras de las Galaxias.
+                  {{(canal$ | async).description}}
                 </p>
-                <button ibmButton="primary">Abrir Canal</button>
+                <a href="https://www.youtube.com/channel/{{(canal$ | async).id}}"><button ibmButton="primary">Abrir Canal</button></a>
               </div>
               <div ibmCol [columnNumbers]="{'md': 4, 'lg': 16}">
                 <img
