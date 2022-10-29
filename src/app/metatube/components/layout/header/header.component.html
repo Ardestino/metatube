@@ -2,7 +2,11 @@
   <ibm-hamburger></ibm-hamburger>
   <!-- *ngIf="hasHamburger" (click)="expanded($event)" -->
   <ibm-header-navigation ariaLabel="Carbon Tutorial">
-    <ibm-header-item [route]="['/repos']">Proyectos</ibm-header-item>
+    <ibm-header-item [route]="['/repos']"
+      *ngFor="let proyecto of proyectos$ | async"
+      (click)="onItemClick(proyecto)">
+      {{ proyecto.nombre }}
+    </ibm-header-item>
   </ibm-header-navigation>
   <ibm-header-global>
     <ibm-header-action title="action">
