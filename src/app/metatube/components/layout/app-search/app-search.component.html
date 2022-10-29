@@ -51,19 +51,23 @@
                 [maxLineWidth]="220">
               </ibm-skeleton-text>
             </ng-container>
-            <ng-container *ngIf="!(loading$ | async)">
+            <ng-container *ngIf="(search_result$ | async).length > 0">
               <div>
                 <div class="mb-2">
                   <div class="app-row app-row--center">
-                    <div class="app-symbol mr-3" *ngIf="(search_result$ | async).length > 0">
+                    <div class="app-symbol mr-3" >
                       <div class="app-symbol__label w-12 h-12 rounded-lg" style="background-color: black">
                         <img src="{{(selected_result$ | async).thumbnail}}" class="w-12 h-12 rounded-lg" />
                       </div>
                     </div>
                     <div>
                       <div class="app-expressive-heading-03">{{(selected_result$ | async).title}}</div>
+                       <Button size='sm' disabled={false} kind='ghost'>Button</Button>
                       <div class="app-helper-text-01 app-color-success">
-                        <!-- # Seguidores -->
+                        <a>Descargar Info del Canal ↓</a>
+                      </div>
+                      <div class="app-helper-text-01 app-color-success">
+                        Informacion descargada ✓
                       </div>
                     </div>
                   </div>

@@ -27,24 +27,11 @@
               "src/assets"
             ],
             "styles": [
-              {
-                "input": "src/app/shared/styles/scss/theme/app.carbon.light.scss",
-                "bundleName": "theme-light",
-                "inject": false
-              },
-              {
-                "input": "src/app/shared/styles/scss/theme/app.carbon.dark.scss",
-                "bundleName": "theme-dark",
-                "inject": false
-              },
-              "src/app/shared/styles/scss/theme/app.scss",
-              "src/app/shared/styles/app.themes.scss",
+              "src/styles.scss",
               "src/assets/tailwind/tailwind.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "./src/app/shared/styles/scss/theme/app.helpers.scss",
-                "./src/app/shared/styles/scss/theme/app.variables.scss"
               ]
             },
             "scripts": [],

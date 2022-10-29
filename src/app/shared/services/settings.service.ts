@@ -130,7 +130,7 @@ export class SettingsService {
     registerTheme('default', getLightEchartsTheme())
     this.removeTheme('app-theme--dark')
     this.setClass('app-theme--light')
-    this.loadStyle('theme-light.css')
+    //FIXME: Cargar los estilos this.loadStyle('theme-light.css')
   }
 
   private loadDarkTheme() {
