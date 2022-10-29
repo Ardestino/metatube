@@ -62,11 +62,10 @@
                     </div>
                     <div>
                       <div class="app-expressive-heading-03">{{(selected_result$ | async).title}}</div>
-                       <Button size='sm' disabled={false} kind='ghost'>Button</Button>
-                      <div class="app-helper-text-01 app-color-success">
+                      <div class="app-helper-text-01 app-color-success" *ngIf="true">
                         <a>Descargar Info del Canal ↓</a>
                       </div>
-                      <div class="app-helper-text-01 app-color-success">
+                      <div class="app-helper-text-01 app-color-success" *ngIf="false">
                         Informacion descargada ✓
                       </div>
                     </div>

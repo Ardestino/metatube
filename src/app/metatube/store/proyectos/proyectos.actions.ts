@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Proyecto } from 'src/api';
+import { Channel, Proyecto } from 'src/api';
 
 export const cargarProyectos = createAction('[Proyectos] Cargar proyectos');
 
@@ -29,6 +29,21 @@ export const crearProyectoSuccess = createAction(
 )
 
 export const crearProyectoFailure = createAction(
+  '[Proyectos] Creacion de proyecto fracaso',
+  props<{ error: any}>()
+)
+
+export const cargarCanal = createAction(
+  '[Proyectos] Cargar canal',
+  props<{ canal: string}>()
+)
+
+export const cargarCanalSuccess = createAction(
+  '[Proyectos] Carga del canal exitoso',
+  props<{ canal: Channel}>()
+)
+
+export const cargarCanalFailure = createAction(
   '[Proyectos] Creacion de proyecto fracaso',
   props<{ error: any}>()
 )

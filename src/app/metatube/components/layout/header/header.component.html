@@ -1,13 +1,38 @@
+<ibm-header [route]="['/']" brand="MetaCube" name="[AI]">
+  <ibm-hamburger></ibm-hamburger>
+  <!-- *ngIf="hasHamburger" (click)="expanded($event)" -->
+  <ibm-header-navigation ariaLabel="Carbon Tutorial">
+    <ibm-header-item [route]="['/repos']"
+      *ngFor="let proyecto of proyectos$ | async"
+      (click)="onItemClick(proyecto)">
+      {{ proyecto.nombre }}
+    </ibm-header-item>
+  </ibm-header-navigation>
+  <ibm-header-global>
+    <ibm-header-action title="action" (click)="onSearchClick()">
+      <youpez-ibm-icon iconName="search" iconSize="24"></youpez-ibm-icon>
+    </ibm-header-action>
+    <ibm-header-action title="action">
+      <youpez-ibm-icon iconName="help" iconSize="24"></youpez-ibm-icon>
+    </ibm-header-action>
+    <ibm-header-action title="action">
+      <youpez-ibm-icon iconName="user" iconSize="24"></youpez-ibm-icon>
+    </ibm-header-action>
+  </ibm-header-global>
+</ibm-header>
+
+
 <!-- HEADER BEGIN-->
+<!--
 <div fxLayout="row wrap" class="app-header app-header--hero">
   <div class="app_header__tools">
-    <!--button ibmButton="primary" size="sm" class="mr-1" (click)="downloadAsPDF();">
-                Nuevo Proyecto
-              </button-->
-    <!--button ibmButton="tertiary" size="sm" fxHide fxShow.gt-sm (click)="generatePDF();">
+    <button ibmButton="primary" size="sm" class="mr-1" (click)="downloadAsPDF();">
+      Nuevo Proyecto
+    </button>
+    <button ibmButton="tertiary" size="sm" fxHide fxShow.gt-sm (click)="generatePDF();">
       Exportar PDF
       <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
-    </button-->
+    </button>
   </div>
   <div fxFlex="100%" fxFlex.gt-sm="50%" class="relative z-10">
     <div class="app-subtitle text-muted">
@@ -17,8 +42,10 @@
       <span class="app-expressive-heading-06 mr-2">Metacube</span>
       <span class="app-expressive-heading-03">[AI]</span>
       <br>
-      <span class="app-expressive-heading-03"><a href="{{url | async}}" target="_blank"> {{subtitulo | async}}</a></span>
+      <span class="app-expressive-heading-03"><a href="{{url | async}}" target="_blank"> {{subtitulo |
+          async}}</a></span>
     </div>
   </div>
 </div>
+-->
 <!-- HEADDER END -->
