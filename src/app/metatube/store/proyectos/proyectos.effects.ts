@@ -4,7 +4,7 @@ import { EMPTY, Observable, of, pipe } from "rxjs";
 import { map, filter, catchError, tap, mergeMap, switchMap, withLatestFrom } from 'rxjs/operators';
 
 import * as ProyectosActions from "./proyectos.actions";
-import { ChannelService, ProyectosService } from 'src/api/index';
+import { AIService, ChannelService, ProyectosService } from 'src/api/index';
 import { Action, Store } from "@ngrx/store";
 import { AppState } from "..";
 
@@ -47,6 +47,15 @@ export class ProyectosEffects {
     );
   });
 
+  loadGraphBestDay$ = createEffect(() => {
+    return this.actions$.pipe(
+        ofType(ProyectosActions.cargarCanalSuccess),
+        mergeMap(({canal}) =>
+          this.aiApi.aIMejorDiaPublicarCreate(canal.id).pipe(
+            map(data => ProyectosActions.cargarGraficaBestDay({ data }))
+          )))
+    });
+
   createProyecto$ = createEffect(() => {
     return this.actions$.pipe(
         ofType(ProyectosActions.crearProyecto),
@@ -66,6 +75,7 @@ export class ProyectosEffects {
     private actions$ : Actions,
     private proyectosApi: ProyectosService,
     private channelsApi: ChannelService,
+    private aiApi : AIService,
     private store : Store<AppState>) {}
 
 }
