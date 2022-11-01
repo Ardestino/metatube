@@ -2,6 +2,7 @@ import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core
 import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
+import { AIService } from './api/aI.service';
 import { ApiService } from './api/api.service';
 import { ChannelService } from './api/channel.service';
 import { CommentsService } from './api/comments.service';
@@ -12,6 +13,7 @@ import { TopicCategoryService } from './api/topicCategory.service';
 import { UsersService } from './api/users.service';
 import { VideoService } from './api/video.service';
 import { YoutubeService } from './api/youtube.service';
+import { YoutubeDatabaseService } from './api/youtubeDatabase.service';
 
 @NgModule({
   imports:      [],

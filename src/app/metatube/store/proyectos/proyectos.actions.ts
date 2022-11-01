@@ -47,3 +47,8 @@ export const cargarCanalFailure = createAction(
   '[Proyectos] Creacion de proyecto fracaso',
   props<{ error: any}>()
 )
+
+export const cargarGraficaBestDay = createAction(
+  '[Proyectos] Cargar grafica best day',
+  props<{ data: any}>()
+)

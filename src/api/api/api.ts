@@ -1,3 +1,5 @@
+export * from './aI.service';
+import { AIService } from './aI.service';
 export * from './api.service';
 import { ApiService } from './api.service';
 export * from './channel.service';
@@ -18,4 +20,6 @@ export * from './video.service';
 import { VideoService } from './video.service';
 export * from './youtube.service';
 import { YoutubeService } from './youtube.service';
-export const APIS = [ApiService, ChannelService, CommentsService, KeyWordService, ProyectosService, TopicService, TopicCategoryService, UsersService, VideoService, YoutubeService];
+export * from './youtubeDatabase.service';
+import { YoutubeDatabaseService } from './youtubeDatabase.service';
+export const APIS = [AIService, ApiService, ChannelService, CommentsService, KeyWordService, ProyectosService, TopicService, TopicCategoryService, UsersService, VideoService, YoutubeService, YoutubeDatabaseService];

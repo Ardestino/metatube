@@ -149,6 +149,71 @@ paths:
                 type: object
                 additionalProperties: {}
           description: ''
+  /api/v1/AI/extract_sentiment/:
+    post:
+      operationId: AI_extract_sentiment_create
+      parameters:
+      - in: query
+        name: text
+        schema:
+          type: string
+        description: texto a analizar
+        required: true
+      tags:
+      - AI
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/v1/AI/get_related_topics/:
+    post:
+      operationId: AI_get_related_topics_create
+      tags:
+      - AI
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/v1/AI/get_trend_data/:
+    post:
+      operationId: AI_get_trend_data_create
+      parameters:
+      - in: query
+        name: keywords
+        schema:
+          type: string
+        description: comma separated values
+        required: true
+      tags:
+      - AI
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/v1/AI/mejor_dia_publicar/:
+    post:
+      operationId: AI_mejor_dia_publicar_create
+      parameters:
+      - in: query
+        name: channelid
+        schema:
+          type: string
+        description: channel id
+        required: true
+      tags:
+      - AI
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          description: No response body
   /api/v1/channel/:
     get:
       operationId: channel_list
@@ -1251,6 +1316,60 @@ paths:
       - basicAuth: []
       responses:
         '204':
+          description: No response body
+  /api/v1/youtube-database/pull_channel_comments_to_database/:
+    post:
+      operationId: youtube_database_pull_channel_comments_to_database_create
+      parameters:
+      - in: query
+        name: channelid
+        schema:
+          type: string
+        description: channel id
+        required: true
+      tags:
+      - youtube-database
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/v1/youtube-database/pull_channel_to_database/:
+    post:
+      operationId: youtube_database_pull_channel_to_database_create
+      parameters:
+      - in: query
+        name: channelid
+        schema:
+          type: string
+        description: channel id
+        required: true
+      tags:
+      - youtube-database
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/v1/youtube-database/pull_video_comments_to_database/:
+    post:
+      operationId: youtube_database_pull_video_comments_to_database_create
+      parameters:
+      - in: query
+        name: videoId
+        schema:
+          type: string
+        description: video Id to pull comments
+        required: true
+      tags:
+      - youtube-database
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
           description: No response body
   /api/v1/youtube/channel_download/:
     post:

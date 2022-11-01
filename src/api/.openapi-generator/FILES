@@ -1,6 +1,7 @@
 .gitignore
 README.md
 api.module.ts
+api/aI.service.ts
 api/api.service.ts
 api/api.ts
 api/channel.service.ts
@@ -12,6 +13,7 @@ api/topicCategory.service.ts
 api/users.service.ts
 api/video.service.ts
 api/youtube.service.ts
+api/youtubeDatabase.service.ts
 configuration.ts
 encoder.ts
 git_push.sh

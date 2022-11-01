@@ -7,7 +7,8 @@ export interface ProyectosState{
   error : boolean,
   proyectos : Proyecto[],
   proyecto_seleccionado : Proyecto,
-  canal_seleccionado : Channel
+  canal_seleccionado : Channel,
+  grafica_mejor_dia : any
 }
 
 export const initialState: ProyectosState = {
@@ -39,6 +40,7 @@ export const initialState: ProyectosState = {
     keywords: [],
     playlistId: '',
   },
+  grafica_mejor_dia : []
 };
 
 export const proyectosReducer = createReducer(
@@ -65,5 +67,6 @@ export const proyectosReducer = createReducer(
   on(proyectosActions.crearProyectoFailure, (state, { error }) => ({
     ...state,
   })),
-  on(proyectosActions.cargarCanalSuccess, (state, {canal})=>({...state, canal_seleccionado: canal}))
+  on(proyectosActions.cargarCanalSuccess, (state, {canal})=>({...state, canal_seleccionado: canal})),
+  on(proyectosActions.cargarGraficaBestDay, (state, {data})=> ({...state, grafica_mejor_dia: data.list}))
 );
