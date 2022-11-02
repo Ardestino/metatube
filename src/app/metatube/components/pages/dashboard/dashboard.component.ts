@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from "src/app/metatube/store";
-import { Channel, Proyecto } from "src/api";
+import { Channel, Proyecto, AIService } from "src/api";
 import { Observable } from 'rxjs';
 
 @Component({
@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
   proyecto$: Observable<Proyecto>;
   canal$: Observable<Channel>;
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<AppState>, private aiApi: AIService) {}
 
   ngOnInit(): void {
     this.proyecto$ = this.store.select(
@@ -22,6 +22,19 @@ export class DashboardComponent implements OnInit {
     this.canal$ = this.store.select(
       (state) => state.proyectos.canal_seleccionado
     );
+
+    this.canal$.subscribe(({keywords, topics, topicCategories})=>{
+      const keyword = keywords.map((value) => ({ 'word' : value.keyword, 'value': 60 , group : 'keyword' }))
+      const topic = topics.map((value) => ({ 'word' : value.topic, 'value': 60 , group : 'topic' }))
+      const category = topicCategories.map((value) => ({ 'word' : value.category.split('/').slice(-1)[0], 'value': 60 , group : 'category' }))
+
+      // TODO: Extraer los calores de la api de py trends
+      // TODO: Extraer los valores del diccionario de topics
+
+      const data = keyword.concat(topic).concat(category);
+      console.log(data);
+      this.data = data;
+    });
   }
 
   data = [
@@ -492,7 +505,7 @@ export class DashboardComponent implements OnInit {
     },
   ];
   options = {
-    title: 'Word cloud',
+    title: 'Palabras Clave',
     resizable: true,
     color: {
       pairing: {
