@@ -35,6 +35,9 @@ import { TopVideosComponent } from './components/herramientas/top-videos/top-vid
 import { TitulosSimilaresComponent } from './components/herramientas/titulos-similares/titulos-similares.component';
 import { GrafoDirigidoComponent } from './components/herramientas/grafo-dirigido/grafo-dirigido.component'
 
+// Echarts
+import { NgxEchartsModule } from 'ngx-echarts';
+
 @NgModule({
   declarations: [
     MainPageComponent,
@@ -66,7 +69,10 @@ import { GrafoDirigidoComponent } from './components/herramientas/grafo-dirigido
     EffectsModule.forRoot(AppEffects),
     ChartsModule,
     AgGridModule,
-    SharedModule // SideNav
+    SharedModule, // SideNav
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ]
 })
 export class MetatubeModule { }
