@@ -167,9 +167,34 @@ paths:
       responses:
         '200':
           description: No response body
+  /api/v1/AI/get_related_searchs/:
+    post:
+      operationId: AI_get_related_searchs_create
+      parameters:
+      - in: query
+        name: keywords
+        schema:
+          type: string
+        description: comma separated values
+        required: true
+      tags:
+      - AI
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          description: No response body
   /api/v1/AI/get_related_topics/:
     post:
       operationId: AI_get_related_topics_create
+      parameters:
+      - in: query
+        name: keywords
+        schema:
+          type: string
+        description: comma separated values
+        required: true
       tags:
       - AI
       security:
@@ -188,6 +213,31 @@ paths:
           type: string
         description: comma separated values
         required: true
+      - in: query
+        name: timePeriod
+        schema:
+          type: string
+          enum:
+          - now 1-H
+          - now 1-d
+          - now 4-H
+          - now 7-d
+          - today 1-m
+          - today 12-m
+          - today 3-m
+          - today 5-y
+          default: now 1-d
+      tags:
+      - AI
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/v1/AI/get_trending_searchs/:
+    post:
+      operationId: AI_get_trending_searchs_create
       tags:
       - AI
       security:
