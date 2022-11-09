@@ -45,7 +45,6 @@ export class GrafoDirigidoComponent implements OnInit  {
 
   ngOnInit(): void {
     this.http.get<Graph>('./assets/data/les-miserables.json').subscribe((graph)=>{
-      console.log(graph);
       this.options = of({
         tooltip: {},
         legend: [
