@@ -24,15 +24,19 @@ export class DashboardComponent implements OnInit {
     );
 
     this.canal$.subscribe(({keywords, topics, topicCategories})=>{
-      const keyword = keywords.map((value) => ({ 'word' : value.keyword, 'value': 60 , group : 'keyword' }))
-      const topic = topics.map((value) => ({ 'word' : value.topic, 'value': 60 , group : 'topic' }))
-      const category = topicCategories.map((value) => ({ 'word' : value.category.split('/').slice(-1)[0], 'value': 60 , group : 'category' }))
+      // Formar lista de palabras para mandar a la api
+      const map = keywords.flatMap((value)=> value.keyword);
+      if(map.length > 0) {
+        this.aiApi.aIGetTrendDataCreate(map.join(',')).subscribe((value)=>{
+          this.data = Object.keys(value).map((v)=>({ 'word' : v, 'value': value[v][Object.keys(value[v]).reverse()[1]] , 'group' : 'keyword'}))
+        });
+      }
+      //const keyword = keywords.map((value) => ({ 'word' : value.keyword, 'value': 60 , group : 'keyword' }))
+      //const topic = topics.map((value) => ({ 'word' : value.topic, 'value': 60 , group : 'topic' }))
+      //const category = topicCategories.map((value) => ({ 'word' : value.category.split('/').slice(-1)[0], 'value': 60 , group : 'category' }))
 
-      // TODO: Extraer los calores de la api de py trends
-      // TODO: Extraer los valores del diccionario de topics
-
-      const data = keyword.concat(topic).concat(category);
-      this.data = data;
+      //const data = keyword.concat(topic).concat(category);
+      //this.data = data;
     });
   }
 
