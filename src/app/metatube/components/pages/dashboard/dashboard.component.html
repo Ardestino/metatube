@@ -3,18 +3,6 @@
     <div ibmGrid class="bx--grid--full-width landing-page">
       <div ibmRow class="landing-page__banner">
         <div ibmCol [columnNumbers]="{'lg': 16}" class="flex">
-          <!-- <ibm-breadcrumb [noTrailingSlash]="true">
-        <ibm-breadcrumb-item href="#1">
-          Breadcrumb 1
-        </ibm-breadcrumb-item>
-        <ibm-breadcrumb-item href="#2">
-          Breadcrumb 2
-        </ibm-breadcrumb-item>
-        <ibm-breadcrumb-item href="#3">
-          Breadcrumb 3
-        </ibm-breadcrumb-item>
-      </ibm-breadcrumb> -->
-          <!-- <img src="{{(canal$ | async).thumbnail_high_url}}" alt="" class="mr-4 rounded w-20 h-20" /> -->
           <h1 class="landing-page__heading">
             {{(canal$ | async).title}}
           </h1>
@@ -95,30 +83,6 @@
           </ibm-tabs>
         </div>
       </div>
-      <!-- FIXME: Corregir el footer <div ibmRow class="landing-page__r3">
-    <div ibmCol [columnNumbers]="{'md': 4, 'lg': 4}">
-      <h3 class="landing-page__label">The Principles</h3>
-    </div>
-    <div ibmCol [columnNumbers]="{'md': 4, 'lg': 4}">Carbon is Open</div>
-    <div ibmCol [columnNumbers]="{'md': 4, 'lg': 4}">Carbon is Modular</div>
-    <div ibmCol [columnNumbers]="{'md': 4, 'lg': 4}">Carbon is Consistent</div>
-  </div> -->
     </div>
   </ng-scrollbar>
 </div>
-<!--
-<div class="app-a-box app-scrollbar-fix" id="invoice" #invoice>
-  <ng-scrollbar>
-    <app-header></app-header>
-    <app-contenedor-tarjetas>
-      <app-tarjeta-estadistica></app-tarjeta-estadistica>
-      <app-mejor-dia-semana></app-mejor-dia-semana>
-      <app-top-videos></app-top-videos>
-      <app-titulos-similares></app-titulos-similares>
-      <app-grafo-dirigido></app-grafo-dirigido>
-      <app-counter></app-counter>
-    </app-contenedor-tarjetas>
-    <div class="app-bg-container app-bg-dotted"></div>
-  </ng-scrollbar>
-</div>
--->
