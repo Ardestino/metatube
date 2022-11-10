@@ -25,7 +25,6 @@ import { StoreModule } from '@ngrx/store';
 import { metaReducer, metaFeatureKey, AppEffects } from './store';
 import { CounterComponent } from './components/herramientas/counter/counter.component';
 import { EffectsModule } from '@ngrx/effects';
-import { ContenedorTarjetasComponent } from './components/tarjetas/contenedor-tarjetas/contenedor-tarjetas.component';
 import { TarjetaComponent } from './components/tarjetas/tarjeta/tarjeta.component';
 import { TarjetaHeaderComponent } from './components/tarjetas/tarjeta-header/tarjeta-header.component';
 import { TarjetaHeaderToolComponent } from './components/tarjetas/tarjeta-header-tool/tarjeta-header-tool.component';
@@ -51,7 +50,6 @@ import { NgxEchartsModule } from 'ngx-echarts';
     HeaderMiniComponent,
     MiniSidebarItemComponent,
     CounterComponent,
-    ContenedorTarjetasComponent,
     TarjetaComponent,
     TarjetaHeaderComponent,
     TarjetaHeaderToolComponent,
