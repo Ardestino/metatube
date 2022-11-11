@@ -52,7 +52,9 @@
             <ibm-tab heading="Herramientas">
               <div ibmGrid class="bx--grid--no-gutter bx--grid--full-width">
                 <div ibmRow class="landing-page__tab-content">
-                  <app-titulos-similares></app-titulos-similares>
+                  <div ibmCol [columnNumbers]="{'md' : 16, 'lg': 8}" >
+                    <app-titulos-similares></app-titulos-similares>
+                  </div>
                 </div>
               </div>
             </ibm-tab>
