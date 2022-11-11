@@ -33,8 +33,10 @@
             <ibm-tab heading="Estadisticas">
               <div ibmGrid class="bx--grid--no-gutter bx--grid--full-width">
                 <div ibmRow class="landing-page__tab-content">
-                  <div ibmCol [columnNumbers]="{'lg': 16}">
+                  <div ibmCol [columnNumbers]="{'md' : 8, 'lg': 8}">
                     <app-tarjeta-estadistica></app-tarjeta-estadistica>
+                  </div>
+                  <div ibmCol [columnNumbers]="{'md':8, 'lg': 8}">
                     <app-mejor-dia-semana></app-mejor-dia-semana>
                   </div>
                 </div>
