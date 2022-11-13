@@ -35,6 +35,7 @@ import { GrafoDirigidoComponent } from './components/herramientas/grafo-dirigido
 
 // Echarts
 import { NgxEchartsModule } from 'ngx-echarts';
+import { TopicsSimilaresComponent } from './components/herramientas/topics-similares/topics-similares.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
     TopVideosComponent,
     TitulosSimilaresComponent,
     GrafoDirigidoComponent,
-    AppSearchComponent
+    AppSearchComponent,
+    TopicsSimilaresComponent
   ],
   imports: [
     CommonModule,
