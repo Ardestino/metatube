@@ -53,7 +53,7 @@
         </div>
       </div>
     </div>
-    <ibm-search></ibm-search>
+    <ibm-search placeholder="Terminos separados por coma" (keydown.enter)="onSearch($event)" (valueChange)="valueChange($event)" (clear)="onClear($event)"></ibm-search>
     <ibm-table-container>
 			<ibm-table
       [model]="model"

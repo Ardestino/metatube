@@ -15,7 +15,8 @@ import { AIService } from "src/api";
 export class TitulosSimilaresComponent implements OnInit {
   model = new TableModel();
   size: TableRowSize = 'sh';
-  skeleton: true;
+  skeleton = true;
+  searchText: '';
 
   @ViewChild('totalHeaderTemplate', { static: true })
   totalHeaderTemplate: TemplateRef<any>;
@@ -27,12 +28,24 @@ export class TitulosSimilaresComponent implements OnInit {
 
   constructor(private apiAI : AIService) {}
 
-  ngOnInit(): void {
-    this.apiAI.aIGetRelatedSearchsCreate('Minecraft').subscribe((data)=>{
-      this.generateTable(data['Minecraft']['top']);
+  ngOnInit(): void {}
+
+  valueChange(event){
+    this.searchText = event;
+    this.skeleton = true;
+  }
+
+  onSearch(event){
+    this.apiAI.aIGetRelatedSearchsCreate(this.searchText).subscribe((data)=>{
+      this.generateTable(data[this.searchText]['rising']);
+      this.skeleton = false;
     })
   }
 
+  onClear(event){
+    this.skeleton = true;
+    this.searchText = '';
+  }
 
   generateTable(data){
     const model = new TableModel();
@@ -50,7 +63,6 @@ export class TitulosSimilaresComponent implements OnInit {
         className: 'items-center',
       })
     ];
-    console.log(data);
     model.data = data.map(row =>
       [
         new TableItem({ data: row.query }),
