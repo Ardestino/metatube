@@ -28,5 +28,6 @@ export interface Video {
     definition?: string;
     caption?: string;
     channelId: string;
+    thumbnail_default_url: string;
 }
 

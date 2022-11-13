@@ -548,12 +548,12 @@ export class VideoService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public videoVideosByChannelRetrieve(channelid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Video>;
-    public videoVideosByChannelRetrieve(channelid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Video>>;
-    public videoVideosByChannelRetrieve(channelid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Video>>;
-    public videoVideosByChannelRetrieve(channelid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public videoVideosByChannelList(channelid: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<Video>>;
+    public videoVideosByChannelList(channelid: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<Video>>>;
+    public videoVideosByChannelList(channelid: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<Video>>>;
+    public videoVideosByChannelList(channelid: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (channelid === null || channelid === undefined) {
-            throw new Error('Required parameter channelid was null or undefined when calling videoVideosByChannelRetrieve.');
+            throw new Error('Required parameter channelid was null or undefined when calling videoVideosByChannelList.');
         }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
@@ -606,7 +606,7 @@ export class VideoService {
         }
 
         let localVarPath = `/api/v1/video/videos_by_channel/`;
-        return this.httpClient.get<Video>(`${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.get<Array<Video>>(`${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 params: localVarQueryParameters,

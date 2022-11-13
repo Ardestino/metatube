@@ -1369,7 +1369,7 @@ paths:
           description: No response body
   /api/v1/video/videos_by_channel/:
     get:
-      operationId: video_videos_by_channel_retrieve
+      operationId: video_videos_by_channel_list
       parameters:
       - in: query
         name: channelid
@@ -1387,7 +1387,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Video'
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
           description: ''
   /api/v1/youtube-database/pull_channel_comments_to_database/:
     post:
@@ -1831,6 +1833,9 @@ components:
         channelId:
           type: string
           maxLength: 50
+        thumbnail_default_url:
+          type: string
+          maxLength: 200
     Proyecto:
       type: object
       properties:
@@ -1951,12 +1956,16 @@ components:
         channelId:
           type: string
           maxLength: 50
+        thumbnail_default_url:
+          type: string
+          maxLength: 200
       required:
       - categoryId
       - channelId
       - id
       - publishedAt
       - tags
+      - thumbnail_default_url
       - title
   securitySchemes:
     basicAuth:
