@@ -13,7 +13,6 @@ import { DashboardComponent } from './components/pages/dashboard/dashboard.compo
 import { HeaderComponent } from './components/layout/header/header.component';
 import { TarjetaEstadisticaComponent } from './components/tarjetas/tarjeta-estadistica/tarjeta-estadistica.component';
 import { ViralVsCautivoComponent } from './components/herramientas/viral-vs-cautivo/viral-vs-cautivo.component';
-import { DummyTableRichComponent } from "./components/herramientas/dummy-table-rich/dummy-table-rich.component";
 import { LayoutSidebarComponent } from "./components/layout/layout-sidebar/layout-sidebar.component";
 import { LayoutMiniSidebarComponent } from "./components/layout/layout-mini-sidebar/layout-mini-sidebar.component";
 import { HeaderMiniComponent } from "./components/layout/header-mini/header-mini.component";
@@ -40,7 +39,6 @@ import { NgxEchartsModule } from 'ngx-echarts';
 @NgModule({
   declarations: [
     MainPageComponent,
-    DummyTableRichComponent,
     DashboardComponent,
     HeaderComponent,
     TarjetaEstadisticaComponent,
