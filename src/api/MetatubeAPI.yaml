@@ -1367,6 +1367,28 @@ paths:
       responses:
         '204':
           description: No response body
+  /api/v1/video/videos_by_channel/:
+    get:
+      operationId: video_videos_by_channel_retrieve
+      parameters:
+      - in: query
+        name: channelid
+        schema:
+          type: string
+        description: channel id
+        required: true
+      tags:
+      - video
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+          description: ''
   /api/v1/youtube-database/pull_channel_comments_to_database/:
     post:
       operationId: youtube_database_pull_channel_comments_to_database_create
