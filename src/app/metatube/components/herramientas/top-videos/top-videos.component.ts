@@ -31,7 +31,7 @@ export class TopVideosComponent implements OnInit {
 
   constructor(private store: Store<AppState>,private videoApi : VideoService) {
     this.store.select(state => state.proyectos.canal_seleccionado).subscribe((channel)=>{
-      videoApi.videoVideosByChannelList(channel.id).subscribe(videos =>{
+      videoApi.videoList(channel.id).subscribe(videos =>{
         this.videos = videos;
       })
     })
