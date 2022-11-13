@@ -7,12 +7,14 @@ import {
 } from 'carbon-components-angular';
 import { AIService } from "src/api";
 
+
 @Component({
-  selector: 'app-titulos-similares',
-  templateUrl: './titulos-similares.component.html',
-  styleUrls: ['./titulos-similares.component.scss'],
+  selector: 'app-topics-similares',
+  templateUrl: './topics-similares.component.html',
+  styleUrls: ['./topics-similares.component.scss']
 })
-export class TitulosSimilaresComponent implements OnInit {
+export class TopicsSimilaresComponent implements OnInit {
+
   model = new TableModel();
   size: TableRowSize = 'sh';
   skeleton = true;
@@ -36,7 +38,7 @@ export class TitulosSimilaresComponent implements OnInit {
   }
 
   onSearch(event){
-    this.apiAI.aIGetRelatedSearchsCreate(this.searchText).subscribe((data)=>{
+    this.apiAI.aIGetRelatedTopicsCreate(this.searchText).subscribe((data)=>{
       this.generateTable(data[this.searchText]['rising']);
       this.skeleton = false;
     })
@@ -65,9 +67,9 @@ export class TitulosSimilaresComponent implements OnInit {
     ];
     model.data = data.map(row =>
       [
-        new TableItem({ data: row.query }),
+        new TableItem({ data: row.topic_title }),
         new TableItem({ data: row.value }),
-        new TableItem({ data: row.value }),
+        new TableItem({ data: row.topic_type }),
       ]
     );
 

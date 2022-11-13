@@ -13,7 +13,6 @@ import { DashboardComponent } from './components/pages/dashboard/dashboard.compo
 import { HeaderComponent } from './components/layout/header/header.component';
 import { TarjetaEstadisticaComponent } from './components/tarjetas/tarjeta-estadistica/tarjeta-estadistica.component';
 import { ViralVsCautivoComponent } from './components/herramientas/viral-vs-cautivo/viral-vs-cautivo.component';
-import { DummyTableRichComponent } from "./components/herramientas/dummy-table-rich/dummy-table-rich.component";
 import { LayoutSidebarComponent } from "./components/layout/layout-sidebar/layout-sidebar.component";
 import { LayoutMiniSidebarComponent } from "./components/layout/layout-mini-sidebar/layout-mini-sidebar.component";
 import { HeaderMiniComponent } from "./components/layout/header-mini/header-mini.component";
@@ -25,7 +24,6 @@ import { StoreModule } from '@ngrx/store';
 import { metaReducer, metaFeatureKey, AppEffects } from './store';
 import { CounterComponent } from './components/herramientas/counter/counter.component';
 import { EffectsModule } from '@ngrx/effects';
-import { ContenedorTarjetasComponent } from './components/tarjetas/contenedor-tarjetas/contenedor-tarjetas.component';
 import { TarjetaComponent } from './components/tarjetas/tarjeta/tarjeta.component';
 import { TarjetaHeaderComponent } from './components/tarjetas/tarjeta-header/tarjeta-header.component';
 import { TarjetaHeaderToolComponent } from './components/tarjetas/tarjeta-header-tool/tarjeta-header-tool.component';
@@ -37,11 +35,11 @@ import { GrafoDirigidoComponent } from './components/herramientas/grafo-dirigido
 
 // Echarts
 import { NgxEchartsModule } from 'ngx-echarts';
+import { TopicsSimilaresComponent } from './components/herramientas/topics-similares/topics-similares.component';
 
 @NgModule({
   declarations: [
     MainPageComponent,
-    DummyTableRichComponent,
     DashboardComponent,
     HeaderComponent,
     TarjetaEstadisticaComponent,
@@ -51,7 +49,6 @@ import { NgxEchartsModule } from 'ngx-echarts';
     HeaderMiniComponent,
     MiniSidebarItemComponent,
     CounterComponent,
-    ContenedorTarjetasComponent,
     TarjetaComponent,
     TarjetaHeaderComponent,
     TarjetaHeaderToolComponent,
@@ -60,7 +57,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
     TopVideosComponent,
     TitulosSimilaresComponent,
     GrafoDirigidoComponent,
-    AppSearchComponent
+    AppSearchComponent,
+    TopicsSimilaresComponent
   ],
   imports: [
     CommonModule,
