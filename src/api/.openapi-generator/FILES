@@ -22,6 +22,14 @@ model/channel.ts
 model/comment.ts
 model/keyWord.ts
 model/models.ts
+model/paginatedChannelList.ts
+model/paginatedCommentList.ts
+model/paginatedKeyWordList.ts
+model/paginatedProyectoList.ts
+model/paginatedTopicCategoryList.ts
+model/paginatedTopicList.ts
+model/paginatedUserList.ts
+model/paginatedVideoList.ts
 model/patchedChannel.ts
 model/patchedComment.ts
 model/patchedKeyWord.ts
