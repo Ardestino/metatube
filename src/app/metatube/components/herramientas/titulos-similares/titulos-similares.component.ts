@@ -5,6 +5,7 @@ import {
   TableModel,
   TableRowSize,
 } from 'carbon-components-angular';
+import { AIService } from "src/api";
 
 @Component({
   selector: 'app-titulos-similares',
@@ -24,9 +25,16 @@ export class TitulosSimilaresComponent implements OnInit {
   @ViewChild('onlineTemplate', { static: true })
   onlineTemplate: TemplateRef<any>;
 
-  constructor() {}
+  constructor(private apiAI : AIService) {}
 
   ngOnInit(): void {
+    this.apiAI.aIGetRelatedSearchsCreate('Minecraft').subscribe((data)=>{
+      this.generateTable(data['Minecraft']['top']);
+    })
+  }
+
+
+  generateTable(data){
     const model = new TableModel();
     model.header = [
       new TableHeaderItem({
@@ -42,33 +50,14 @@ export class TitulosSimilaresComponent implements OnInit {
         className: 'items-center',
       })
     ];
-    model.data = [
+    console.log(data);
+    model.data = data.map(row =>
       [
-        new TableItem({ data: 'Titulo 1' }),
-        new TableItem({ data: 10 }),
-        new TableItem({ data: 10 }),
-      ],
-      [
-        new TableItem({ data: 'Titulo 2' }),
-        new TableItem({ data: 20}),
-        new TableItem({ data: 20 }),
-      ],
-      [
-        new TableItem({ data: 'Titulo 3' }),
-        new TableItem({ data: 30 }),
-        new TableItem({ data: 30 }),
-      ],
-      [
-        new TableItem({ data: 'Titulo 4' }),
-        new TableItem({ data: 40 }),
-        new TableItem({ data: 40 }),
-      ],
-      [
-        new TableItem({ data: 'Titulo 5' }),
-        new TableItem({ data: 50 }),
-        new TableItem({ data: 50 }),
-      ],
-    ];
+        new TableItem({ data: row.query }),
+        new TableItem({ data: row.value }),
+        new TableItem({ data: row.value }),
+      ]
+    );
 
     // Cambiar el tipo de template de la columna
     model.data.map((data) => {
