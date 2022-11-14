@@ -11,27 +11,25 @@
       </div>
     </div>
   </div>
-  <div class="app-list app-list--hover app-list--select">
-    <ibm-structured-list [border]="true" [condensed]="true" [nowrap]="false" [selection]="true" (selected)="selected($event)">
-      <ibm-list-header>
-        <ibm-list-column>Imagen</ibm-list-column>
-        <ibm-list-column>Titulo</ibm-list-column>
-        <ibm-list-column>Estadisticas</ibm-list-column>
-      </ibm-list-header>
-      <ibm-list-row *ngFor="let video of videos">
-        <ibm-list-column>
-          <div style="color: white;">.</div>
-          <img src="{{video.thumbnail_default_url}}" class="h-20 rounded" />
-        </ibm-list-column>
-        <ibm-list-column>
-          <div class="sticky top-0">{{video.title}}</div>
-        </ibm-list-column>
-        <ibm-list-column [nowrap]="true">
-          <div>Comentarios: {{video.commentCount}}</div>
-          <div>Likes: {{video.likeCount}}</div>
-          <div>Vistas: {{video.viewCount}}</div>
-        </ibm-list-column>
-      </ibm-list-row>
-    </ibm-structured-list>
-  </div>
+  <ibm-structured-list [border]="true" [condensed]="true" [nowrap]="false" [selection]="true">
+    <ibm-list-header>
+      <ibm-list-column>Imagen</ibm-list-column>
+      <ibm-list-column>Titulo</ibm-list-column>
+      <ibm-list-column>Estadisticas</ibm-list-column>
+    </ibm-list-header>
+    <ibm-list-row *ngFor="let video of videos" value="{{video.id}}" (click)="selected(video)">
+      <ibm-list-column>
+        <div style="color: white;">.</div>
+        <img src="{{video.thumbnail_default_url}}" class="h-20 rounded" />
+      </ibm-list-column>
+      <ibm-list-column>
+        <div class="sticky top-0">{{video.title}}</div>
+      </ibm-list-column>
+      <ibm-list-column [nowrap]="true">
+        <div>Comentarios: {{video.commentCount}}</div>
+        <div>Likes: {{video.likeCount}}</div>
+        <div>Vistas: {{video.viewCount}}</div>
+      </ibm-list-column>
+    </ibm-list-row>
+  </ibm-structured-list>
 </div>
