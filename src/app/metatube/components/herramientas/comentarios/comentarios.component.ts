@@ -29,7 +29,6 @@ export class ComentariosComponent implements OnInit {
         this.model.pageLength = this.pageLenght;
         this.model.currentPage = page;
         this.model.totalDataLength = comments.count;
-        console.log(comments)
       });
     this.model.currentPage = page;
   }
