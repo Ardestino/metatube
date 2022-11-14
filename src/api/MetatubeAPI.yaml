@@ -438,6 +438,16 @@ paths:
         description: The initial index from which to return the results.
         schema:
           type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: videoId__id
+        schema:
+          type: string
       tags:
       - comments
       security:
@@ -484,7 +494,7 @@ paths:
         name: id
         schema:
           type: string
-        description: A unique value identifying this video.
+        description: A unique value identifying this comentario.
         required: true
       tags:
       - comments
@@ -505,7 +515,7 @@ paths:
         name: id
         schema:
           type: string
-        description: A unique value identifying this video.
+        description: A unique value identifying this comentario.
         required: true
       tags:
       - comments
@@ -538,7 +548,7 @@ paths:
         name: id
         schema:
           type: string
-        description: A unique value identifying this video.
+        description: A unique value identifying this comentario.
         required: true
       tags:
       - comments
@@ -570,7 +580,7 @@ paths:
         name: id
         schema:
           type: string
-        description: A unique value identifying this video.
+        description: A unique value identifying this comentario.
         required: true
       tags:
       - comments
