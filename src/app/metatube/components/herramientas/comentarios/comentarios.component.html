@@ -14,6 +14,7 @@
     </ibm-list-header>
     <ibm-list-row *ngFor="let comentario of comentarios">
       <ibm-list-column>
+        <div style="color: white;">.</div>
         <img class="w-10 h-10" src="{{comentario.authorProfileImageUrl}}" />
       </ibm-list-column>
       <ibm-list-column [nowrap]="true">
