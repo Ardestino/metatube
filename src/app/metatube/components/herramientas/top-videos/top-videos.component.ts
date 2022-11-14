@@ -40,4 +40,7 @@ export class TopVideosComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  selected(event): void {
+  }
+
 }

@@ -2,37 +2,36 @@
   <div class="app-card__header">
     <div class="app-row app-row--center">
       <div>
-        <div class="app-expressive-heading-02">Estadisticas de Videos <br /></div>
-        <ibm-combo-box style="width:200px" [placeholder]="'Seleccione rango de visualizacion...'" size="sm"
+        <div class="app-expressive-heading-02">Estadisticas ultimos 5 Videos <br /></div>
+        <!-- <ibm-combo-box style="width:200px" [placeholder]="'Seleccione rango de visualizacion...'" size="sm"
           [appendInline]="false" [items]="comboboxItems">
           <ibm-dropdown-list></ibm-dropdown-list>
-        </ibm-combo-box>
+        </ibm-combo-box> -->
         <!-- <div class="app-label-01 mt-2">Ultimos 7 dias</div> -->
       </div>
     </div>
   </div>
   <div class="app-list app-list--hover app-list--select">
-    <ng-container *ngFor="let video of videos">
-      <div class="app-list__item">
-        <div class="app-list__item__prefix w-5 text-center">
-
-        </div>
-        <div class="app-list__item__content">
-          <div class="app-symbol app-symbol--default mr-4 rounded">
-            <div class="app-symbol__label w-30 h-30">
-              <!-- <youpez-ibm-icon iconName="cloudDataOps" iconSize="32"></youpez-ibm-icon> -->
-              <img src="{{video.thumbnail_default_url}}" class="h-20 rounded" />
-            </div>
-          </div>
-          <div class="app-expresive-heading-o3 mr-1">{{video.title}}</div>
-        </div>
-        <div class="app-expressive-heading-02 mr-1">{{video.commentCount}}</div>
-        <div class="app-expressive-heading-02 mr-1">{{video.likeCount}}</div>
-        <div class="app-expressive-heading-02 mr-1">{{video.viewCount}}</div>
-        <button ibmButton="ghost" size="sm" class="bx--btn--icon-only">
-          <svg class="bx--btn__icon" ibmIconArrowRight size="32"></svg>
-        </button>
-      </div>
-    </ng-container>
+    <ibm-structured-list [border]="true" [condensed]="true" [nowrap]="false" [selection]="true" (selected)="selected($event)">
+      <ibm-list-header>
+        <ibm-list-column>Imagen</ibm-list-column>
+        <ibm-list-column>Titulo</ibm-list-column>
+        <ibm-list-column>Estadisticas</ibm-list-column>
+      </ibm-list-header>
+      <ibm-list-row *ngFor="let video of videos">
+        <ibm-list-column>
+          <div>.</div>
+          <img src="{{video.thumbnail_default_url}}" class="h-20 rounded" />
+        </ibm-list-column>
+        <ibm-list-column>
+          <div class="sticky top-0">{{video.title}}</div>
+        </ibm-list-column>
+        <ibm-list-column [nowrap]="true">
+          <div>Comentarios: {{video.commentCount}}</div>
+          <div>Likes: {{video.likeCount}}</div>
+          <div>Vistas: {{video.viewCount}}</div>
+        </ibm-list-column>
+      </ibm-list-row>
+    </ibm-structured-list>
   </div>
 </div>
