@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ListItem } from 'carbon-components-angular';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/metatube/store';
+import * as ProyectoActions from "src/app/metatube/store/proyectos/proyectos.actions";
 import { Observable } from 'rxjs';
 import { VideoService, Channel, Video } from 'src/api';
 
@@ -41,6 +42,8 @@ export class TopVideosComponent implements OnInit {
   }
 
   selected(event): void {
+    const v : Video = event;
+    this.store.dispatch(ProyectoActions.cargarVideoSeleccionado({video: v}))
   }
 
 }
