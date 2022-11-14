@@ -6,22 +6,25 @@
       </div>
     </div>
   </div>
-  <div class="app-list app-list--hover app-list--select">
-    <ng-container *ngFor="let comentario of comentarios">
-      <div class="app-list__item">
-
-        <div class="app-list__item__content">
-          <div class="app-expresive-heading-o3 mr-1">{{comentario.authorDisplayName}}</div>
-          {{comentario.textOriginal}}
-        </div>
-
-        <!--div class="app-expressive-heading-02 mr-1">{{video.commentCount}}</div>
-        <div class="app-expressive-heading-02 mr-1">{{video.likeCount}}</div>
-        <div class="app-expressive-heading-02 mr-1">{{video.viewCount}}</div>
-        <button ibmButton="ghost" size="sm" class="bx--btn--icon-only">
-          <svg class="bx--btn__icon" ibmIconArrowRight size="32"></svg>
-        </button>-->
-      </div>
-    </ng-container>
-  </div>
+  <ibm-structured-list [border]="true" [condensed]="true" [nowrap]="false">
+    <ibm-list-header>
+      <ibm-list-column [nowrap]="true">Imagen</ibm-list-column>
+      <ibm-list-column [nowrap]="true">Usuario</ibm-list-column>
+      <ibm-list-column>Comentario</ibm-list-column>
+    </ibm-list-header>
+    <ibm-list-row *ngFor="let comentario of comentarios">
+      <ibm-list-column>
+        <img class="w-10 h-10" src="{{comentario.authorProfileImageUrl}}" />
+      </ibm-list-column>
+      <ibm-list-column [nowrap]="true">
+        {{comentario.authorDisplayName}}
+      </ibm-list-column>
+      <ibm-list-column>
+        {{comentario.textOriginal}}
+      </ibm-list-column>
+    </ibm-list-row>
+  </ibm-structured-list>
+  <ibm-pagination [model]="model" [disabled]="false" [pageInputDisabled]="false" [pagesUnknown]="false" (selectPage)="selectPage($event)"
+    [showPageInput]="false">
+  </ibm-pagination>
 </div>

@@ -1,22 +1,36 @@
 import { Component, OnInit } from '@angular/core';
+import { PaginationModel } from 'carbon-components-angular';
 import { CommentsService, Comment } from 'src/api';
 
 @Component({
   selector: 'app-comentarios',
   templateUrl: './comentarios.component.html',
-  styleUrls: ['./comentarios.component.scss']
+  styleUrls: ['./comentarios.component.scss'],
 })
 export class ComentariosComponent implements OnInit {
+  comentarios: Comment[];
+  model = new PaginationModel();
+  pageLenght = 5;
 
-  comentarios : Comment[];
+  constructor(private commentsApi: CommentsService) {}
 
   ngOnInit(): void {
+    this.model.pageLength = this.pageLenght;
+    this.selectPage(1);
   }
+  selectPage(page) {
+    const offset = page * this.pageLenght
 
-  constructor(private commentsApi : CommentsService) {
-    commentsApi.commentsList(10).subscribe(comments =>{
-      this.comentarios = comments.results;
-    })
-   }
 
+    this.commentsApi
+      .commentsList(this.pageLenght, offset)
+      .subscribe((comments) => {
+        this.comentarios = comments.results;
+        this.model.pageLength = this.pageLenght;
+        this.model.currentPage = page;
+        this.model.totalDataLength = comments.count;
+        console.log(comments)
+      });
+    this.model.currentPage = page;
+  }
 }
