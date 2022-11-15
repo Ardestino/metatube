@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Channel, Proyecto } from 'src/api';
+import { Channel, Proyecto, Video } from 'src/api';
 
 export const cargarProyectos = createAction('[Proyectos] Cargar proyectos');
 
@@ -52,3 +52,8 @@ export const cargarGraficaBestDay = createAction(
   '[Proyectos] Cargar grafica best day',
   props<{ data: any}>()
 )
+
+export const cargarVideoSeleccionado = createAction(
+  '[Proyectos] Cargar Video',
+  props<{ video: Video }>()
+);

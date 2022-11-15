@@ -155,6 +155,7 @@ import {
   ProgressIndicatorModule,
   ModalModule,
   HeaderModule,
+  StructuredListModule,
 } from 'carbon-components-angular'
 
 import { ChartsModule } from "@carbon/charts-angular";
@@ -191,6 +192,7 @@ const CarbonModules = [
   NumberModule,
   FileUploaderModule,
   ModalModule,
+  StructuredListModule
 ]
 
 const CarbonIconModules = [

@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { Proyecto, Channel } from "src/api/index";
+import { Proyecto, Channel, Video } from "src/api/index";
 import * as proyectosActions  from "./proyectos.actions";
 
 export interface ProyectosState{
@@ -8,7 +8,8 @@ export interface ProyectosState{
   proyectos : Proyecto[],
   proyecto_seleccionado : Proyecto,
   canal_seleccionado : Channel,
-  grafica_mejor_dia : any
+  grafica_mejor_dia : any,
+  video_seleccionado : Video
 }
 
 export const initialState: ProyectosState = {
@@ -40,7 +41,25 @@ export const initialState: ProyectosState = {
     keywords: [],
     playlistId: '',
   },
-  grafica_mejor_dia : []
+  grafica_mejor_dia: [],
+  video_seleccionado: {
+    id: '',
+    title: '',
+    description: '',
+    categoryId: '',
+    defaultLanguage: '',
+    tags: [],
+    publishedAt: '',
+    viewCount: 0,
+    likeCount: 0,
+    favouriteCount: 0,
+    commentCount: 0,
+    duration: '',
+    definition: '',
+    caption: '',
+    channelId: '',
+    thumbnail_default_url: '',
+  },
 };
 
 export const proyectosReducer = createReducer(
@@ -68,5 +87,6 @@ export const proyectosReducer = createReducer(
     ...state,
   })),
   on(proyectosActions.cargarCanalSuccess, (state, {canal})=>({...state, canal_seleccionado: canal})),
-  on(proyectosActions.cargarGraficaBestDay, (state, {data})=> ({...state, grafica_mejor_dia: data.list}))
+  on(proyectosActions.cargarGraficaBestDay, (state, {data})=> ({...state, grafica_mejor_dia: data.list})),
+  on(proyectosActions.cargarVideoSeleccionado, (state, {video})=>({...state, video_seleccionado: video}))
 );

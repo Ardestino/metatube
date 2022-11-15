@@ -17,7 +17,7 @@ export class ProyectosEffects {
         ofType(ProyectosActions.cargarProyectos),
         mergeMap(() =>
           this.proyectosApi.proyectosList().pipe(
-            map(data => ProyectosActions.cargarProyectosSuccess({ proyectos : data })),
+            map(data => ProyectosActions.cargarProyectosSuccess({ proyectos : data.results })),
             catchError(error => of(ProyectosActions.cargarProyectosFailure({ error }))))
           ),
     );

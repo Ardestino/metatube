@@ -21,6 +21,8 @@ import { Observable }                                        from 'rxjs';
 // @ts-ignore
 import { Comment } from '../model/comment';
 // @ts-ignore
+import { PaginatedCommentList } from '../model/paginatedCommentList';
+// @ts-ignore
 import { PatchedComment } from '../model/patchedComment';
 
 // @ts-ignore
@@ -175,7 +177,7 @@ export class CommentsService {
     }
 
     /**
-     * @param id A unique value identifying this video.
+     * @param id A unique value identifying this comentario.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -243,13 +245,35 @@ export class CommentsService {
     }
 
     /**
+     * @param limit Number of results to return per page.
+     * @param offset The initial index from which to return the results.
+     * @param search A search term.
+     * @param videoIdId 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public commentsList(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<Comment>>;
-    public commentsList(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<Comment>>>;
-    public commentsList(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<Comment>>>;
-    public commentsList(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public commentsList(limit?: number, offset?: number, search?: string, videoIdId?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<PaginatedCommentList>;
+    public commentsList(limit?: number, offset?: number, search?: string, videoIdId?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<PaginatedCommentList>>;
+    public commentsList(limit?: number, offset?: number, search?: string, videoIdId?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<PaginatedCommentList>>;
+    public commentsList(limit?: number, offset?: number, search?: string, videoIdId?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+
+        let localVarQueryParameters = new HttpParams({encoder: this.encoder});
+        if (limit !== undefined && limit !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>limit, 'limit');
+        }
+        if (offset !== undefined && offset !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>offset, 'offset');
+        }
+        if (search !== undefined && search !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>search, 'search');
+        }
+        if (videoIdId !== undefined && videoIdId !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>videoIdId, 'videoId__id');
+        }
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -295,9 +319,10 @@ export class CommentsService {
         }
 
         let localVarPath = `/api/v1/comments/`;
-        return this.httpClient.get<Array<Comment>>(`${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.get<PaginatedCommentList>(`${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
+                params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -308,7 +333,7 @@ export class CommentsService {
     }
 
     /**
-     * @param id A unique value identifying this video.
+     * @param id A unique value identifying this comentario.
      * @param patchedComment 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -390,7 +415,7 @@ export class CommentsService {
     }
 
     /**
-     * @param id A unique value identifying this video.
+     * @param id A unique value identifying this comentario.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -459,7 +484,7 @@ export class CommentsService {
     }
 
     /**
-     * @param id A unique value identifying this video.
+     * @param id A unique value identifying this comentario.
      * @param comment 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

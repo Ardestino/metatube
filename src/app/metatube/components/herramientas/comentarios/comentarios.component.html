@@ -1,0 +1,31 @@
+<div class="app-card app-card--bt-blue">
+  <div class="app-card__header">
+    <div class="app-row app-row--center">
+      <div>
+        <div class="app-expressive-heading-02">Comentarios de video <br /></div>
+      </div>
+    </div>
+  </div>
+  <ibm-structured-list [border]="true" [condensed]="true" [nowrap]="false">
+    <ibm-list-header>
+      <ibm-list-column [nowrap]="true">Imagen</ibm-list-column>
+      <ibm-list-column [nowrap]="true">Usuario</ibm-list-column>
+      <ibm-list-column>Comentario</ibm-list-column>
+    </ibm-list-header>
+    <ibm-list-row *ngFor="let comentario of comentarios">
+      <ibm-list-column>
+        <div style="color: white;">.</div>
+        <img class="w-10 h-10" src="{{comentario.authorProfileImageUrl}}" />
+      </ibm-list-column>
+      <ibm-list-column [nowrap]="true">
+        {{comentario.authorDisplayName}}
+      </ibm-list-column>
+      <ibm-list-column>
+        {{comentario.textOriginal}}
+      </ibm-list-column>
+    </ibm-list-row>
+  </ibm-structured-list>
+  <ibm-pagination [model]="model" [disabled]="false" [pageInputDisabled]="false" [pagesUnknown]="false" (selectPage)="selectPage($event)"
+    [showPageInput]="false">
+  </ibm-pagination>
+</div>

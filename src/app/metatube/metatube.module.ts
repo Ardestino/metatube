@@ -36,6 +36,7 @@ import { GrafoDirigidoComponent } from './components/herramientas/grafo-dirigido
 // Echarts
 import { NgxEchartsModule } from 'ngx-echarts';
 import { TopicsSimilaresComponent } from './components/herramientas/topics-similares/topics-similares.component';
+import { ComentariosComponent } from './components/herramientas/comentarios/comentarios.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { TopicsSimilaresComponent } from './components/herramientas/topics-simil
     TitulosSimilaresComponent,
     GrafoDirigidoComponent,
     AppSearchComponent,
-    TopicsSimilaresComponent
+    TopicsSimilaresComponent,
+    ComentariosComponent
   ],
   imports: [
     CommonModule,
